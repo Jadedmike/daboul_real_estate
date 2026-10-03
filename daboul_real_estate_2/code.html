@@ -1,0 +1,736 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;font-family:'IBM Plex Sans',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "outline": "#76777b", "tertiary-fixed-dim": "#c5c6ce", "on-background": "#1a1c1d", "on-tertiary-fixed": "#191b21", "surface": "#f9f9fb", "on-surface-variant": "#46464b", "surface-tint": "#5e5e62", "tertiary-container": "#191b21", "on-surface": "#1a1c1d", "secondary-fixed": "#ffdbcc", "tertiary-fixed": "#e2e2ea", "secondary": "#a04100", "outline-variant": "#c7c6cb", "tertiary": "#000000", "primary-container": "#1b1b1f", "surface-container-high": "#e8e8ea", "inverse-surface": "#2f3132", "on-primary-fixed-variant": "#46464a", "on-tertiary": "#ffffff", "surface-container-highest": "#e2e2e4", "on-primary": "#ffffff", "primary": "#000000", "on-secondary": "#ffffff", "error-container": "#ffdad6", "surface-container-low": "#f3f3f5", "on-secondary-fixed-variant": "#7a3000", "surface-container-lowest": "#ffffff", "surface-container": "#eeeef0", "secondary-fixed-dim": "#ffb693", "background": "#f9f9fb", "primary-fixed": "#e3e2e6", "on-secondary-fixed": "#351000", "inverse-on-surface": "#f0f0f2", "surface-dim": "#d9dadc", "primary-fixed-dim": "#c7c6ca", "on-error-container": "#93000a", "on-primary-fixed": "#1b1b1f", "on-tertiary-container": "#82838b", "on-secondary-container": "#572000", "error": "#ba1a1a", "inverse-primary": "#c7c6ca", "surface-bright": "#f9f9fb", "surface-variant": "#e2e2e4", "on-primary-container": "#848387", "secondary-container": "#fe6b00", "on-tertiary-fixed-variant": "#45474d", "on-error": "#ffffff" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "margin": "3rem", "space-md": "1rem", "gutter": "1.5rem", "space-sm": "0.5rem", "space-xl": "2.5rem" }, fontFamily: { "headline-xl": ["IBM Plex Sans"], "body-sm": ["IBM Plex Sans"], "title-md": ["IBM Plex Sans"], "headline-md": ["IBM Plex Sans"], "label-sm": ["IBM Plex Sans"], "headline-lg-mobile": ["IBM Plex Sans"], "title-sm": ["IBM Plex Sans"], "headline-xl-mobile": ["IBM Plex Sans"], "headline-lg": ["IBM Plex Sans"], "body-md": ["IBM Plex Sans"], "headline-sm": ["IBM Plex Sans"], "label-md": ["IBM Plex Sans"], "body-lg": ["IBM Plex Sans"] }, fontSize: { "headline-xl": ["48px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "34px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "36px", "fontWeight": "600" }], "title-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-xl-mobile": ["32px", { "lineHeight": "44px", "fontWeight": "700" }], "headline-lg": ["36px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center"><button aria-label="القائمة" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button></div><a class="flex items-center justify-center gap-space-xs" href="#"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBogQeqPeWECJg-Z1KK7VpIvNDymecnrkeCPlnknKAQgYlqFBHgnZjEKO3KCnvav3WiokbypcNrtgX_zw2rcw9cLTMdEhfMvdpaPphbIudilzKOkgOwX86Dp-VhmjE4lHZI02-4uDeqTmRZ4SUe2aUJw4qiOGH19d8jkpAUfnc2xjHMJOfKuUfyzKBePeFQfHw6YBhJPewVy_xqhmqxmh0Gg1umtuA5uDs52zUDrAcShVkeALob9RMtUKrqzyeJ__pHg" alt="Daboul Real Estate" class="h-9 w-auto object-contain"><div class="flex flex-col text-right leading-none"><span class="font-title-sm text-title-sm text-primary font-bold tracking-tight">دعبول العقارية</span><span class="font-label-sm text-[10px] text-outline font-semibold tracking-wider uppercase">Daboul Real Estate</span></div></a><div class="flex items-center justify-end"><a aria-label="اتصال وتواصل" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors" href="tel:+963900000000"><span class="material-symbols-outlined text-[22px]">support_agent</span></a></div></div></header><main class="flex flex-col relative w-full pt-16 pb-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden bg-primary-container text-on-primary">
+<div class="relative w-full h-[460px] flex items-end">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Ultra-luxurious modern penthouse apartment terrace overlooking Damascus city skyline at golden dusk. Floor-to-ceiling glass facades, sleek travertine marble floor, minimalist ambient architectural lighting, warm ember reflections, elegant interior furnishing in muted charcoal and cream tones, serene and prestigious Levantine atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRp9VHpaEzBhXGu9i0azr_4wkfPjiMzoaQPN8F9wYrPwbf4MV51pqa9aXipNm0V5ObCsB4WGQoYMYEXrRQsprhZXp21TYOcuJI3esK6Vh8HVIavldJCNwilqbNw3Bqj6BUmLcXUHZ05lN0PptDAYnTk_rOd5-_rkNY_cZ6eyRg67knWkoNNMBK7q7xPRwR0ZjCxFsgSCWQNImR6y84Xr7haOamoQpc4OAHxj5zXj7Y9fOmiO-5h9Te')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/75 to-transparent"></div>
+<div class="relative z-10 w-full px-gutter-mobile pb-space-lg flex flex-col gap-space-sm">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container/90 text-on-primary w-fit shadow-md">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm">الرائد الأول للعقارات الفاخرة في سوريا</span>
+</div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-on-primary tracking-tight">
+          اكتشف عقارك القادم في سوريا
+        </h1>
+<p class="font-body-md text-body-md text-surface-container-high max-w-xl">
+          مجموعة مميزة من العقارات للبيع والإيجار في مختلف المحافظات السورية بأعلى معايير المصداقية والاحترافية المعمارية.
+        </p>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<a class="flex-1 h-12 bg-secondary-container hover:bg-secondary text-on-primary rounded-lg flex items-center justify-center gap-space-xs font-title-sm text-title-sm shadow-md transition-all active:scale-[0.98]" href="#search-engine">
+<span class="material-symbols-outlined text-[20px]">travel_explore</span>
+<span class="">استكشف العقارات</span>
+</a>
+<a class="h-12 px-space-md bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary rounded-lg flex items-center justify-center gap-space-xs font-title-sm text-title-sm backdrop-blur-md transition-all" data-path="add-property" href="#">
+<span class="material-symbols-outlined text-[20px]">add_business</span>
+<span class="">أضف عقارك</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Search Box Section -->
+<section class="px-gutter-mobile -mt-6 relative z-20 w-full" id="search-engine">
+<div class="bg-surface-container-lowest rounded-xl shadow-xl p-space-md flex flex-col gap-space-md">
+<!-- Deal Type Tabs -->
+<div class="flex bg-surface-container rounded-lg p-1" id="deal-type-tabs">
+<button class="deal-tab-btn flex-1 py-2 rounded-lg font-title-sm text-title-sm flex items-center justify-center gap-space-xs bg-primary text-on-primary shadow-sm transition-all" data-deal="sale" type="button">
+<span class="material-symbols-outlined text-[18px]">sell</span>
+<span class="">عقارات للبيع</span>
+</button>
+<button class="deal-tab-btn flex-1 py-2 rounded-lg font-title-sm text-title-sm flex items-center justify-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-all" data-deal="rent" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+<span class="">عقارات للإيجار</span>
+</button>
+</div>
+<!-- Filters Grid -->
+<div class="flex flex-col gap-space-sm">
+<!-- Governorate Select -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1" for="gov-select">
+<span class="material-symbols-outlined text-[16px] text-secondary-container">location_city</span>
+            المحافظة
+          </label>
+<div class="relative bg-surface-container-low rounded-lg">
+<select class="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer" id="gov-select">
+<option value="damascus">دمشق العاصمة</option>
+<option value="rif-damascus">ريف دمشق</option>
+<option value="aleppo">حلب الشهباء</option>
+<option value="latakia">اللاذقية والساحل</option>
+<option value="tartus">طرطوس</option>
+<option value="homs">حمص</option>
+<option value="hama">حماة</option>
+<option value="daraa">درعا</option>
+<option value="sweida">السويداء</option>
+</select>
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- District Dynamic Select -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1" for="district-select">
+<span class="material-symbols-outlined text-[16px] text-secondary-container">map</span>
+            المنطقة أو الحي
+          </label>
+<div class="relative bg-surface-container-low rounded-lg">
+<select class="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer" id="district-select"><option value="all">كافة مناطق دمشق</option><option value="malki">المالكي</option><option value="abu-roumaneh">أبو رمانة</option><option value="mazzeh">المزة (فيلات / أوتوستراد)</option><option value="shaalan">الشعلان</option><option value="kafr-sousa">كفر سوسة</option><option value="midan">الميدان</option><option value="muhajireen">المهاجرين</option><option value="rawda">الروضة</option><option value="baramkeh">البرامكة</option></select>
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Property Type & Bedrooms Row -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1" for="type-select">
+<span class="material-symbols-outlined text-[16px] text-secondary-container">apartment</span>
+              النوع
+            </label>
+<div class="relative bg-surface-container-low rounded-lg">
+<select class="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer" id="type-select">
+<option value="all">جميع الأنواع</option>
+<option value="apartment">شقق سكنية</option>
+<option value="villa">فلل وقصور</option>
+<option value="office">مكاتب وشركات</option>
+<option value="shop">محلات تجارية</option>
+<option value="land">أراضٍ وعقارات</option>
+</select>
+<span class="material-symbols-outlined absolute left-2 top-3 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1" for="beds-select">
+<span class="material-symbols-outlined text-[16px] text-secondary-container">bed</span>
+              الغرف
+            </label>
+<div class="relative bg-surface-container-low rounded-lg">
+<select class="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer" id="beds-select">
+<option value="any">الكل</option>
+<option value="1">1+ غرفة</option>
+<option value="2">2+ غرف</option>
+<option value="3">3+ غرف</option>
+<option value="4">4+ غرف فاخرة</option>
+</select>
+<span class="material-symbols-outlined absolute left-2 top-3 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Price Range Slider / Selector -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary-container">payments</span>
+              الميزانية التقديرية
+            </label>
+<span class="font-label-sm text-label-sm text-secondary-container font-semibold" id="price-display">$50,000 - $800,000+</span>
+</div>
+<div class="flex gap-space-xs">
+<button class="price-chip flex-1 py-1.5 px-2 bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-all" type="button">اقتصادي</button>
+<button class="price-chip flex-1 py-1.5 px-2 bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-all" type="button">متوسط راقٍ</button>
+<button class="price-chip flex-1 py-1.5 px-2 bg-primary text-on-primary rounded font-label-sm text-label-sm" type="button">VIP فاخر</button>
+</div>
+</div>
+<!-- Search Action Button -->
+<button class="w-full h-12 mt-space-xs bg-primary hover:bg-primary-container text-on-primary rounded-lg flex items-center justify-center gap-space-sm font-title-sm text-title-sm shadow-md transition-transform active:scale-[0.99]" id="execute-search-btn" type="button">
+<span class="material-symbols-outlined text-[20px] text-secondary-container">search</span>
+<span class="">بحث عن العقارات المتاحة</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Special Offers CMS Section (Limited Time) -->
+<section class="mt-space-xl px-gutter-mobile flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<div class="inline-flex items-center gap-1 text-secondary-container font-label-sm text-label-sm mb-1">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+<span class="">فرص عقارية مختارة لفترة محدودة</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">عروض حصرية مميزة</h2>
+</div>
+<span class="px-space-sm py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">CMS حي</span>
+</div>
+<!-- 3 Exclusive Offer Cards -->
+<div class="flex flex-col gap-space-md">
+<!-- Offer 1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group">
+<div class="relative w-full h-52 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Grand living hall of a high-end duplex in Abu Roumaneh Damascus. High ornate ceilings, warm walnut wood paneling, designer chandelier, spacious light-filled terrace view, contemporary luxury furniture in charcoal and amber." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMGmm4qtC2dvjUR_npq9bAEe4o2ZSCyikfREqeDiiNkQy5GRDP8liZnD8mJXrWqiNe8wouKW59UqCqQwCgg5pOduzZ8yPKxB8r01u3EwUa9vE6oZjkkLHrPv7Q3R7UHrQ44sihgHA02v8PqRCR30ooWw61YN9Ipc_E0jwk1GBmxuWMt4GejzDSIuKYP0q4FnoqdppyyLC3TmR1nUg_KIBqcO20ZZfb02UmkS7Azr0OAmRrml6hPNEH')"></div>
+<div class="absolute top-3 right-3 bg-secondary-container text-on-primary px-space-sm py-1 rounded font-label-sm text-label-sm shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">campaign</span>
+<span class="">خصم خاص 12% للمشتري الجاد</span>
+</div>
+<div class="absolute bottom-3 left-3 bg-primary/80 backdrop-blur-md text-on-primary px-space-sm py-0.5 rounded font-label-sm text-label-sm">
+            للبيع نقداً أو بالتقسيط
+          </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">pin_drop</span>
+              دمشق - أبو رمانة الراقي
+            </span>
+<span class="font-title-sm text-title-sm text-secondary-container font-bold">$385,000</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">دوبلكس فاخر بإطلالة بانورامية وحديقة معلقة</h3>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">square_foot</span> 380 م²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bed</span> 4 نوم ماستر</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bathtub</span> 4 حمامات</span>
+</div>
+</div>
+</article>
+<!-- Offer 2 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group">
+<div class="relative w-full h-52 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Luxury private villa in Yaafour Damascus countryside with private swimming pool, manicured emerald lawn, modern perimeter lighting, limestone architectural exterior, sunset golden hour ambiance." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3QHUEJ2MJ55ZB68msw2dCARFVbP2xJyuSv3pg5kR_Nxah3aAJPZO9fXuD4si-JiWDgzJ_2aCiUsf8X0phX_DQyO8l35rTIwkGtmp-FPnGg-CY_knv8d6FrzI9CL-TFsixI-QOtTXxHtsyBIrVZ78CdBZ2MtjgnryLbZU93QTI-Va3jtDqj-OMEbnYiujtJ3HDMLA5gaf3anmsJR5L068Z0oHilUSgbPgrGI7Xg5HxX4doCpMbhVas')"></div>
+<div class="absolute top-3 right-3 bg-primary text-on-primary px-space-sm py-1 rounded font-label-sm text-label-sm shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span class="">عرض حصري دعبول VIP</span>
+</div>
+<div class="absolute bottom-3 left-3 bg-primary/80 backdrop-blur-md text-on-primary px-space-sm py-0.5 rounded font-label-sm text-label-sm">
+            طاقة شمسية كاملة + بئر ماء
+          </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">pin_drop</span>
+              ريف دمشق - يعفور (مجمع القصور)
+            </span>
+<span class="font-title-sm text-title-sm text-secondary-container font-bold">$720,000</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">فيلا ملكية مستقلة بمسبح خاص وحديقة 1200م²</h3>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">square_foot</span> 650 م² بناء</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bed</span> 5 أجنحة</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">directions_car</span> كراج 4 سيارات</span>
+</div>
+</div>
+</article>
+<!-- Offer 3 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group">
+<div class="relative w-full h-52 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Modern seaside residential apartment interior in Latakia Corniche facing the Mediterranean Sea. Floor to ceiling windows, blue sea panorama, bright sunny lounge, contemporary minimalist furniture in warm beige and deep charcoal." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDYqD0d9Pm2YBOgt4vT64mYJD_OsZlgwYv3tTrdZIuJn7meNKcu7Kkt3lOI5aL-OhBZIfuvUf2Qaz7oRjK5yGeGEygWOdMjq8M6_Z3FkFl859laTEhaTDMjLDSXgSJ5juuHN9Ev_XgQpBIZL-GCxEhUEcJSxVqfzBmGci0tHcjtBd7Roi2oxHlX6MpYvc5ljG7g7JjgSmuAehV7PyIZDMbsm40JgyiWk0z0xk423_Bsoi-dn2YVX_kZ')"></div>
+<div class="absolute top-3 right-3 bg-secondary-container text-on-primary px-space-sm py-1 rounded font-label-sm text-label-sm shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">savings</span>
+<span class="">دفعة أولى 40% والباقي ميسّر</span>
+</div>
+<div class="absolute bottom-3 left-3 bg-primary/80 backdrop-blur-md text-on-primary px-space-sm py-0.5 rounded font-label-sm text-label-sm">
+            إطلالة بحرية أولى
+          </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">pin_drop</span>
+              اللاذقية - الكورنيش الغربي
+            </span>
+<span class="font-title-sm text-title-sm text-secondary-container font-bold">$165,000</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">شقة بحرية بانورامية تشطيب سوبر ديلوكس</h3>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">square_foot</span> 210 م²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bed</span> 3 غرف</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">balcony</span> شرفة بحرية</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Featured Properties Section -->
+<section class="mt-space-xl px-gutter-mobile flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">عقارات مميزة مختارة</h2>
+<p class="font-body-sm text-body-sm text-outline">تم تدقيق ملكيتها وتوثيقها قانونياً من فريق دعبول</p>
+</div>
+<a class="text-secondary-container font-label-md text-label-md flex items-center gap-0.5 hover:underline" href="#">
+<span class="">عرض الكل</span>
+<span class="material-symbols-outlined text-[16px] transform scale-x-[-1]">arrow_forward</span>
+</a>
+</div>
+<!-- Properties Grid -->
+<div class="flex flex-col gap-space-md">
+<!-- Card 1: Malki Damascus -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative w-full h-52">
+<div class="w-full h-full bg-cover bg-center" data-alt="Elegantly renovated historic residential salon in Al-Malki Damascus. High ceilings with intricate plaster mouldings, modern sleek furniture, large framed French windows opening to lush green park view, soft warm daylight." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7aAx2vp5ePFd3Hlsml2oaqk3vubiw8VIo3LkImNS9JIQVERgN2SeVP46enNTLaZc9hOOSPHeaFdc4ntQA3XcjPj22WLYnrFDNmN8L4IafPfSf-zBXCyxPqT7KhxYSYhpQIA0z-9wjpOU0X_Oczi8WUa1QYesf7yt_qpCv1lo2DbyAxHScQ2NVFd-WjfY6EpuXeI1rWmzC44xQ-49uA3xk5oztTAcUdeS9Hr8Ra5QFQsKPeu4UDkij')"></div>
+<div class="absolute top-3 right-3 bg-primary text-on-primary px-space-sm py-1 rounded font-label-sm text-label-sm">
+            للبيع
+          </div>
+<button aria-label="أضف للمفضلة" class="fav-toggle-btn absolute top-3 left-3 w-9 h-9 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="text-secondary-container font-title-sm text-title-sm font-bold">$420,000</span>
+<span class="font-label-sm text-label-sm text-outline">دمشق - المالكي الراقي</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">شقة فاخرة ومجددة بالكامل مطلة على حديقة الجاحظ</h3>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">square_foot</span> 290 م²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bed</span> 4 غرف نوم</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bathtub</span> 3 حمامات</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Yaafour Villa -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative w-full h-52">
+<div class="w-full h-full bg-cover bg-center" data-alt="Architectural modern villa in Yaafour Damascus with stone facade, infinity pool, evening warm exterior illumination, glass balconies, serene mountainous surroundings." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBSI3O29LTq-tiWQZdD49shw8mks_nF9w5wExU-FRZY96RyopVzz_D3RUi26zfDWSfzEdJqHsI7_Kvn22eA9hTansinpsUOF39YtmrNoIOjyMUVQOMKia2waupeKaUibSTKbetLPSXL0crQvAEEfmeLG6e2GLOzg4uhEUjT0RX6OaAlFdrllMu7mpZTmb1cjjuvNG6a-gTZwyQgD8PSQik4JdzkB5MzB6ek03cwobhASuBtbPpI46lq')"></div>
+<div class="absolute top-3 right-3 bg-secondary-container text-on-primary px-space-sm py-1 rounded font-label-sm text-label-sm">
+            للإيجار السنوي
+          </div>
+<button aria-label="أضف للمفضلة" class="fav-toggle-btn absolute top-3 left-3 w-9 h-9 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="text-secondary-container font-title-sm text-title-sm font-bold">$3,500 / شهر</span>
+<span class="font-label-sm text-label-sm text-outline">ريف دمشق - يعفور</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">فيلا مستقلة مؤثثة بالكامل بأحدث التجهيزات الذكية</h3>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">square_foot</span> 500 م²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bed</span> 5 غرف</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">pool</span> مسبح خاص</span>
+</div>
+</div>
+</div>
+<!-- Card 3: New Aleppo -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative w-full h-52">
+<div class="w-full h-full bg-cover bg-center" data-alt="Interior of a luxury spacious apartment in New Aleppo district. Sleek marble flooring, recessed architectural ceiling lighting, expansive open layout, floor-to-ceiling city terrace." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrAhAqE0xwp1_Hw_635iw3oGNgZNR8utcylBq4NhSCRSJrrSbJ2QSZa4SpY2waeQcpQfO6yBEz0fdljvNtz1_zQz1I8ODDdMm_L_yCoJmhnWsJKPqdHT3RSOBF8JWOR53RB08d9i1oOGMsdB1kLKywPLmnSS9EkUzA6wcradzH2WIufc3HdkgQqIazrHN6d8EhhO6Sw5ifd_a0MJWxoJd2gO1KDYDE2OhhedZL_6Jh4TfIMc-Pub4b')"></div>
+<div class="absolute top-3 right-3 bg-primary text-on-primary px-space-sm py-1 rounded font-label-sm text-label-sm">
+            للبيع
+          </div>
+<button aria-label="أضف للمفضلة" class="fav-toggle-btn absolute top-3 left-3 w-9 h-9 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="text-secondary-container font-title-sm text-title-sm font-bold">$185,000</span>
+<span class="font-label-sm text-label-sm text-outline">حلب - حلب الجديدة</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">شقة عصرية بطراز حديث في أرقى أحياء حلب الشهباء</h3>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">square_foot</span> 240 م²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bed</span> 3 غرف ماستر</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">elevator</span> مصعد ومولد</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Jaramana Family Home -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative w-full h-52">
+<div class="w-full h-full bg-cover bg-center" data-alt="Bright, warm family living room in an upscale building in Jaramana Damascus suburb. Clean modern aesthetics, large welcoming balcony with plants, comfortable neutral fabric furniture." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACMC7FzvaX69vs00sQCMuofplXFX8o3ygTsCefgOo6TbVdIkcjuk07w-JH10INg3qMthyRyF6IN1iDOcQNqDr5-h2WUmNUqFlfpwxL7wAm8l7XGEiT4BT_DrHDK31WSSzwa_HAarasIBMo0c4p9LqHazU5M_bJ81ydy1XNnmiR9jIhse2_aF3Yk0_DNDNv-4qnWuWgnKq426ontO1XMCAtXIDze3KG9pqOi-47RCkP4QyXh4tN_4yv')"></div>
+<div class="absolute top-3 right-3 bg-primary text-on-primary px-space-sm py-1 rounded font-label-sm text-label-sm">
+            للبيع
+          </div>
+<button aria-label="أضف للمفضلة" class="fav-toggle-btn absolute top-3 left-3 w-9 h-9 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="text-secondary-container font-title-sm text-title-sm font-bold">$95,000</span>
+<span class="font-label-sm text-label-sm text-outline">ريف دمشق - جرمانا (الروضة)</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">منزل عائلي فسيح وجاهز للسكن في موقع حيوي وهادئ</h3>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">square_foot</span> 165 م²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">bed</span> 3 غرف</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">solar_power</span> طاقة شمسية</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Governorates Visual Discovery Section -->
+<section class="mt-space-xl px-gutter-mobile flex flex-col gap-space-md">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">استكشف العقارات حسب المحافظة</h2>
+<p class="font-body-sm text-body-sm text-outline">تغطية شاملة لأهم المدن والمراكز الاستثمارية السورية</p>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Damascus -->
+<a class="relative h-36 rounded-xl overflow-hidden group shadow-sm flex items-end p-space-sm" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Iconic view of Damascus city center featuring Mount Qasioun in the background with golden hour lighting, architectural Syrian urban texture, warm Levantine dusk." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFQYG4BTZluS4TaZqyfRyrGm0Ezw1iApdzRKuek-yN8rQy8XOvRf6BWEYC9RJoIhbv9RkkUnOYz7DYFDfROwfql_xW9tIb8oBf1QOx0FoZj3Z-vTa3pcCcfe1qL2qUAJolRwJl1ERQxd1saUkg8ml1MUSZPA7mee4kK_3qapAcmWPl_RQsU-W-AtUCdunEFRrLfuTfAKr45PA3t73cABbORCtEVEFJbKnDOtRLOQRZH68BYntxIgTk')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative z-10 flex flex-col text-on-primary">
+<span class="font-title-sm text-title-sm font-bold">دمشق</span>
+<span class="font-label-sm text-label-sm text-surface-container-high">340+ عقار نشط</span>
+</div>
+</a>
+<!-- Rif Damascus -->
+<a class="relative h-36 rounded-xl overflow-hidden group shadow-sm flex items-end p-space-sm" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Scenic landscape of Damascus countryside with luxury contemporary villas nestled in rolling hills, olive groves, clean blue sky." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAm1OZt1K0arjDT6UzsXxH8j0B7f8jy0_kHgjVOw8VVC2ZWmOYzYpqChiGcqW4apXa0xY_vHe-emyfsU9sVz_AwCGA7s9_cN8cymoy_72wEqFdsB5buhcg4GGn7lWaiG3khXpIH0zNL7zFykfDNAhXw2YPZC2_5Gq-rrxrBWQW7UMSsioX1cCGNJtb6asH8ejhrWciaN8YHorL0MCZ0XP9dOcSyDFOaO4DHEYpaEuIGeOQMkf3GE9kq')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative z-10 flex flex-col text-on-primary">
+<span class="font-title-sm text-title-sm font-bold">ريف دمشق</span>
+<span class="font-label-sm text-label-sm text-surface-container-high">210+ عقار ومزرعة</span>
+</div>
+</a>
+<!-- Aleppo -->
+<a class="relative h-36 rounded-xl overflow-hidden group shadow-sm flex items-end p-space-sm" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Panoramic cityscape of Aleppo with its historic citadel visible in the distance and prestigious stone residential neighborhoods in the foreground under soft afternoon light." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJ0DpF7Rz4wUNMIeOlIx3v6A3NPu6E6kKPkoKv0ynDqv-_Wx_nEdvILDffGbQiJRkUmNobeM6dYWME4PIkGR6vZkjpx3FbH1wN-SUKpdfSVe_4q38rsrCJtro5UJ3MYeTcwwYY3xipu4ZivJmh7DOTcq1uSMOZAhO23hwEn2M9QqFX-teIrAk7C1-mSk1yHs8P1RTpCZVgmrz_wYf0DnMoBnngVEK2NhDOUM3crUuH0tU24ay0Gu5O')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative z-10 flex flex-col text-on-primary">
+<span class="font-title-sm text-title-sm font-bold">حلب</span>
+<span class="font-label-sm text-label-sm text-surface-container-high">180+ عقار</span>
+</div>
+</a>
+<!-- Latakia -->
+<a class="relative h-36 rounded-xl overflow-hidden group shadow-sm flex items-end p-space-sm" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Picturesque Mediterranean coastal view of Latakia harbor and coastline with modern seaside towers and palm trees under azure blue skies." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAj4IXggFGoGw_tB46ZyFEZccI8zUWxj1WrSQrgbUJR0_qaseQGnBnKnASlR-_tpU2KR3HV-RN2nwAm6KgmTlM0EnwJRz4JnTElnmzy-6FAbR2IGrDtqhH_aOAS4j8CVXv04XvrvGwOeJfAkoKI-LYk_s9aqK4jHOirCbdcID_TVFebXFn6MVLNYIWyGSEEfdbHh0t18nCCvu0r6V0uXdJCZU9JCq-a3EAonPPGzV_gzbxA205Cjo6h')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative z-10 flex flex-col text-on-primary">
+<span class="font-title-sm text-title-sm font-bold">اللاذقية</span>
+<span class="font-label-sm text-label-sm text-surface-container-high">125+ شاليه وشقة</span>
+</div>
+</a>
+<!-- Tartus -->
+<a class="relative h-36 rounded-xl overflow-hidden group shadow-sm flex items-end p-space-sm" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Tartus coastal boulevard overlooking crystal Mediterranean sea, elegant beachfront properties, soothing maritime breeze ambiance." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAI24vv5UxO0dmajMRHJy52xvuOdTjwwOoKkkfTUVuzTv1VhrQAxNLKEnvc9zMBYJeu6ml9jIApYCbmkoaThebUcTJbRcF_E2MAKr93FwSu6N-gs8nvbB-pc6k1ZnXJNEKuO1VRDrC5zjkn6AgglRbg40luQ6xoqx8tlR56p5NpIatephMDpDQueQFvMNqMz-UKMlMgfps_hVsIAheeXcs5d175zHIcqWBrI3EP7_UiER8nFCCgnCdj')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative z-10 flex flex-col text-on-primary">
+<span class="font-title-sm text-title-sm font-bold">طرطوس</span>
+<span class="font-label-sm text-label-sm text-surface-container-high">90+ عقار ساحلي</span>
+</div>
+</a>
+<!-- Homs -->
+<a class="relative h-36 rounded-xl overflow-hidden group shadow-sm flex items-end p-space-sm" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Aerial view of rebuilt modern residential districts in Homs city with broad boulevards and contemporary urban apartments in Syrian architectural stone." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqL69wBkVsmcoCjbSvhxgKAUMe9Kp1KE4bBtGCxrLUnTqVqwwpY_ULm_M1fp0B_XLOujLKybQ2PGScEAzGuSIN3OkcY_BDrYODd2NNOUEhfmGylKdzNbX7f5MILo-cpduLzoosfbfdIxQKrKpU1LIuLNFLmfGPsWdKHb5xOW2SSBNw7VSg0rGXrHqLezGnN_o83oh1miwa6nFqnKe0PayDMiapcS0ku7pnH5fwvt2e1u3sffJjuP2T')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative z-10 flex flex-col text-on-primary">
+<span class="font-title-sm text-title-sm font-bold">حمص</span>
+<span class="font-label-sm text-label-sm text-surface-container-high">75+ عقار</span>
+</div>
+</a>
+</div>
+</section>
+<!-- Property Types Section -->
+<section class="mt-space-xl px-gutter-mobile flex flex-col gap-space-md">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">تصفح حسب نوع العقار</h2>
+<p class="font-body-sm text-body-sm text-outline">خيارات متنوعة تلبي تطلعات السكن والاستثمار التجاري</p>
+</div>
+<div class="flex gap-space-sm overflow-x-auto pb-2 -mx-gutter-mobile px-gutter-mobile">
+<a class="flex flex-col items-center justify-center min-w-[100px] h-28 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow gap-2 text-center p-2" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined text-[26px]">apartment</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">شقق سكنية</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[100px] h-28 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow gap-2 text-center p-2" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined text-[26px]">villa</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">فلل وقصور</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[100px] h-28 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow gap-2 text-center p-2" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined text-[26px]">corporate_fare</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">مكاتب إدارية</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[100px] h-28 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow gap-2 text-center p-2" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined text-[26px]">storefront</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">محلات تجارية</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[100px] h-28 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow gap-2 text-center p-2" href="#">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined text-[26px]">landscape</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">أراضٍ ومزارع</span>
+</a>
+</div>
+</section>
+<!-- Why DABOUL Section -->
+<section class="mt-space-xl px-gutter-mobile flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col gap-1 text-center">
+<span class="font-label-sm text-label-sm text-secondary-container font-semibold">ثقة ومصداقية تتوارثها الأجيال</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">لماذا تختار دعبول العقارية؟</h2>
+</div>
+<div class="grid grid-cols-1 gap-space-md">
+<!-- Feature 1 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold">خبرة وتوثيق قانوني 100%</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">دراسة دقيقة لسجلات الطابو والوكالات والتنظيم العقاري لحماية استثمارك بالكامل.</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[24px]">real_estate_agent</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold">خيارات عقارية حصرية</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">عقارات نوعية لا تُعرض في السوق المفتوح، محفوظة لعملاء دعبول VIP حصرياً.</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[24px]">touch_app</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold">تجربة بحث رقمية سهلة</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">نظام بحث هرمي دقيق ومواكب لأحدث تقنيات تصفح العقار بجولات واقعية.</p>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold">تواصل مباشر وسريع</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">فريق استشاري متاح على مدار الساعة عبر الواتساب والمكالمات في دمشق وحلب والساحل.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Banner -->
+<section class="mt-space-xl px-gutter-mobile">
+<div class="bg-primary text-on-primary rounded-xl p-space-lg flex flex-col gap-space-sm relative overflow-hidden shadow-lg">
+<div class="absolute -left-12 -top-12 w-44 h-44 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none"></div>
+<span class="material-symbols-outlined text-secondary-container text-[36px]">real_estate_agent</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-primary">هل ترغب ببيع أو تأجير عقارك في سوريا؟</h2>
+<p class="font-body-sm text-body-sm text-surface-container-high">
+        نضع عقارك أمام آلاف المستثمرين والمشترين الجادين داخل وخارج سوريا مع تسويق احترافي عالي المستوى.
+      </p>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<a class="h-11 bg-secondary-container hover:bg-secondary text-on-primary rounded-lg flex items-center justify-center gap-space-xs font-title-sm text-title-sm shadow-md transition-transform active:scale-[0.98]" data-path="add-property" href="#">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span class="">أضف عقارك الآن مجاناً</span>
+</a>
+<a class="h-11 bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 text-on-primary rounded-lg flex items-center justify-center gap-space-xs font-title-sm text-title-sm backdrop-blur-md transition-colors" href="https://wa.me/963900000000">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span class="">تواصل مع مستشار عقاري</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Syrian Real Estate Footer -->
+<footer class="mt-space-xl bg-surface-container-low px-gutter-mobile py-space-lg flex flex-col gap-space-lg text-on-surface">
+<!-- Agency Info -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded bg-secondary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+</div>
+<span class="font-title-md text-title-md font-bold text-primary">دعبول العقارية</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+        الشركة السورية الرائدة في الوساطة والاستثمار والتطوير العقاري. دمشق، ريف دمشق، حلب، والساحل السوري.
+      </p>
+</div>
+<!-- Contact Details -->
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[18px]">location_on</span>
+<span class="">دمشق - المزة فيلات غربية / شارع دعبول الرئيسي</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[18px]">phone</span>
+<span dir="ltr" class="">+963 11 214 0000 / +963 944 000 000</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[18px]">mail</span>
+<span class="">info@daboul-realestate.sy</span>
+</div>
+</div>
+<!-- Quick Navigation Links -->
+<div class="grid grid-cols-2 gap-space-xs font-label-md text-label-md text-outline">
+<a class="hover:text-primary transition-colors" href="#">عقارات دمشق الفاخرة</a>
+<a class="hover:text-primary transition-colors" href="#">شقق للبيع في حلب</a>
+<a class="hover:text-primary transition-colors" href="#">فلل ومزارع يعفور</a>
+<a class="hover:text-primary transition-colors" href="#">شاليهات اللاذقية وطرطوس</a>
+<a class="hover:text-primary transition-colors" href="#">الاستشارات والتوثيق القانوني</a>
+<a class="hover:text-primary transition-colors" href="#">سياسة الخصوصية والشروط</a>
+</div>
+<!-- Copyright -->
+<div class="pt-space-sm flex flex-col items-center justify-center gap-1 text-center font-label-sm text-label-sm text-outline">
+<span class="">جميع الحقوق محفوظة © 2026 شركة دعبول العقارية DABOUL REAL ESTATE</span>
+<span class="text-on-surface-variant">الجمهورية العربية السورية</span>
+</div>
+</footer>
+</div>
+<script>
+  (function initSyrianRealEstate() {
+    // Hierarchical District Mapping for Syrian Governorates
+    const syrianDistricts = {
+      damascus: [
+        { id: 'all', name: 'كافة مناطق دمشق' },
+        { id: 'malki', name: 'المالكي' },
+        { id: 'abu-roumaneh', name: 'أبو رمانة' },
+        { id: 'mazzeh', name: 'المزة (فيلات / أوتوستراد)' },
+        { id: 'shaalan', name: 'الشعلان' },
+        { id: 'kafr-sousa', name: 'كفر سوسة' },
+        { id: 'midan', name: 'الميدان' },
+        { id: 'muhajireen', name: 'المهاجرين' },
+        { id: 'rawda', name: 'الروضة' },
+        { id: 'baramkeh', name: 'البرامكة' }
+      ],
+      'rif-damascus': [
+        { id: 'all', name: 'كافة ريف دمشق' },
+        { id: 'yaafour', name: 'يعفور' },
+        { id: 'qudsaya', name: 'قدسيا وضاحية قدسيا' },
+        { id: 'jaramana', name: 'جرمانا' },
+        { id: 'sehnaya', name: 'صحنايا وأشرفية صحنايا' },
+        { id: 'saboura', name: 'الصبورة' },
+        { id: 'damascus-suburbs', name: 'قرى الأسد' }
+      ],
+      aleppo: [
+        { id: 'all', name: 'كافة أحياء حلب' },
+        { id: 'new-aleppo', name: 'حلب الجديدة' },
+        { id: 'furqan', name: 'الفرقان' },
+        { id: 'azizieh', name: 'العزيزية' },
+        { id: 'shahbaa', name: 'الشهباء' },
+        { id: 'mogambo', name: 'الموكامبو' }
+      ],
+      latakia: [
+        { id: 'all', name: 'كافة مناطق اللاذقية' },
+        { id: 'corniche', name: 'الكورنيش الجنوبي والغربي' },
+        { id: 'ziraa', name: 'حي الزراعة' },
+        { id: 'mashrou-dabbour', name: 'مشروع دعبور' },
+        { id: 'shatee-azraq', name: 'الشاطئ الأزرق' },
+        { id: 'salibeh', name: 'الصليبة' }
+      ],
+      tartus: [
+        { id: 'all', name: 'كافة مناطق طرطوس' },
+        { id: 'corniche-tartus', name: 'الكورنيش البحري' },
+        { id: 'inshaat', name: 'الإنشاءات' },
+        { id: 'al-ghamqa', name: 'الغمقة' }
+      ],
+      homs: [
+        { id: 'all', name: 'كافة أحياء حمص' },
+        { id: 'inshaat-homs', name: 'الإنشاءات' },
+        { id: 'hamra', name: 'شارع الحمرا' },
+        { id: 'ghouta', name: 'الغوطة' }
+      ],
+      hama: [
+        { id: 'all', name: 'كافة أحياء حماة' },
+        { id: 'dabagha', name: 'الدباغة' },
+        { id: 'hader', name: 'الحاضر' }
+      ],
+      daraa: [
+        { id: 'all', name: 'كافة مناطق درعا' },
+        { id: 'daraa-city', name: 'درعا المحطة والبلد' }
+      ],
+      sweida: [
+        { id: 'all', name: 'كافة مناطق السويداء' },
+        { id: 'sweida-city', name: 'مدينة السويداء' }
+      ]
+    };
+
+    const govSelect = document.getElementById('gov-select');
+    const districtSelect = document.getElementById('district-select');
+
+    function updateDistricts(govKey) {
+      if (!districtSelect) return;
+      districtSelect.innerHTML = '';
+      const list = syrianDistricts[govKey] || [{ id: 'all', name: 'كافة المناطق' }];
+      list.forEach(district => {
+        const option = document.createElement('option');
+        option.value = district.id;
+        option.textContent = district.name;
+        districtSelect.appendChild(option);
+      });
+    }
+
+    if (govSelect) {
+      updateDistricts(govSelect.value);
+      govSelect.addEventListener('change', (e) => {
+        updateDistricts(e.target.value);
+      });
+    }
+
+    // Deal Type Switcher
+    const dealTabs = document.querySelectorAll('.deal-tab-btn');
+    dealTabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        dealTabs.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant');
+      });
+    });
+
+    // Favorite micro-interaction
+    const favButtons = document.querySelectorAll('.fav-toggle-btn');
+    favButtons.forEach(fav => {
+      fav.addEventListener('click', (e) => {
+        e.preventDefault();
+        const icon = fav.querySelector('.material-symbols-outlined');
+        if (icon) {
+          const isFavorited = icon.style.fontVariationSettings.includes("'FILL' 1");
+          if (isFavorited) {
+            icon.style.fontVariationSettings = "'FILL' 0";
+            icon.classList.remove('text-secondary-container');
+          } else {
+            icon.style.fontVariationSettings = "'FILL' 1";
+            icon.classList.add('text-secondary-container');
+          }
+        }
+      });
+    });
+
+    // Price Chip selection
+    const priceChips = document.querySelectorAll('.price-chip');
+    const priceDisplay = document.getElementById('price-display');
+    const priceLabels = {
+      'اقتصادي': '$20,000 - $80,000',
+      'متوسط راقٍ': '$80,000 - $250,000',
+      'VIP فاخر': '$250,000 - $1,500,000+'
+    };
+
+    priceChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        priceChips.forEach(c => {
+          c.classList.remove('bg-primary', 'text-on-primary');
+          c.classList.add('bg-surface-container-high', 'text-on-surface');
+        });
+        chip.classList.add('bg-primary', 'text-on-primary');
+        chip.classList.remove('bg-surface-container-high', 'text-on-surface');
+        const text = chip.textContent.trim();
+        if (priceDisplay && priceLabels[text]) {
+          priceDisplay.textContent = priceLabels[text];
+        }
+      });
+    });
+
+    // Search Execution Feedback
+    const searchBtn = document.getElementById('execute-search-btn');
+    if (searchBtn) {
+      searchBtn.addEventListener('click', () => {
+        const originalContent = searchBtn.innerHTML;
+        searchBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">refresh</span><span>جاري جلب العقارات...</span>';
+        setTimeout(() => {
+          searchBtn.innerHTML = originalContent;
+          window.location.hash = '#search-engine';
+        }, 550);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.06)]" data-active-classes="text-secondary-container font-semibold"><div class="flex justify-between items-center h-16 px-space-xs overflow-x-auto"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] h-14 transition-colors text-secondary-container font-semibold" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">roofing</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 text-on-surface-variant transition-colors" data-path="properties-catalog" href="#"><span class="material-symbols-outlined text-[22px]">apartment</span><span class="font-label-sm text-label-sm">العقارات</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 text-on-surface-variant transition-colors" data-path="for-sale" href="#"><span class="material-symbols-outlined text-[22px]">sell</span><span class="font-label-sm text-label-sm">للبيع</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 text-on-surface-variant transition-colors" data-path="for-rent" href="#"><span class="material-symbols-outlined text-[22px]">key</span><span class="font-label-sm text-label-sm">للإيجار</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 text-on-surface-variant transition-colors" data-path="regions" href="#"><span class="material-symbols-outlined text-[22px]">map</span><span class="font-label-sm text-label-sm">المناطق</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 text-on-surface-variant transition-colors" data-path="about-us" href="#"><span class="material-symbols-outlined text-[22px]">domain</span><span class="font-label-sm text-label-sm">من نحن</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 text-on-surface-variant transition-colors" data-path="contact-us" href="#"><span class="material-symbols-outlined text-[22px]">chat</span><span class="font-label-sm text-label-sm">تواصل</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 text-on-surface-variant transition-colors" data-path="admin-portal" href="#"><span class="material-symbols-outlined text-[22px]">admin_panel_settings</span><span class="font-label-sm text-label-sm">الأدمن</span></a></div></nav>
+
+</body></html>

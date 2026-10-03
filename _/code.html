@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;font-family:'IBM Plex Sans',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "outline": "#76777b", "tertiary-fixed-dim": "#c5c6ce", "on-background": "#1a1c1d", "on-tertiary-fixed": "#191b21", "surface": "#f9f9fb", "on-surface-variant": "#46464b", "surface-tint": "#5e5e62", "tertiary-container": "#191b21", "on-surface": "#1a1c1d", "secondary-fixed": "#ffdbcc", "tertiary-fixed": "#e2e2ea", "secondary": "#a04100", "outline-variant": "#c7c6cb", "tertiary": "#000000", "primary-container": "#1b1b1f", "surface-container-high": "#e8e8ea", "inverse-surface": "#2f3132", "on-primary-fixed-variant": "#46464a", "on-tertiary": "#ffffff", "surface-container-highest": "#e2e2e4", "on-primary": "#ffffff", "primary": "#000000", "on-secondary": "#ffffff", "error-container": "#ffdad6", "surface-container-low": "#f3f3f5", "on-secondary-fixed-variant": "#7a3000", "surface-container-lowest": "#ffffff", "surface-container": "#eeeef0", "secondary-fixed-dim": "#ffb693", "background": "#f9f9fb", "primary-fixed": "#e3e2e6", "on-secondary-fixed": "#351000", "inverse-on-surface": "#f0f0f2", "surface-dim": "#d9dadc", "primary-fixed-dim": "#c7c6ca", "on-error-container": "#93000a", "on-primary-fixed": "#1b1b1f", "on-tertiary-container": "#82838b", "on-secondary-container": "#572000", "error": "#ba1a1a", "inverse-primary": "#c7c6ca", "surface-bright": "#f9f9fb", "surface-variant": "#e2e2e4", "on-primary-container": "#848387", "secondary-container": "#fe6b00", "on-tertiary-fixed-variant": "#45474d", "on-error": "#ffffff" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "margin": "3rem", "space-md": "1rem", "gutter": "1.5rem", "space-sm": "0.5rem", "space-xl": "2.5rem" }, fontFamily: { "headline-xl": ["IBM Plex Sans"], "body-sm": ["IBM Plex Sans"], "title-md": ["IBM Plex Sans"], "headline-md": ["IBM Plex Sans"], "label-sm": ["IBM Plex Sans"], "headline-lg-mobile": ["IBM Plex Sans"], "title-sm": ["IBM Plex Sans"], "headline-xl-mobile": ["IBM Plex Sans"], "headline-lg": ["IBM Plex Sans"], "body-md": ["IBM Plex Sans"], "headline-sm": ["IBM Plex Sans"], "label-md": ["IBM Plex Sans"], "body-lg": ["IBM Plex Sans"] }, fontSize: { "headline-xl": ["48px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "34px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "36px", "fontWeight": "600" }], "title-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-xl-mobile": ["32px", { "lineHeight": "44px", "fontWeight": "700" }], "headline-lg": ["36px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="رجوع" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px] scale-x-[-1]">arrow_back</span></button><h1 class="font-title-md text-title-md text-primary tracking-tight">Property Details</h1></div><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md text-outline hidden sm:inline">دعبول العقارية</span><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VjHL3Xf69kKeZ2xN9LEEp_CJhkGWahcs3SdbNz42Ho-ZCUl-VOAx1aanObqYHxHP1_oTyp_HspbW7HxAHwqJdeGxsZC-V6YN40OqTxm2COSTX7mGTh2OJHy4NjVTDleOUQ15RMMkM1RWE7DPUo4pH8LQNXBKrIE3Pyk2AN1JKybTOfOCHqqTokQfbfnbllNHxUyuNa8AeYaGz12yu3TjDQPZUYmdo95LVgkxIw2T6HTgMfUyaHzeGDRqied-_JBDYl_cGvXdxR"/></div></div></header><main class="flex flex-col relative w-full pt-16 bg-surface"><div class="flex flex-col w-full pb-safe">
+<!-- Interactive Gallery Section -->
+<div class="relative w-full bg-surface-container-high overflow-hidden" id="galleryContainer">
+<!-- Main Display Frame (16:10 Ratio) -->
+<div class="relative aspect-[16/10] w-full overflow-hidden">
+<div class="relative w-full h-full" id="gallerySlide">
+<img class="w-full h-full object-cover transition-opacity duration-300" data-alt="Ultra-luxurious spacious living room in an upscale Damascus apartment, floor-to-ceiling windows overlooking lush green parks of Malki district, bespoke marble flooring, minimalist designer furniture in warm charcoal and neutral tones, soft ambient daylighting, architectural photography, refined Syrian luxury" id="mainImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSWtAtXRGsv70NCoiYsysetiwxVmB1ILOf8gvsDHd5dDNyawUicdD9ICCg-Xf4yYWq3tNN3UXA9Nr5aQUIkDnozAlpZ1yxfUcx2RFUnwQ-M095yb6YpOAZqVFqKj46zXQG2FXOOMetDOGSiHW9xkHSAFnzvfJIDO0iYHrY2Rs-lO7VWbcSk0wtcVEVkkQXlq-D2J4TalAyuXawmkZ3c6MoOcQJHZrX5KOfMAZ3VNtb-uWMRgBWV1jy"/>
+</div>
+<!-- Gradient Scrim for Top Badges & Bottom Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-primary/40 pointer-events-none"></div>
+<!-- Status Badges Overlay -->
+<div class="absolute top-4 right-4 left-4 flex items-center justify-between pointer-events-auto">
+<div class="flex items-center gap-space-xs">
+<span class="bg-primary text-on-primary font-label-md text-label-md px-3 py-1 rounded-full shadow-md backdrop-blur-md">
+            للبيع
+          </span>
+<span class="bg-secondary-container text-on-secondary font-label-md text-label-md px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+            حصري لدى دعبول
+          </span>
+</div>
+<!-- Image Counter Pill -->
+<span class="bg-primary-container/80 backdrop-blur-md text-on-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm" id="imageCounter">
+<span class="material-symbols-outlined text-[13px]">photo_camera</span>
+<span id="currentIndex">1</span> / 4
+        </span>
+</div>
+<!-- Quick Action Floating Buttons -->
+<div class="absolute bottom-3 left-4 flex items-center gap-2 pointer-events-auto">
+<button aria-label="حفظ في المفضلة" class="w-10 h-10 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary flex items-center justify-center shadow-lg active:scale-95 transition-transform" id="likeBtn" onclick="toggleSave()">
+<span class="material-symbols-outlined text-[20px]" id="likeIcon">favorite_border</span>
+</button>
+<button aria-label="مشاركة العقار" class="w-10 h-10 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary flex items-center justify-center shadow-lg active:scale-95 transition-transform" onclick="shareProperty()">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+<!-- Thumbnails Scroller -->
+<div class="px-gutter-mobile py-space-sm flex items-center gap- space-sm overflow-x-auto bg-surface-container-lowest shadow-sm">
+<button class="thumbnail-btn shrink-0 w-16 h-12 rounded-lg overflow-hidden transition-all duration-200 opacity-100 ring-2 ring-secondary-container" data-index="0" onclick="changePhoto(0)">
+<img class="w-full h-full object-cover" data-alt="High-end penthouse living room interior Malki Damascus, travertine stone accent wall, sleek indirect lighting, refined architectural details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjC6DSezvWtw6bEi02pi1lSdKoOqAJY2BKzUSGXhxUIDr1tnOXnOUfx6kPZgwqlz7Zec70WuLD_WQsxJFORZErXDR2ojIxp5Z3nA1JX8DQoPp21_KZY1jKAk-VAC2pb3qoeP5l9gOxfG8enV9dNJAfItMRBhsuaE9TkYThAFYxLoUmnq932D8_R60xuz_nPv-dQnvG1K8VzoqJTa_MSWLqpBACoCcOn34k5t8sTKTAR0umw7bfevMP"/>
+</button>
+<button class="thumbnail-btn shrink-0 w-16 h-12 rounded-lg overflow-hidden transition-all duration-200 opacity-60 hover:opacity-100" data-index="1" onclick="changePhoto(1)">
+<img class="w-full h-full object-cover" data-alt="Master bedroom suite with dark oak woodwork, plush textiles, panoramic terrace view over Mount Qasioun and Malki Damascus, subtle golden hour sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2D9koQZQ9wJI9F4VKENAziLC1tph9EKhIR1XmK05AW0b3iBGfTqk76zujV5iaf2ZhPdlaFQ4K_bIgv2xkE9qLYL0VPrcPxqpSm7GoHgUsPjmqAyaUW15CSkPSXWflhpJujfQhp726RoNsFi8ujVd3ur7xpczZZqoUnDQwlEGAJJCRJKU8S4uxX_CrYqxveroYTOGvjW2NrBI0DQeCgIXKBavb6br2Yz8rbONIL17pzR6N4XFifkUX"/>
+</button>
+<button class="thumbnail-btn shrink-0 w-16 h-12 rounded-lg overflow-hidden transition-all duration-200 opacity-60 hover:opacity-100" data-index="2" onclick="changePhoto(2)">
+<img class="w-full h-full object-cover" data-alt="Designer Italian kitchen with natural stone island counter, premium built-in fixtures, warm ambient LED lighting, architectural minimalist luxury" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg8Tt1qNl0beJcLB4ZVsIDLSd8o90bs5yrv2DYS0-DFl0QL1dyI1zGZpUr0jUiEwuHCRQ61LXZv6n9rSQQLnV_J7h81xkHc3vdAnyn3jcUnTudkJ3MLVrGpKC3ZjUF1ZwhiBUCYn_rMxdlav5dLE-1KNKznnLudQgFHQo6zaSpT5t1LLti4W5lKNmN5rrv-WIaB6scMYGx-RManvtsvdDHujyfNKeMJKHqeklzpJjHSVxMi8ARoGsS"/>
+</button>
+<button class="thumbnail-btn shrink-0 w-16 h-12 rounded-lg overflow-hidden transition-all duration-200 opacity-60 hover:opacity-100" data-index="3" onclick="changePhoto(3)">
+<img class="w-full h-full object-cover" data-alt="Expansive open-air terrace with contemporary seating, panoramic greenery view of upscale Damascus neighborhood, twilight blue hour sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcrOVC-f3EBaCaGIuQ3qRt1X0_T2tSoSR8nV5TskuSobCTP4BM5uBxdF3yFkR-y7LQaUAr5p0PM99pt4oCPf9rQI-SdeStZ2DabDBbqzyXfrxrmSsntF3VfC3EaDyv9QQgrEFyW0gvEqgsw5BCM0G25VmKbB0bhDWj7C7tbnegKjbqfN1m-kuGrJCsU007kCmHdIoNTVfwkF7JAIbIfaRoo4R2Flmk-rUIxlsL98EEE8Ps0Wmy3JjL"/>
+</button>
+</div>
+</div>
+<!-- Main Body Content -->
+<div class="px-gutter-mobile py-space-lg flex flex-col gap-space-lg">
+<!-- Pricing & Title Block -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>دمشق، حي المالكي الراقي — محيط حديقة الجاحظ</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight">
+        شقة فاخرة بإطلالة مفتوحة في المالكي
+      </h2>
+<div class="flex items-baseline justify-between mt-2 pt-2 bg-surface-container-low p-3 rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">السعر المطلوب</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl-mobile text-headline-xl-mobile text-secondary font-bold">$1,250,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">دولار أمريكي</span>
+</div>
+</div>
+<div class="text-left flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-outline">شروط الدفع</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold bg-surface-container-high px-2 py-0.5 rounded">
+            تحويل بنكي / نقداً
+          </span>
+</div>
+</div>
+</div>
+<!-- Rapid Specs Bento Matrix -->
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary text-[24px] mb-1">straighten</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">280 م²</span>
+<span class="font-label-sm text-label-sm text-outline">المساحة الإجمالية</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary text-[24px] mb-1">bed</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">4</span>
+<span class="font-label-sm text-label-sm text-outline">غرف النوم (ماستر 2)</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary text-[24px] mb-1">bathtub</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">3</span>
+<span class="font-label-sm text-label-sm text-outline">حمامات بتشطيب رخام</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary text-[24px] mb-1">layers</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">الرابع</span>
+<span class="font-label-sm text-label-sm text-outline">الطابق (أخير مميز)</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary text-[24px] mb-1">explore</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">قبلي غربي</span>
+<span class="font-label-sm text-label-sm text-outline">الاتجاه المشمس</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary text-[24px] mb-1">verified_user</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">2400</span>
+<span class="font-label-sm text-label-sm text-outline">سهم طابو أخضر</span>
+</div>
+</div>
+<!-- Property Description -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-bold flex items-center gap-2">
+<span class="w-1.5 h-4 bg-secondary rounded-full"></span>
+        الوصف المعماري للعقار
+      </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed text-justify">
+        فرصة استثمارية وسكنية نادرة في قلب حي المالكي العريق، أرقى أحياء العاصمة دمشق. تم تصميم الشقة وفق أعلى معايير الحداثة والراحة المعمارية، وتتميز بتوزيع داخلي ذكي يفصل جناح الاستقبال والصالونات البانورامية عن الأجنحة الخاصة للعائلة.
+      </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed text-justify">
+        تتمتع الشقة بإنارة طبيعية ممتدة طوال النهار بفضل الواجهات الزجاجية المزدوجة العازلة والاتجاه القبلي الغربي المفتوح، مع إطلالة خلابة لا تُحجب على المساحات الخضراء وجبل قاسيون. تم تنفيذ الإكساء بالكامل باستيراد خاص من أفخر أنواع الرخام الإيطالي وخشب الجوز الطبيعي.
+      </p>
+</div>
+<!-- Feature Grid / Key Amenities -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface font-bold flex items-center gap-2">
+<span class="w-1.5 h-4 bg-secondary rounded-full"></span>
+          المواصفات والتجهيزات
+        </h3>
+<span class="font-label-sm text-label-sm text-outline">7 ميزات رئيسية</span>
+</div>
+<div class="grid grid-cols-1 gap-space-xs">
+<!-- Feature Item -->
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-low rounded-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">local_parking</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold truncate">موقف سيارات خاص ومستقل</span>
+<span class="font-body-sm text-body-sm text-outline truncate">موقف مسقوف تحت البناء مخصص للشقة ومزود بنظام أمان</span>
+</div>
+</div>
+<!-- Feature Item -->
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-low rounded-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">ac_unit</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold truncate">تدفئة وتكييف مركزي متطور</span>
+<span class="font-body-sm text-body-sm text-outline truncate">نظام Chiller منفصل مع تحكم رقمي حراري لكل غرفة</span>
+</div>
+</div>
+<!-- Feature Item -->
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-low rounded-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">elevator</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold truncate">مصعد هيدروليك مع طاقة بديلة</span>
+<span class="font-body-sm text-body-sm text-outline truncate">منظومة طاقة شمسية ومولدة صامتة مخصصة للمصعد والإنارة 24/7</span>
+</div>
+</div>
+<!-- Feature Item -->
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-low rounded-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">balcony</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold truncate">شرفة بانورامية واسعة (تراس)</span>
+<span class="font-body-sm text-body-sm text-outline truncate">إطلالة هادئة ومفتوحة على الأشجار المحيطة بدون كشف مباشر</span>
+</div>
+</div>
+<!-- Feature Item -->
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-low rounded-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold truncate">أمن وحراسة 24/7 وكاميرات</span>
+<span class="font-body-sm text-body-sm text-outline truncate">بوابة إلكترونية، حارس مقيم، وكاميرات مراقبة محيطية فائقة الدقة</span>
+</div>
+</div>
+<!-- Feature Item -->
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-low rounded-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">diamond</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold truncate">إكساء سوبر ديلوكس حديث</span>
+<span class="font-body-sm text-body-sm text-outline truncate">أطقم صحية ماركة Villeroy &amp; Boch وأبواب أمان مصفحة</span>
+</div>
+</div>
+<!-- Feature Item -->
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-low rounded-lg">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold truncate">طابو أخضر نظامي 2400 سهم</span>
+<span class="font-body-sm text-body-sm text-outline truncate">سجل عقاري بريء الذمة وجاهز للتنازل الفوري في دمشق</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Location & Nearby Map Section -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface font-bold flex items-center gap-2">
+<span class="w-1.5 h-4 bg-secondary rounded-full"></span>
+          الموقع ومحيط الحي
+        </h3>
+<span class="font-label-md text-label-md text-secondary font-semibold">حي السفارات والهدوء</span>
+</div>
+<!-- Static Map Integration -->
+<div class="w-full h-48 rounded-xl bg-cover bg-center relative overflow-hidden shadow-inner flex items-end p-3" data-location="Al-Malki, Damascus, Syria" style="">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-lg flex items-center gap-2 shadow">
+<span class="material-symbols-outlined text-secondary text-[18px]">near_me</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">دمشق - المالكي (بالقرب من السفارة الإيطالية)</span>
+</div>
+</div>
+<!-- Proximity Highlights -->
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">park</span>
+<span class="font-body-sm text-body-sm text-on-surface">3 دقائق إلى حديقة الجاحظ</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">local_cafe</span>
+<span class="font-body-sm text-body-sm text-on-surface">دقيقتان إلى أرقى المقاهي</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">local_hospital</span>
+<span class="font-body-sm text-body-sm text-on-surface">5 دقائق إلى مشفى الشامي</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">school</span>
+<span class="font-body-sm text-body-sm text-on-surface">قريب من المدارس المعتمدة</span>
+</div>
+</div>
+</div>
+<!-- Contact & Direct Booking Panel -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary flex items-center justify-center font-bold font-title-md">
+          DB
+        </div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface font-bold">فريق المستشارين العقاريين</span>
+<span class="font-body-sm text-body-sm text-outline">دعبول للاستثمارات العقارية — فرع المالكي</span>
+</div>
+</div>
+<!-- Direct Quick Call & WhatsApp Buttons -->
+<div class="grid grid-cols-2 gap-space-sm">
+<a class="flex items-center justify-center gap-2 bg-primary text-on-primary py-3 px-4 rounded-lg font-label-md text-label-md active:scale-95 transition-transform shadow" href="https://wa.me/963911223344?text=مهتم%20بشقة%20المالكي%20المعروضة%20بمساحة%20280%20متر" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>واتساب مباشر</span>
+</a>
+<a class="flex items-center justify-center gap-2 bg-surface-container-high text-on-surface py-3 px-4 rounded-lg font-label-md text-label-md active:scale-95 transition-transform hover:bg-surface-container-highest" href="tel:+963113334455">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>اتصال هاتفي</span>
+</a>
+</div>
+<!-- Booking Inspection Form -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm mt-2">
+<div class="flex items-center justify-between">
+<h4 class="font-title-sm text-title-sm text-on-surface font-bold">مهتم بهذا العقار؟ احجز موعد معاينة</h4>
+<span class="material-symbols-outlined text-secondary text-[20px]">calendar_month</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+          سيتواصل معك المستشار المعتمد لترتيب زيارة ميدانية خاصة ومطابقة الوثائق الرسمية.
+        </p>
+<form class="flex flex-col gap-3 mt-1" id="inspectionForm" onsubmit="submitForm(event)">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="clientName">الاسم الكامل</label>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md px-3 py-2.5 rounded-lg focus:outline-none focus:bg-surface shadow-xs" id="clientName" placeholder="مثال: م. أحمد الخالد" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="clientPhone">رقم الهاتف (سوري أو دولي)</label>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md px-3 py-2.5 rounded-lg text-right focus:outline-none focus:bg-surface shadow-xs" dir="ltr" id="clientPhone" placeholder="+963 9xx xxx xxx" required="" type="tel"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="clientNotes">ملاحظات أو الوقت المفضل للزيارة</label>
+<textarea class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md px-3 py-2 rounded-lg focus:outline-none focus:bg-surface shadow-xs resize-none" id="clientNotes" placeholder="أفضل المعاينة خلال عطلة نهاية الأسبوع بعد العصر..." rows="2"></textarea>
+</div>
+<button class="mt-1 w-full bg-secondary-container text-on-secondary font-title-sm text-title-sm py-3 px-6 rounded-lg font-bold shadow-md hover:opacity-95 active:scale-[0.99] transition-all flex items-center justify-center gap-2" id="submitBtn" type="submit">
+<span>إرسال طلب المعاينة الفورية</span>
+<span class="material-symbols-outlined text-[18px] scale-x-[-1]">send</span>
+</button>
+</form>
+<div class="hidden bg-surface-container-lowest p-3 rounded-lg text-center flex flex-col items-center gap-1 shadow-sm" id="formSuccessMessage">
+<span class="material-symbols-outlined text-secondary text-[32px]">check_circle</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold">تم استلام طلب المعاينة بنجاح</span>
+<span class="font-body-sm text-body-sm text-outline">سيقوم مستشار دعبول العقاري بالتواصل معك خلال ساعتين لتأكيد الموعد.</span>
+</div>
+</div>
+</div>
+<!-- Trust Seal & Reference Footnote -->
+<div class="flex items-center justify-between px-space-xs text-outline font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span>مرخص أصولاً - رخصة رقم 4022/دمشق</span>
+</div>
+<span>رقم المرجع: DAB-MLK-280</span>
+</div>
+</div>
+</div>
+<script>
+  // Photo Gallery Interactive Logic
+  const galleryImages = [
+    {
+      alt: "Ultra-luxurious spacious living room in an upscale Damascus apartment, floor-to-ceiling windows overlooking lush green parks of Malki district, bespoke marble flooring, minimalist designer furniture in warm charcoal and neutral tones, soft ambient daylighting, architectural photography, refined Syrian luxury"
+    },
+    {
+      alt: "Master bedroom suite with dark oak woodwork, plush textiles, panoramic terrace view over Mount Qasioun and Malki Damascus, subtle golden hour sunlight"
+    },
+    {
+      alt: "Designer Italian kitchen with natural stone island counter, premium built-in fixtures, warm ambient LED lighting, architectural minimalist luxury"
+    },
+    {
+      alt: "Expansive open-air terrace with contemporary seating, panoramic greenery view of upscale Damascus neighborhood, twilight blue hour sky"
+    }
+  ];
+
+  let currentPhotoIndex = 0;
+
+  function changePhoto(index) {
+    currentPhotoIndex = index;
+    const mainImg = document.getElementById('mainImage');
+    const indexCounter = document.getElementById('currentIndex');
+    
+    // Quick micro-fade
+    mainImg.style.opacity = '0.4';
+    setTimeout(() => {
+      mainImg.setAttribute('data-alt', galleryImages[index].alt);
+      mainImg.style.opacity = '1';
+    }, 150);
+
+    indexCounter.innerText = (index + 1);
+
+    // Update thumbnail highlights
+    const thumbBtns = document.querySelectorAll('.thumbnail-btn');
+    thumbBtns.forEach((btn, i) => {
+      if (i === index) {
+        btn.classList.remove('opacity-60');
+        btn.classList.add('opacity-100', 'ring-2', 'ring-secondary-container');
+      } else {
+        btn.classList.remove('ring-2', 'ring-secondary-container', 'opacity-100');
+        btn.classList.add('opacity-60');
+      }
+    });
+  }
+
+  // Favorite Button Toggle
+  let isSaved = false;
+  function toggleSave() {
+    isSaved = !isSaved;
+    const icon = document.getElementById('likeIcon');
+    const btn = document.getElementById('likeBtn');
+    if (isSaved) {
+      icon.innerText = 'favorite';
+      icon.style.fontVariationSettings = "'FILL' 1";
+      btn.classList.add('text-secondary');
+    } else {
+      icon.innerText = 'favorite_border';
+      icon.style.fontVariationSettings = "'FILL' 0";
+      btn.classList.remove('text-secondary');
+    }
+  }
+
+  // Share Property Trigger
+  function shareProperty() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'شقة فاخرة في المالكي - دعبول العقارية',
+        text: 'شقة 280 م² في أرقى أحياء دمشق، طابو أخضر 2400 سهم مع إطلالة مفتوحة',
+        url: window.location.href
+      }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert('تم نسخ رابط العقار إلى الحافظة');
+    }
+  }
+
+  // Form Submission Micro-interaction
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.innerHTML = 'جاري الإرسال...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      document.getElementById('inspectionForm').classList.add('hidden');
+      document.getElementById('formSuccessMessage').classList.remove('hidden');
+    }, 700);
+  }
+</script></main></body></html>
