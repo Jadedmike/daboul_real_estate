@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --color-outline: #76777b;
+  --color-outline-variant: #c7c6cb;
+  --color-surface: #f9f9fb;
+  --color-surface-dim: #d9dadc;
+  --color-surface-bright: #f9f9fb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f3f5;
+  --color-surface-container: #eeeef0;
+  --color-surface-container-high: #e8e8ea;
+  --color-surface-container-highest: #e2e2e4;
+  --color-surface-variant: #e2e2e4;
+  --color-surface-tint: #5e5e62;
+  --color-on-surface: #1a1c1d;
+  --color-on-surface-variant: #46464b;
+  --color-inverse-surface: #2f3132;
+  --color-inverse-on-surface: #f0f0f2;
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1b1b1f;
+  --color-on-primary-container: #848387;
+  --color-inverse-primary: #c7c6ca;
+  --color-primary-fixed: #e3e2e6;
+  --color-primary-fixed-dim: #c7c6ca;
+  --color-on-primary-fixed: #1b1b1f;
+  --color-on-primary-fixed-variant: #46464a;
+  --color-secondary: #a04100;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fe6b00;
+  --color-on-secondary-container: #572000;
+  --color-secondary-fixed: #ffdbcc;
+  --color-secondary-fixed-dim: #ffb693;
+  --color-on-secondary-fixed: #351000;
+  --color-on-secondary-fixed-variant: #7a3000;
+  --color-tertiary: #000000;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #191b21;
+  --color-on-tertiary-container: #82838b;
+  --color-tertiary-fixed: #e2e2ea;
+  --color-tertiary-fixed-dim: #c5c6ce;
+  --color-on-tertiary-fixed: #191b21;
+  --color-on-tertiary-fixed-variant: #45474d;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-background: #f9f9fb;
+  --color-on-background: #1a1c1d;
+
+  --spacing-margin-mobile: 1.25rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-margin: 3rem;
+  --spacing-gutter: 1.5rem;
+
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  --font-headline-xl: 'IBM Plex Sans', sans-serif;
+  --font-body-sm: 'IBM Plex Sans', sans-serif;
+  --font-title-md: 'IBM Plex Sans', sans-serif;
+  --font-headline-md: 'IBM Plex Sans', sans-serif;
+  --font-label-sm: 'IBM Plex Sans', sans-serif;
+  --font-headline-lg-mobile: 'IBM Plex Sans', sans-serif;
+  --font-title-sm: 'IBM Plex Sans', sans-serif;
+  --font-headline-xl-mobile: 'IBM Plex Sans', sans-serif;
+  --font-headline-lg: 'IBM Plex Sans', sans-serif;
+  --font-body-md: 'IBM Plex Sans', sans-serif;
+  --font-headline-sm: 'IBM Plex Sans', sans-serif;
+  --font-label-md: 'IBM Plex Sans', sans-serif;
+  --font-body-lg: 'IBM Plex Sans', sans-serif;
+}
+
+@layer base {
+  html, body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  body {
+    overscroll-behavior: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    min-height: max(884px, 100dvh);
+    background-color: #f9f9fb;
+    color: #1a1c1d;
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Exact typography classes from Stitch export */
+.font-headline-xl { font-family: 'IBM Plex Sans', sans-serif; font-size: 48px; line-height: 64px; letter-spacing: -0.02em; font-weight: 700; }
+.font-headline-xl-mobile { font-family: 'IBM Plex Sans', sans-serif; font-size: 32px; line-height: 44px; font-weight: 700; }
+.font-headline-lg { font-family: 'IBM Plex Sans', sans-serif; font-size: 36px; line-height: 48px; letter-spacing: -0.01em; font-weight: 600; }
+.font-headline-lg-mobile { font-family: 'IBM Plex Sans', sans-serif; font-size: 26px; line-height: 36px; font-weight: 600; }
+.font-headline-md { font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; line-height: 34px; font-weight: 600; }
+.font-headline-sm { font-family: 'IBM Plex Sans', sans-serif; font-size: 20px; line-height: 28px; font-weight: 600; }
+.font-title-md { font-family: 'IBM Plex Sans', sans-serif; font-size: 18px; line-height: 26px; font-weight: 600; }
+.font-title-sm { font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; line-height: 24px; font-weight: 600; }
+.font-body-lg { font-family: 'IBM Plex Sans', sans-serif; font-size: 18px; line-height: 30px; font-weight: 400; }
+.font-body-md { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; line-height: 24px; font-weight: 400; }
+.font-body-sm { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; line-height: 20px; font-weight: 400; }
+.font-label-md { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; line-height: 18px; letter-spacing: 0.03em; font-weight: 600; }
+.font-label-sm { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; line-height: 16px; letter-spacing: 0.04em; font-weight: 600; }
+
+.text-headline-xl { font-size: 48px; line-height: 64px; letter-spacing: -0.02em; font-weight: 700; }
+.text-headline-xl-mobile { font-size: 32px; line-height: 44px; font-weight: 700; }
+.text-headline-lg { font-size: 36px; line-height: 48px; letter-spacing: -0.01em; font-weight: 600; }
+.text-headline-lg-mobile { font-size: 26px; line-height: 36px; font-weight: 600; }
+.text-headline-md { font-size: 24px; line-height: 34px; font-weight: 600; }
+.text-headline-sm { font-size: 20px; line-height: 28px; font-weight: 600; }
+.text-title-md { font-size: 18px; line-height: 26px; font-weight: 600; }
+.text-title-sm { font-size: 16px; line-height: 24px; font-weight: 600; }
+.text-body-lg { font-size: 18px; line-height: 30px; font-weight: 400; }
+.text-body-md { font-size: 15px; line-height: 24px; font-weight: 400; }
+.text-body-sm { font-size: 13px; line-height: 20px; font-weight: 400; }
+.text-label-md { font-size: 13px; line-height: 18px; letter-spacing: 0.03em; font-weight: 600; }
+.text-label-sm { font-size: 11px; line-height: 16px; letter-spacing: 0.04em; font-weight: 600; }
