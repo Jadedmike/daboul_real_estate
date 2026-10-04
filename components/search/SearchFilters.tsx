@@ -1,18 +1,45 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { GOVERNORATES } from "@/lib/data";
+import { Governorate, District } from "@/lib/supabase/types";
+import { getPublicLocations } from "@/lib/actions/properties";
 
-export function SearchFilters() {
+interface SearchFiltersProps {
+  initialGovernorates?: Governorate[];
+  initialDistricts?: District[];
+}
+
+export function SearchFilters({
+  initialGovernorates = [],
+  initialDistricts = [],
+}: SearchFiltersProps) {
   const router = useRouter();
   const [dealType, setDealType] = useState<"sale" | "rent">("sale");
-  const [governorate, setGovernorate] = useState("damascus");
+  const [governorates, setGovernorates] = useState<Governorate[]>(initialGovernorates);
+  const [districts, setDistricts] = useState<District[]>(initialDistricts);
+  const [governorate, setGovernorate] = useState<string>(
+    initialGovernorates[0]?.id || ""
+  );
   const [district, setDistrict] = useState("all");
   const [propertyType, setPropertyType] = useState("all");
   const [bedrooms, setBedrooms] = useState("all");
   const [priceCategory, setPriceCategory] = useState("متوسط راقٍ");
   const [isSearching, setIsSearching] = useState(false);
+
+  useEffect(() => {
+    if (governorates.length === 0) {
+      getPublicLocations().then((locs) => {
+        setGovernorates(locs.governorates);
+        setDistricts(locs.districts);
+        if (!governorate && locs.governorates.length > 0) {
+          setGovernorate(locs.governorates[0].id);
+        }
+      });
+    } else if (!governorate && governorates.length > 0) {
+      setGovernorate(governorates[0].id);
+    }
+  }, [governorates, governorate]);
 
   const priceLabels: Record<string, string> = {
     اقتصادي: "$20,000 - $80,000",
@@ -20,17 +47,31 @@ export function SearchFilters() {
     "VIP فاخر": "$250,000 - $1,500,000+",
   };
 
-  const currentGovernorateData =
-    GOVERNORATES.find((g) => g.id === governorate) || GOVERNORATES[0];
+  const filteredDistricts = useMemo(() => {
+    if (!governorate || governorate === "all") return districts;
+    return districts.filter((d) => d.governorate_id === governorate);
+  }, [governorate, districts]);
+
+  const handleGovernorateChange = (newGovId: string) => {
+    setGovernorate(newGovId);
+    const matchingDistricts = districts.filter((d) => d.governorate_id === newGovId);
+    if (!matchingDistricts.some((d) => d.id === district)) {
+      setDistrict("all");
+    }
+  };
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSearching(true);
     setTimeout(() => {
       setIsSearching(false);
-      router.push(
-        `/properties?deal=${dealType}&gov=${governorate}&district=${district}&type=${propertyType}`
-      );
+      const params = new URLSearchParams();
+      params.set("deal", dealType);
+      if (governorate && governorate !== "all") params.set("gov", governorate);
+      if (district && district !== "all") params.set("district", district);
+      if (propertyType && propertyType !== "all") params.set("type", propertyType);
+      if (bedrooms && bedrooms !== "all") params.set("bedrooms", bedrooms);
+      router.push(`/properties?${params.toString()}`);
     }, 450);
   };
 
@@ -82,15 +123,12 @@ export function SearchFilters() {
               <select
                 id="gov-select"
                 value={governorate}
-                onChange={(e) => {
-                  setGovernorate(e.target.value);
-                  setDistrict("all");
-                }}
+                onChange={(e) => handleGovernorateChange(e.target.value)}
                 className="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer"
               >
-                {GOVERNORATES.map((g) => (
+                {governorates.map((g) => (
                   <option key={g.id} value={g.id}>
-                    {g.name}
+                    {g.name_ar}
                   </option>
                 ))}
               </select>
@@ -118,9 +156,10 @@ export function SearchFilters() {
                 onChange={(e) => setDistrict(e.target.value)}
                 className="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer"
               >
-                {currentGovernorateData.districts.map((d) => (
+                <option value="all">كافة المناطق والأحياء</option>
+                {filteredDistricts.map((d) => (
                   <option key={d.id} value={d.id}>
-                    {d.name}
+                    {d.name_ar}
                   </option>
                 ))}
               </select>

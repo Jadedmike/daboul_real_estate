@@ -3,13 +3,124 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Property } from "@/lib/data";
+import { PublicProperty } from "@/lib/actions/properties";
+
+const FALLBACK_IMAGE_URL =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuB7aAx2vp5ePFd3Hlsml2oaqk3vubiw8VIo3LkImNS9JIQVERgN2SeVP46enNTLaZc9hOOSPHeaFdc4ntQA3XcjPj22WLYnrFDNmN8L4IafPfSf-zBXCyxPqT7KhxYSYhpQIA0z-9wjpOU0X_Oczi8WUa1QYesf7yt_qpCv1lo2DbyAxHScQ2NVFd-WjfY6EpuXeI1rWmzC44xQ-49uA3xk5oztTAcUdeS9Hr8Ra5QFQsKPeu4UDkij";
+
+function formatArabicDate(dateStr: string): string {
+  try {
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60));
+    if (diffHours < 24) return "اليوم";
+    const diffDays = Math.floor(diffHours / 24);
+    if (diffDays === 1) return "أمس";
+    if (diffDays <= 10) return `منذ ${diffDays} أيام`;
+    return `منذ ${diffDays} يوم`;
+  } catch {
+    return "متاح الآن";
+  }
+}
+
+interface NormalizedCardData {
+  id: string;
+  title: string;
+  location: string;
+  dealType: "sale" | "rent";
+  price: string;
+  priceNote?: string;
+  isNegotiable?: boolean;
+  badges: string[];
+  badgeHighlight?: string;
+  area: string;
+  bedrooms: string;
+  bathrooms: string;
+  floor: string;
+  publishedTime: string;
+  imageUrl: string;
+  imageAlt: string;
+}
+
+function normalizeProperty(p: PublicProperty | Property): NormalizedCardData {
+  // Check if this is a PublicProperty from Supabase
+  if ("title_ar" in p) {
+    const pub = p as PublicProperty;
+    const coverImg =
+      pub.property_images?.find((img) => img.is_cover) ||
+      (pub.property_images && pub.property_images.length > 0 ? pub.property_images[0] : null);
+
+    const imageUrl = coverImg?.public_url || FALLBACK_IMAGE_URL;
+    const imageAlt = coverImg?.alt_text || pub.title_ar;
+
+    const badges: string[] = [pub.transaction_type === "sale" ? "للبيع" : "للإيجار"];
+    if (pub.is_featured) badges.push("مميز");
+    if (pub.is_offer) badges.push("عرض خاص");
+
+    const badgeHighlight = pub.is_offer
+      ? "فرصة حصرية"
+      : pub.is_featured
+      ? "اختيار دعبول"
+      : undefined;
+
+    const govName = pub.governorates?.name_ar;
+    const distName = pub.districts?.name_ar;
+    const location = [govName, distName || pub.address].filter(Boolean).join(" - ") || pub.address;
+
+    let floorText = "طابق أرضي";
+    if (pub.floor !== null && pub.floor !== undefined) {
+      floorText = pub.floor === 0 ? "طابق أرضي" : `الطابق ${pub.floor}`;
+    }
+
+    return {
+      id: pub.id,
+      title: pub.title_ar,
+      location,
+      dealType: pub.transaction_type,
+      price: `$${Number(pub.price).toLocaleString()}`,
+      priceNote: pub.currency === "USD" ? "دولار أمريكي" : pub.currency,
+      isNegotiable: false,
+      badges,
+      badgeHighlight,
+      area: `${pub.area} م²`,
+      bedrooms: `${pub.bedrooms}`,
+      bathrooms: `${pub.bathrooms}`,
+      floor: floorText,
+      publishedTime: formatArabicDate(pub.created_at),
+      imageUrl,
+      imageAlt,
+    };
+  }
+
+  // Legacy Property object
+  const leg = p as Property;
+  return {
+    id: leg.id,
+    title: leg.title,
+    location: leg.location,
+    dealType: leg.dealType,
+    price: leg.price,
+    priceNote: leg.priceNote,
+    isNegotiable: leg.isNegotiable,
+    badges: leg.badges,
+    badgeHighlight: leg.badgeHighlight,
+    area: leg.area,
+    bedrooms: leg.bedrooms,
+    bathrooms: leg.bathrooms,
+    floor: leg.floor || "الرابع",
+    publishedTime: leg.publishedTime,
+    imageUrl: leg.imageUrl || FALLBACK_IMAGE_URL,
+    imageAlt: leg.imageAlt || leg.title,
+  };
+}
 
 interface PropertyCardProps {
-  property: Property;
+  property: PublicProperty | Property;
   layout?: "grid" | "list";
 }
 
-export function PropertyCard({ property, layout = "grid" }: PropertyCardProps) {
+export function PropertyCard({ property: rawProperty, layout = "grid" }: PropertyCardProps) {
+  const property = normalizeProperty(rawProperty);
   const [isFavorite, setIsFavorite] = useState(false);
 
   const toggleFavorite = (e: React.MouseEvent) => {

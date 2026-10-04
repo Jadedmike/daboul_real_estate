@@ -72,15 +72,15 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
           </div>
         </Link>
         <div className="flex items-center justify-end">
-          <a
+          <Link
             aria-label="اتصال وتواصل"
             className="w-11 h-11 flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors"
-            href="tel:+963900000000"
+            href="/contact"
           >
             <span className="material-symbols-outlined text-[22px]">
               support_agent
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </header>

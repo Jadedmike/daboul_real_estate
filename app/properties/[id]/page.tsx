@@ -1,15 +1,57 @@
 import React from "react";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { PropertyGallery } from "@/components/gallery/PropertyGallery";
 import { InspectionBookingForm } from "@/components/property/InspectionBookingForm";
 import { FloatingContactBar } from "@/components/ui/FloatingContactBar";
-import { PROPERTIES } from "@/lib/data";
 import { ToastProvider } from "@/components/ui/Toast";
+import { getPublicPropertyById } from "@/lib/actions/properties";
+import { getCompanySettings } from "@/lib/actions/settings";
 
-export function generateStaticParams() {
-  return PROPERTIES.map((prop) => ({
-    id: prop.id,
-  }));
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const property = await getPublicPropertyById(id);
+
+  if (!property) {
+    return {
+      title: "العقار غير موجود | دعبول العقارية",
+      description: "لم يتم العثور على العقار المطلوب في قاعدة بيانات دعبول العقارية.",
+    };
+  }
+
+  const coverImg =
+    property.property_images?.find((img) => img.is_cover)?.public_url ||
+    property.property_images?.[0]?.public_url;
+
+  const loc = [
+    property.governorates?.name_ar,
+    property.districts?.name_ar || property.address,
+  ]
+    .filter(Boolean)
+    .join(" - ");
+
+  const title = `${property.title_ar} - ${loc}`;
+  const desc = property.description_ar
+    ? property.description_ar.slice(0, 160)
+    : `عقار ${property.transaction_type === "sale" ? "للبيع" : "للإيجار"} في ${loc}. السعر: $${Number(property.price).toLocaleString()}.`;
+
+  return {
+    title,
+    description: desc,
+    openGraph: {
+      title,
+      description: desc,
+      type: "article",
+      images: coverImg ? [{ url: coverImg, alt: property.title_ar }] : undefined,
+    },
+  };
 }
 
 export default async function PropertyDetailPage({
@@ -18,31 +60,66 @@ export default async function PropertyDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const property =
-    PROPERTIES.find((p) => p.id === id) || PROPERTIES[0];
+  const [property, companySettings] = await Promise.all([
+    getPublicPropertyById(id),
+    getCompanySettings(),
+  ]);
+
+  if (!property) {
+    notFound();
+  }
 
   const galleryImages =
-    property.images && property.images.length > 0
-      ? property.images
+    property.property_images && property.property_images.length > 0
+      ? property.property_images.map((img, idx) => ({
+          url: img.public_url,
+          alt: img.alt_text || `${property.title_ar} - صورة ${idx + 1}`,
+          label: img.is_cover ? "الصورة الرئيسية" : `صورة ${idx + 1}`,
+        }))
       : [
           {
-            url: property.imageUrl,
-            alt: property.imageAlt,
+            url: "https://lh3.googleusercontent.com/aida-public/AB6AXuB7aAx2vp5ePFd3Hlsml2oaqk3vubiw8VIo3LkImNS9JIQVERgN2SeVP46enNTLaZc9hOOSPHeaFdc4ntQA3XcjPj22WLYnrFDNmN8L4IafPfSf-zBXCyxPqT7KhxYSYhpQIA0z-9wjpOU0X_Oczi8WUa1QYesf7yt_qpCv1lo2DbyAxHScQ2NVFd-WjfY6EpuXeI1rWmzC44xQ-49uA3xk5oztTAcUdeS9Hr8Ra5QFQsKPeu4UDkij",
+            alt: property.title_ar,
             label: "الصورة الرئيسية",
           },
         ];
 
+  const locationText = [
+    property.governorates?.name_ar,
+    property.districts?.name_ar || property.address,
+  ]
+    .filter(Boolean)
+    .join(" - ");
+
+  let floorText = "غير محدد";
+  if (property.floor !== null && property.floor !== undefined) {
+    floorText = property.floor === 0 ? "طابق أرضي" : `الطابق ${property.floor}`;
+    if (property.total_floors) {
+      floorText += ` من ${property.total_floors}`;
+    }
+  }
+
+  const descriptionParagraphs = property.description_ar
+    ? property.description_ar.split("\n").filter((p) => p.trim().length > 0)
+    : [];
+
   return (
     <ToastProvider>
-      <Header variant="back" title="Property Details" />
+      <Header variant="back" title="تفاصيل العقار" />
 
       <main className="flex flex-col relative w-full pt-16 bg-surface pb-28">
         <div className="flex flex-col w-full pb-safe">
           {/* Interactive Gallery Section */}
           <PropertyGallery
             images={galleryImages}
-            dealType={property.dealType === "sale" ? "للبيع" : "للإيجار"}
-            badgeHighlight={property.badgeHighlight || "حصري لدى دعبول"}
+            dealType={property.transaction_type === "sale" ? "للبيع" : "للإيجار"}
+            badgeHighlight={
+              property.is_offer
+                ? "عرض خاص وحصري"
+                : property.is_featured
+                ? "حصري لدى دعبول"
+                : "عقار معتمد وموثق"
+            }
           />
 
           {/* Main Body Content */}
@@ -53,10 +130,10 @@ export default async function PropertyDetailPage({
                 <span className="material-symbols-outlined text-[16px]">
                   location_on
                 </span>
-                <span>{property.location}</span>
+                <span>{locationText}</span>
               </div>
               <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight">
-                {property.title}
+                {property.title_ar}
               </h2>
               <div className="flex items-baseline justify-between mt-2 pt-2 bg-surface-container-low p-3 rounded-lg">
                 <div className="flex flex-col">
@@ -65,10 +142,10 @@ export default async function PropertyDetailPage({
                   </span>
                   <div className="flex items-baseline gap-1">
                     <span className="font-headline-xl-mobile text-headline-xl-mobile text-secondary font-bold">
-                      {property.price}
+                      ${Number(property.price).toLocaleString()}
                     </span>
                     <span className="font-label-sm text-label-sm text-on-surface-variant">
-                      {property.priceNote || "دولار أمريكي"}
+                      {property.currency === "USD" ? "دولار أمريكي" : property.currency}
                     </span>
                   </div>
                 </div>
@@ -77,7 +154,9 @@ export default async function PropertyDetailPage({
                     شروط الدفع
                   </span>
                   <span className="font-label-md text-label-md text-on-surface font-semibold bg-surface-container-high px-2 py-0.5 rounded">
-                    {property.paymentTerms || "تحويل بنكي / نقداً"}
+                    {property.transaction_type === "rent"
+                      ? "دفع شهري / سنوي"
+                      : "تحويل بنكي / نقداً"}
                   </span>
                 </div>
               </div>
@@ -90,7 +169,7 @@ export default async function PropertyDetailPage({
                   straighten
                 </span>
                 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">
-                  {property.area}
+                  {property.area} م²
                 </span>
                 <span className="font-label-sm text-label-sm text-outline">
                   المساحة الإجمالية
@@ -123,7 +202,7 @@ export default async function PropertyDetailPage({
                   layers
                 </span>
                 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">
-                  {property.floor || "الرابع"}
+                  {floorText}
                 </span>
                 <span className="font-label-sm text-label-sm text-outline">
                   الطابق
@@ -134,7 +213,7 @@ export default async function PropertyDetailPage({
                   explore
                 </span>
                 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">
-                  قبلي غربي
+                  {property.orientation || "قبلي غربي"}
                 </span>
                 <span className="font-label-sm text-label-sm text-outline">
                   الاتجاه المشمس
@@ -145,10 +224,10 @@ export default async function PropertyDetailPage({
                   verified_user
                 </span>
                 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">
-                  2400
+                  {property.legal_status || "طابو أخضر"}
                 </span>
                 <span className="font-label-sm text-label-sm text-outline">
-                  سهم طابو أخضر
+                  الوضع القانوني
                 </span>
               </div>
             </div>
@@ -159,12 +238,20 @@ export default async function PropertyDetailPage({
                 <span className="w-1.5 h-4 bg-secondary rounded-full" />
                 الوصف المعماري للعقار
               </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed text-justify">
-                فرصة استثمارية وسكنية نادرة في قلب حي المالكي العريق، أرقى أحياء العاصمة دمشق. تم تصميم الشقة وفق أعلى معايير الحداثة والراحة المعمارية، وتتميز بتوزيع داخلي ذكي يفصل جناح الاستقبال والصالونات البانورامية عن الأجنحة الخاصة للعائلة.
-              </p>
-              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed text-justify">
-                تتمتع الشقة بإنارة طبيعية ممتدة طوال النهار بفضل الواجهات الزجاجية المزدوجة العازلة والاتجاه القبلي الغربي المفتوح، مع إطلالة خلابة لا تُحجب على المساحات الخضراء وجبل قاسيون. تم تنفيذ الإكساء بالكامل باستيراد خاص من أفخر أنواع الرخام الإيطالي وخشب الجوز الطبيعي.
-              </p>
+              {descriptionParagraphs.length > 0 ? (
+                descriptionParagraphs.map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="font-body-md text-body-md text-on-surface-variant leading-relaxed text-justify"
+                  >
+                    {para}
+                  </p>
+                ))
+              ) : (
+                <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed text-justify">
+                  {property.description_ar}
+                </p>
+              )}
             </div>
 
             {/* Feature Grid / Key Amenities */}
@@ -175,45 +262,45 @@ export default async function PropertyDetailPage({
                   المواصفات والتجهيزات
                 </h3>
                 <span className="font-label-sm text-label-sm text-outline">
-                  7 ميزات رئيسية
+                  ميزات العقار
                 </span>
               </div>
               <div className="grid grid-cols-1 gap-space-xs">
                 {[
                   {
                     icon: "local_parking",
-                    title: "موقف سيارات خاص ومستقل",
+                    title: "موقف سيارات مخصص",
                     desc: "موقف مسقوف تحت البناء مخصص للشقة ومزود بنظام أمان",
                   },
                   {
                     icon: "ac_unit",
-                    title: "تدفئة وتكييف مركزي متطور",
-                    desc: "نظام Chiller منفصل مع تحكم رقمي حراري لكل غرفة",
+                    title: "تدفئة وتكييف متطور",
+                    desc: "نظام تحكم حراري منفصل لكل غرفة",
                   },
                   {
                     icon: "elevator",
-                    title: "مصعد هيدروليك مع طاقة بديلة",
+                    title: "مصعد مع طاقة بديلة",
                     desc: "منظومة طاقة شمسية ومولدة صامتة مخصصة للمصعد والإنارة 24/7",
                   },
                   {
                     icon: "balcony",
-                    title: "شرفة بانورامية واسعة (تراس)",
-                    desc: "إطلالة هادئة ومفتوحة على الأشجار المحيطة بدون كشف مباشر",
+                    title: "شرفة وإطلالة مفتوحة",
+                    desc: "إطلالة هادئة ومفتوحة على المنطقة المحيطة",
                   },
                   {
                     icon: "shield",
-                    title: "أمن وحراسة 24/7 وكاميرات",
-                    desc: "بوابة إلكترونية، حارس مقيم، وكاميرات مراقبة محيطية فائقة الدقة",
+                    title: "أمن وحراسة ونظام مراقبة",
+                    desc: "بوابة إلكترونية، حارس مقيم، وكاميرات مراقبة محيطية",
                   },
                   {
                     icon: "diamond",
-                    title: "إكساء سوبر ديلوكس حديث",
-                    desc: "أطقم صحية ماركة Villeroy & Boch وأبواب أمان مصفحة",
+                    title: "إكساء عالي الجودة وتصميم عصري",
+                    desc: "أطقم صحية ممتازة وأبواب أمان مصفحة",
                   },
                   {
                     icon: "gavel",
-                    title: "طابو أخضر نظامي 2400 سهم",
-                    desc: "سجل عقاري بريء الذمة وجاهز للتنازل الفوري في دمشق",
+                    title: property.legal_status || "طابو أخضر نظامي",
+                    desc: "سجل عقاري بريء الذمة وجاهز للتنازل الفوري",
                   },
                 ].map((feat, idx) => (
                   <div
@@ -246,7 +333,7 @@ export default async function PropertyDetailPage({
                   الموقع ومحيط الحي
                 </h3>
                 <span className="font-label-md text-label-md text-secondary font-semibold">
-                  حي السفارات والهدوء
+                  {property.districts?.name_ar || property.governorates?.name_ar || "موقع مميز"}
                 </span>
               </div>
               <div
@@ -261,7 +348,7 @@ export default async function PropertyDetailPage({
                     near_me
                   </span>
                   <span className="font-label-md text-label-md text-on-surface font-semibold">
-                    دمشق - المالكي (بالقرب من السفارة الإيطالية)
+                    {locationText}: {property.address}
                   </span>
                 </div>
               </div>
@@ -271,7 +358,7 @@ export default async function PropertyDetailPage({
                     park
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface">
-                    3 دقائق إلى حديقة الجاحظ
+                    قريب من المساحات الخضراء
                   </span>
                 </div>
                 <div className="p-space-sm bg-surface-container-low rounded-lg flex items-center gap-2">
@@ -279,7 +366,7 @@ export default async function PropertyDetailPage({
                     local_cafe
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface">
-                    دقيقتان إلى أرقى المقاهي
+                    قريب من المطاعم والمقاهي
                   </span>
                 </div>
                 <div className="p-space-sm bg-surface-container-low rounded-lg flex items-center gap-2">
@@ -287,7 +374,7 @@ export default async function PropertyDetailPage({
                     local_hospital
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface">
-                    5 دقائق إلى مشفى الشامي
+                    قريب من المراكز الطبية
                   </span>
                 </div>
                 <div className="p-space-sm bg-surface-container-low rounded-lg flex items-center gap-2">
@@ -302,13 +389,20 @@ export default async function PropertyDetailPage({
             </div>
 
             {/* Inspection Booking Form */}
-            <InspectionBookingForm />
+            <InspectionBookingForm
+              propertyId={property.id}
+              propertyTitle={property.title_ar}
+            />
           </div>
         </div>
       </main>
 
       {/* Floating Action Bar */}
-      <FloatingContactBar />
+      <FloatingContactBar
+        phone={companySettings.phone}
+        whatsapp={companySettings.whatsapp}
+        propertyTitle={property.title_ar}
+      />
     </ToastProvider>
   );
 }

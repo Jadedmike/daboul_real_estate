@@ -1,27 +1,40 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { useToast } from "@/components/ui/Toast";
 
-export function AdminNavTabs() {
-  const [activeTab, setActiveTab] = useState("نظرة عامة");
+interface AdminNavTabsProps {
+  activeTab?: string;
+  onTabChange?: (tabName: string) => void;
+}
+
+export function AdminNavTabs({
+  activeTab: controlledTab,
+  onTabChange,
+}: AdminNavTabsProps = {}) {
+  const [internalTab, setInternalTab] = useState("نظرة عامة");
+  const activeTab = controlledTab !== undefined ? controlledTab : internalTab;
   const { showToast } = useToast();
 
   const tabs = [
     { name: "نظرة عامة", icon: "dashboard", isAction: false },
     { name: "إدارة العقارات", icon: "apartment", isAction: false },
+    { name: "محرر الواجهة (CMS)", icon: "view_quilt", isAction: false },
     { name: "إضافة عقار جديد", icon: "add_box", isAction: true },
     { name: "طلبات العملاء", icon: "support_agent", badge: "18", isAction: false },
     { name: "المحافظات والمناطق", icon: "explore", isAction: false },
-    { name: "محرر الواجهة (CMS)", icon: "view_quilt", isAction: false },
     { name: "الإعدادات", icon: "settings", isAction: false },
   ];
 
   const handleTabClick = (tabName: string, isAction: boolean) => {
     if (!isAction) {
-      setActiveTab(tabName);
+      if (onTabChange) {
+        onTabChange(tabName);
+      } else {
+        setInternalTab(tabName);
+      }
     }
-    showToast(`الانتقال إلى: ${tabName}`);
   };
 
   return (
@@ -29,17 +42,16 @@ export function AdminNavTabs() {
       {tabs.map((tab) => {
         if (tab.isAction) {
           return (
-            <button
+            <Link
               key={tab.name}
-              type="button"
-              onClick={() => handleTabClick(tab.name, true)}
+              href="/admin/properties/new"
               className="cms-nav-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary-container text-on-primary whitespace-nowrap shadow-sm hover:bg-secondary transition-colors cursor-pointer"
             >
               <span className="material-symbols-outlined text-[16px]">
                 {tab.icon}
               </span>
               <span>{tab.name}</span>
-            </button>
+            </Link>
           );
         }
 

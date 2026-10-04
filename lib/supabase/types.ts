@@ -27,6 +27,33 @@ export type InquiryStatus =
 export interface Database {
   public: {
     Tables: {
+      admin_users: {
+        Row: {
+          id: string;
+          user_id: string;
+          email: string;
+          is_active: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          email: string;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          email?: string;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
       governorates: {
         Row: {
           id: string;
@@ -34,6 +61,7 @@ export interface Database {
           name_en: string;
           slug: string;
           is_active: boolean;
+          sort_order: number;
           created_at: string;
           updated_at: string;
         };
@@ -43,6 +71,7 @@ export interface Database {
           name_en: string;
           slug: string;
           is_active?: boolean;
+          sort_order?: number;
           created_at?: string;
           updated_at?: string;
         };
@@ -52,9 +81,11 @@ export interface Database {
           name_en?: string;
           slug?: string;
           is_active?: boolean;
+          sort_order?: number;
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       districts: {
         Row: {
@@ -87,6 +118,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       properties: {
         Row: {
@@ -173,6 +205,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       property_images: {
         Row: {
@@ -205,6 +238,7 @@ export interface Database {
           is_cover?: boolean;
           created_at?: string;
         };
+        Relationships: [];
       };
       inquiries: {
         Row: {
@@ -243,6 +277,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       homepage_sections: {
         Row: {
@@ -278,6 +313,7 @@ export interface Database {
           created_at?: string;
           updated_at?: string;
         };
+        Relationships: [];
       };
       homepage_settings: {
         Row: {
@@ -307,7 +343,31 @@ export interface Database {
           hero_cta_link?: string | null;
           updated_at?: string;
         };
+        Relationships: [];
       };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
   };
 }
+
+export type AdminUser = Database["public"]["Tables"]["admin_users"]["Row"];
+export type AdminUserInsert = Database["public"]["Tables"]["admin_users"]["Insert"];
+export type AdminUserUpdate = Database["public"]["Tables"]["admin_users"]["Update"];
+
+export type Governorate = Database["public"]["Tables"]["governorates"]["Row"];
+export type GovernorateInsert = Database["public"]["Tables"]["governorates"]["Insert"];
+export type GovernorateUpdate = Database["public"]["Tables"]["governorates"]["Update"];
+
+export type District = Database["public"]["Tables"]["districts"]["Row"];
+export type DistrictInsert = Database["public"]["Tables"]["districts"]["Insert"];
+export type DistrictUpdate = Database["public"]["Tables"]["districts"]["Update"];
+
+export type Property = Database["public"]["Tables"]["properties"]["Row"];
+export type PropertyInsert = Database["public"]["Tables"]["properties"]["Insert"];
+export type PropertyUpdate = Database["public"]["Tables"]["properties"]["Update"];
+
+export type PropertyImage = Database["public"]["Tables"]["property_images"]["Row"];
+export type Inquiry = Database["public"]["Tables"]["inquiries"]["Row"];
+export type HomepageSection = Database["public"]["Tables"]["homepage_sections"]["Row"];
+export type HomepageSettings = Database["public"]["Tables"]["homepage_settings"]["Row"];

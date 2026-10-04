@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
-import { GOVERNORATES } from "@/lib/data";
+import React, { useState, useEffect, useMemo } from "react";
+import { Governorate, District } from "@/lib/supabase/types";
+import { getPublicLocations } from "@/lib/actions/properties";
 
 interface AdvancedFilterDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   onApply: (filters: FilterState) => void;
+  initialGovernorates?: Governorate[];
+  initialDistricts?: District[];
 }
 
 export interface FilterState {
@@ -22,24 +25,47 @@ export function AdvancedFilterDrawer({
   isOpen,
   onClose,
   onApply,
+  initialGovernorates = [],
+  initialDistricts = [],
 }: AdvancedFilterDrawerProps) {
   const [dealType, setDealType] = useState<"sale" | "rent">("sale");
-  const [governorate, setGovernorate] = useState("damascus");
+  const [governorates, setGovernorates] = useState<Governorate[]>(initialGovernorates);
+  const [districts, setDistricts] = useState<District[]>(initialDistricts);
+  const [governorate, setGovernorate] = useState<string>("all");
   const [district, setDistrict] = useState("all");
   const [propertyType, setPropertyType] = useState("all");
   const [maxPrice, setMaxPrice] = useState(1800000);
   const [features, setFeatures] = useState<string[]>([]);
 
-  const currentGovernorateData =
-    GOVERNORATES.find((g) => g.id === governorate) || GOVERNORATES[0];
+  useEffect(() => {
+    if (governorates.length === 0) {
+      getPublicLocations().then((locs) => {
+        setGovernorates(locs.governorates);
+        setDistricts(locs.districts);
+      });
+    }
+  }, [governorates.length]);
+
+  const filteredDistricts = useMemo(() => {
+    if (!governorate || governorate === "all") return districts;
+    return districts.filter((d) => d.governorate_id === governorate);
+  }, [governorate, districts]);
 
   const handleReset = () => {
     setDealType("sale");
-    setGovernorate("damascus");
+    setGovernorate("all");
     setDistrict("all");
     setPropertyType("all");
     setMaxPrice(1800000);
     setFeatures([]);
+  };
+
+  const handleGovernorateChange = (newGovId: string) => {
+    setGovernorate(newGovId);
+    const matchingDistricts = districts.filter((d) => d.governorate_id === newGovId);
+    if (!matchingDistricts.some((d) => d.id === district)) {
+      setDistrict("all");
+    }
   };
 
   const toggleFeature = (feat: string) => {
@@ -118,15 +144,13 @@ export function AdvancedFilterDrawer({
             <div className="relative bg-surface-container rounded-lg px-space-sm py-2">
               <select
                 value={governorate}
-                onChange={(e) => {
-                  setGovernorate(e.target.value);
-                  setDistrict("all");
-                }}
+                onChange={(e) => handleGovernorateChange(e.target.value)}
                 className="w-full bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none appearance-none cursor-pointer"
               >
-                {GOVERNORATES.map((g) => (
+                <option value="all">كافة المحافظات</option>
+                {governorates.map((g) => (
                   <option key={g.id} value={g.id}>
-                    {g.name}
+                    {g.name_ar}
                   </option>
                 ))}
               </select>
@@ -145,9 +169,10 @@ export function AdvancedFilterDrawer({
                 onChange={(e) => setDistrict(e.target.value)}
                 className="w-full bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none appearance-none cursor-pointer"
               >
-                {currentGovernorateData.districts.map((d) => (
+                <option value="all">كافة المناطق والأحياء</option>
+                {filteredDistricts.map((d) => (
                   <option key={d.id} value={d.id}>
-                    {d.name}
+                    {d.name_ar}
                   </option>
                 ))}
               </select>

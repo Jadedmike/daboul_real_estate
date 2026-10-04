@@ -40,15 +40,15 @@ export function BottomNav() {
     },
     {
       label: "من نحن",
-      href: "/#about-us",
+      href: "/about",
       icon: "domain",
-      isActive: false,
+      isActive: pathname === "/about",
     },
     {
       label: "تواصل",
-      href: "tel:+963900000000",
+      href: "/contact",
       icon: "chat",
-      isActive: false,
+      isActive: pathname === "/contact",
     },
     {
       label: "الأدمن",
