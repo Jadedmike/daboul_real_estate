@@ -137,8 +137,15 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
         data-alt={property.imageAlt}
         style={{ backgroundImage: `url('${property.imageUrl}')` }}
       >
+        {/* Full Image Clickable Link */}
+        <Link
+          href={`/properties/${property.id}`}
+          className="absolute inset-0 z-10 cursor-pointer"
+          aria-label={property.title}
+        />
+
         {/* Floating Badges */}
-        <div className="absolute top-space-sm right-space-sm flex items-center gap-space-xs">
+        <div className="absolute top-space-sm right-space-sm flex items-center gap-space-xs z-20 pointer-events-none">
           {property.badges.map((badge, idx) => (
             <span
               key={idx}
@@ -164,7 +171,7 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
         <button
           aria-label="حفظ في المفضلة"
           onClick={toggleFavorite}
-          className="favorite-btn absolute top-space-sm left-space-sm w-9 h-9 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface flex items-center justify-center hover:text-secondary-container transition-colors shadow-sm cursor-pointer"
+          className="favorite-btn absolute top-space-sm left-space-sm w-9 h-9 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface flex items-center justify-center hover:text-secondary-container transition-colors shadow-sm cursor-pointer z-30 pointer-events-auto"
         >
           <span
             className={`material-symbols-outlined text-[20px] transition-colors ${
@@ -179,7 +186,7 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
         </button>
 
         {/* Price Overlay Bottom Bar */}
-        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-primary/80 to-transparent p-space-sm flex items-end justify-between">
+        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-primary/80 to-transparent p-space-sm flex items-end justify-between pointer-events-none z-20">
           <div className="text-on-primary">
             <span className="font-label-sm text-label-sm text-tertiary-fixed opacity-90">
               {property.dealType === "rent"

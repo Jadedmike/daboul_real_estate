@@ -45,7 +45,7 @@ export function BottomNav() {
       isActive: pathname === "/about",
     },
     {
-      label: "تواصل",
+      label: "تواصل معنا",
       href: "/contact",
       icon: "chat",
       isActive: pathname === "/contact",

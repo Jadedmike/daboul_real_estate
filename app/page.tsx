@@ -186,7 +186,10 @@ export default async function HomePage() {
                 key={prop.id}
                 className="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group"
               >
-                <div className="relative w-full h-52 overflow-hidden">
+                <Link
+                  href={`/properties/${prop.id}`}
+                  className="relative w-full h-52 overflow-hidden block cursor-pointer"
+                >
                   <div
                     className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                     data-alt={coverImg?.alt_text || prop.title_ar}
@@ -203,7 +206,7 @@ export default async function HomePage() {
                       ? "للبيع نقداً أو بالتقسيط"
                       : "للإيجار"}
                   </div>
-                </div>
+                </Link>
                 <div className="p-space-md flex flex-col gap-space-xs">
                   <div className="flex items-center justify-between">
                     <span className="font-label-sm text-label-sm text-outline flex items-center gap-1">
