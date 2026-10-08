@@ -7,7 +7,7 @@ import {
   getPublicProperties,
 } from "@/lib/actions/properties";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "سجل العقارات المتاحة للبيع والإيجار | دعبول العقارية",

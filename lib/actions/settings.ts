@@ -1,7 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { cache } from "react";
+import { createClient, createPublicClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/auth/admin";
 import type { Json } from "@/lib/supabase/types";
 import {
@@ -15,16 +16,15 @@ export type { CompanySettings, SettingsActionResult };
 const SECTION_KEY = "company_contact";
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-
-
 /**
  * Fetches the central company settings from Supabase.
  * Reuses public.homepage_sections configuration JSONB.
  * Safe fallback to DEFAULT_COMPANY_SETTINGS if no record is found.
+ * Cached with React cache().
  */
-export async function getCompanySettings(): Promise<CompanySettings> {
+export const getCompanySettings = cache(async (): Promise<CompanySettings> => {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
 
     const { data, error } = await supabase
       .from("homepage_sections")
@@ -76,7 +76,7 @@ export async function getCompanySettings(): Promise<CompanySettings> {
     console.error("Exception fetching company settings:", error);
     return DEFAULT_COMPANY_SETTINGS;
   }
-}
+});
 
 /**
  * Updates company settings.

@@ -7,7 +7,7 @@ import { ToastProvider } from "@/components/ui/Toast";
 import { getCompanySettings } from "@/lib/actions/settings";
 import { formatWhatsAppUrl } from "@/lib/utils/format";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 120;
 
 export const metadata: Metadata = {
   title: "من نحن | دعبول العقارية",

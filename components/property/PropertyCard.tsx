@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Property } from "@/lib/data";
 import { PublicProperty } from "@/lib/actions/properties";
 
@@ -133,10 +134,17 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
     <article className="property-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
       {/* Property Image Header with Overlays */}
       <div
-        className="relative w-full h-56 bg-cover bg-center"
+        className="relative w-full h-56 bg-surface-container-high overflow-hidden"
         data-alt={property.imageAlt}
-        style={{ backgroundImage: `url('${property.imageUrl}')` }}
       >
+        <Image
+          src={property.imageUrl}
+          alt={property.imageAlt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover"
+          loading="lazy"
+        />
         {/* Full Image Clickable Link */}
         <Link
           href={`/properties/${property.id}`}

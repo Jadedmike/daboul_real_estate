@@ -1,7 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { cache } from "react";
+import { createClient, createPublicClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/auth/admin";
 import {
   Property,
@@ -860,7 +861,7 @@ export async function getPublicLocations(): Promise<{
   districts: District[];
 }> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const [govRes, distRes] = await Promise.all([
       supabase
         .from("governorates")
@@ -890,10 +891,10 @@ export async function getPublicLocations(): Promise<{
  */
 export async function getPublicFeaturedProperties(limit: number = 6): Promise<PublicProperty[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("properties")
-      .select("*, governorates(id, name_ar, name_en), districts(id, name_ar, name_en), property_images(*)")
+      .select("*, governorates(id, name_ar, name_en), districts(id, name_ar, name_en), property_images(id, public_url, is_cover, alt_text, sort_order)")
       .eq("status", "available")
       .eq("is_featured", true)
       .order("created_at", { ascending: false })
@@ -925,10 +926,10 @@ export async function getPublicFeaturedProperties(limit: number = 6): Promise<Pu
  */
 export async function getPublicOfferProperties(limit: number = 6): Promise<PublicProperty[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("properties")
-      .select("*, governorates(id, name_ar, name_en), districts(id, name_ar, name_en), property_images(*)")
+      .select("*, governorates(id, name_ar, name_en), districts(id, name_ar, name_en), property_images(id, public_url, is_cover, alt_text, sort_order)")
       .eq("status", "available")
       .eq("is_offer", true)
       .order("created_at", { ascending: false })
@@ -961,10 +962,10 @@ export async function getPublicProperties(
   filters?: PublicCatalogFilters
 ): Promise<PublicProperty[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     let query = supabase
       .from("properties")
-      .select("*, governorates(id, name_ar, name_en), districts(id, name_ar, name_en), property_images(*)")
+      .select("*, governorates(id, name_ar, name_en), districts(id, name_ar, name_en), property_images(id, public_url, is_cover, alt_text, sort_order)")
       .eq("status", "available");
 
     // Apply filters
@@ -1065,8 +1066,9 @@ export async function getPublicProperties(
 /**
  * Fetches a single publicly visible property by ID.
  * Returns null if the property does not exist or is not 'available' (draft/hidden).
+ * Cached with React cache() to deduplicate generateMetadata and page queries.
  */
-export async function getPublicPropertyById(id: string): Promise<PublicProperty | null> {
+export const getPublicPropertyById = cache(async (id: string): Promise<PublicProperty | null> => {
   // Validate UUID format to prevent postgres invalid input syntax errors
   const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
   if (!isUuid) {
@@ -1074,7 +1076,7 @@ export async function getPublicPropertyById(id: string): Promise<PublicProperty 
   }
 
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("properties")
       .select("*, governorates(id, name_ar, name_en), districts(id, name_ar, name_en), property_images(*)")
@@ -1101,7 +1103,7 @@ export async function getPublicPropertyById(id: string): Promise<PublicProperty 
     console.error("Exception fetching public property by id:", error);
     return null;
   }
-}
+});
 
 /**
  * Fetches publicly visible latest properties for the homepage CMS section.
@@ -1109,10 +1111,10 @@ export async function getPublicPropertyById(id: string): Promise<PublicProperty 
  */
 export async function getPublicLatestProperties(limit: number = 6): Promise<PublicProperty[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("properties")
-      .select("*, governorates(id, name_ar, name_en), districts(id, name_ar, name_en), property_images(*)")
+      .select("*, governorates(id, name_ar, name_en), districts(id, name_ar, name_en), property_images(id, public_url, is_cover, alt_text, sort_order)")
       .eq("status", "available")
       .order("created_at", { ascending: false })
       .limit(limit);

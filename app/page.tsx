@@ -16,7 +16,7 @@ import { getHomepageConfig } from "@/lib/actions/cms";
 import { getCompanySettings } from "@/lib/actions/settings";
 import { formatTelUrl, formatWhatsAppUrl } from "@/lib/utils/format";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "دعبول العقارية | البوابة العقارية الأولى في سوريا",

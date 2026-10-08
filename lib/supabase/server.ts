@@ -1,10 +1,29 @@
 import { createServerClient } from "@supabase/ssr";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
 import { Database } from "./types";
 
 export const isSupabaseConfigured = Boolean(
   process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 );
+
+/**
+ * Creates a lightweight, unauthenticated client for public queries.
+ * Does NOT read or set cookies, allowing Next.js to cache and prerender pages (ISR).
+ */
+export function createPublicClient() {
+  const supabaseUrl =
+    process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder-project.supabase.co";
+  const supabaseAnonKey =
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder-anon-key";
+
+  return createSupabaseClient<Database>(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  });
+}
 
 export async function createClient(useServiceRole = false) {
   const cookieStore = await cookies();
@@ -33,3 +52,4 @@ export async function createClient(useServiceRole = false) {
     },
   });
 }
+

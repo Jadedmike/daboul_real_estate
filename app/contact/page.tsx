@@ -8,7 +8,7 @@ import { getCompanySettings } from "@/lib/actions/settings";
 import { formatTelUrl, formatWhatsAppUrl } from "@/lib/utils/format";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 120;
 
 export const metadata: Metadata = {
   title: "تواصل معنا | دعبول العقارية",

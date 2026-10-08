@@ -1,7 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { cache } from "react";
+import { createClient, createPublicClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/auth/admin";
 import { HomepageSection, HomepageSettings, Json } from "@/lib/supabase/types";
 
@@ -90,10 +91,11 @@ const DEFAULT_SECTIONS: Omit<HomepageSection, "id" | "created_at" | "updated_at"
  * Fetches the homepage CMS configuration (public read).
  * Returns sections sorted by sort_order ASC and settings.
  * Includes graceful fallbacks if database read encounters an issue.
+ * Cached with React cache().
  */
-export async function getHomepageConfig(): Promise<HomepageConfig> {
+export const getHomepageConfig = cache(async (): Promise<HomepageConfig> => {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const [sectionsRes, settingsRes] = await Promise.all([
       supabase
         .from("homepage_sections")
@@ -134,7 +136,7 @@ export async function getHomepageConfig(): Promise<HomepageConfig> {
       settings: null,
     };
   }
-}
+});
 
 /**
  * Toggles a homepage section enabled/disabled state. Requires active admin.

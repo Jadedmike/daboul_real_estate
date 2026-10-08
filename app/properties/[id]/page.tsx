@@ -9,7 +9,7 @@ import { ToastProvider } from "@/components/ui/Toast";
 import { getPublicPropertyById } from "@/lib/actions/properties";
 import { getCompanySettings } from "@/lib/actions/settings";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export async function generateMetadata({
   params,
