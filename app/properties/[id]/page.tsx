@@ -6,10 +6,19 @@ import { PropertyGallery } from "@/components/gallery/PropertyGallery";
 import { InspectionBookingForm } from "@/components/property/InspectionBookingForm";
 import { FloatingContactBar } from "@/components/ui/FloatingContactBar";
 import { ToastProvider } from "@/components/ui/Toast";
-import { getPublicPropertyById } from "@/lib/actions/properties";
+import { getPublicPropertyById, getPublicProperties } from "@/lib/actions/properties";
 import { getCompanySettings } from "@/lib/actions/settings";
 
 export const revalidate = 60;
+
+export async function generateStaticParams() {
+  try {
+    const properties = await getPublicProperties();
+    return properties.map((p) => ({ id: p.id }));
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({
   params,

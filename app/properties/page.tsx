@@ -21,27 +21,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function PropertiesPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
-  const sp = await searchParams;
-  const deal = typeof sp.deal === "string" ? sp.deal : undefined;
-  const gov = typeof sp.gov === "string" ? sp.gov : undefined;
-  const district = typeof sp.district === "string" ? sp.district : undefined;
-  const type = typeof sp.type === "string" ? sp.type : undefined;
-  const search = typeof sp.search === "string" ? sp.search : undefined;
-
+export default async function PropertiesPage() {
   const [locations, initialProperties] = await Promise.all([
     getPublicLocations(),
-    getPublicProperties({
-      deal,
-      governorate: gov,
-      district,
-      type,
-      search,
-    }),
+    getPublicProperties(),
   ]);
 
   return (
