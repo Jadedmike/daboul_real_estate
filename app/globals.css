@@ -80,18 +80,21 @@
 }
 
 @layer base {
-  html, body {
-    width: 100vw;
+  html {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
+    scroll-behavior: smooth;
   }
   body {
-    overscroll-behavior: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100dvh;
     font-family: 'IBM Plex Sans', sans-serif;
-    min-height: max(884px, 100dvh);
     background-color: #f9f9fb;
     color: #1a1c1d;
+    overflow-x: clip;
   }
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -107,9 +110,6 @@
   }
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
