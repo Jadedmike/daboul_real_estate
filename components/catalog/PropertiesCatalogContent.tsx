@@ -3,7 +3,6 @@
 import React, { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { Header } from "@/components/layout/Header";
-import { BottomNav } from "@/components/layout/BottomNav";
 import { PropertyCard } from "@/components/property/PropertyCard";
 import {
   AdvancedFilterDrawer,
@@ -168,7 +167,7 @@ export function PropertiesCatalogContent({
     <>
       <Header />
 
-      <main className="flex flex-col relative w-full pt-16 pb-20 bg-surface">
+      <main className="flex flex-col relative w-full pt-16 bg-surface">
         <div className="flex flex-col w-full">
           {/* Search & Fast Filter Ribbon */}
           <section className="px-gutter-mobile py-space-sm bg-surface-container-lowest shadow-sm">
@@ -348,8 +347,6 @@ export function PropertiesCatalogContent({
           </section>
         </div>
       </main>
-
-      <BottomNav />
     </>
   );
 }

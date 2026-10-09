@@ -3,7 +3,6 @@ import Link from "next/link";
 import { verifyAdminOrRedirect } from "@/lib/auth/admin";
 import { getLocationsData } from "@/lib/actions/properties";
 import { AdminHeader } from "@/components/layout/AdminHeader";
-import { BottomNav } from "@/components/layout/BottomNav";
 import { PropertyForm } from "@/components/admin/PropertyForm";
 
 export const dynamic = "force-dynamic";
@@ -19,7 +18,7 @@ export default async function NewPropertyPage() {
     <>
       <AdminHeader />
 
-      <main className="flex flex-col relative w-full pt-16 pb-20 bg-surface">
+      <main className="flex flex-col relative w-full pt-16 bg-surface">
         <div className="flex flex-col w-full max-w-4xl mx-auto px-gutter-mobile py-space-sm space-y-space-md" dir="rtl">
           {/* Top Breadcrumb & Page Title */}
           <div className="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 flex items-center justify-between">
@@ -62,8 +61,6 @@ export default async function NewPropertyPage() {
           />
         </div>
       </main>
-
-      <BottomNav />
     </>
   );
 }

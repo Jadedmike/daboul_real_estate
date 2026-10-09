@@ -1,13 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
-import { BottomNav } from "@/components/layout/BottomNav";
 
 export default function NotFound() {
   return (
     <>
       <Header />
-      <main className="flex flex-col items-center justify-center min-h-[70vh] px-gutter-mobile pt-20 pb-20 text-center bg-surface">
+      <main className="flex flex-col items-center justify-center min-h-[70vh] px-gutter-mobile pt-20 pb-8 text-center bg-surface">
         <div className="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center text-secondary-container mb-space-md shadow-inner">
           <span className="material-symbols-outlined text-[42px]">
             real_estate_agent
@@ -37,7 +36,6 @@ export default function NotFound() {
           </Link>
         </div>
       </main>
-      <BottomNav />
     </>
   );
 }

@@ -2,7 +2,6 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
-import { BottomNav } from "@/components/layout/BottomNav";
 import { ToastProvider } from "@/components/ui/Toast";
 import { getCompanySettings } from "@/lib/actions/settings";
 import { formatWhatsAppUrl } from "@/lib/utils/format";
@@ -55,7 +54,7 @@ export default async function AboutPage() {
     <ToastProvider>
       <Header variant="back" title="من نحن" />
 
-      <main className="flex flex-col relative w-full pt-16 pb-24 bg-surface" dir="rtl">
+      <main className="flex flex-col relative w-full pt-16 bg-surface" dir="rtl">
         <div className="flex flex-col w-full px-gutter-mobile py-space-md space-y-space-md max-w-3xl mx-auto">
           {/* Company Hero Card */}
           <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs border border-outline-variant/30">
@@ -200,8 +199,6 @@ export default async function AboutPage() {
           </footer>
         </div>
       </main>
-
-      <BottomNav />
     </ToastProvider>
   );
 }

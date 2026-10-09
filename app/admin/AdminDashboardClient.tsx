@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { AdminHeader } from "@/components/layout/AdminHeader";
-import { BottomNav } from "@/components/layout/BottomNav";
 import { AdminNavTabs } from "@/components/admin/AdminNavTabs";
 import { AdminStatCard } from "@/components/admin/AdminStatCard";
 import { AdminPropertyTable } from "@/components/admin/AdminPropertyTable";
@@ -48,7 +47,7 @@ function AdminDashboardContent({
     <>
       <AdminHeader />
 
-      <main className="flex flex-col relative w-full pt-16 pb-20 bg-surface">
+      <main className="flex flex-col relative w-full pt-16 bg-surface">
         <div className="flex flex-col w-full px-gutter-mobile py-space-sm space-y-space-md" dir="rtl">
           {/* Admin Sub-Header & Live Status */}
           <div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm border border-outline-variant/30">
@@ -235,8 +234,6 @@ function AdminDashboardContent({
           )}
         </div>
       </main>
-
-      <BottomNav />
     </>
   );
 }

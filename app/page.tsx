@@ -2,7 +2,6 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
-import { BottomNav } from "@/components/layout/BottomNav";
 import { SearchFilters } from "@/components/search/SearchFilters";
 import { PropertyCard } from "@/components/property/PropertyCard";
 import { ToastProvider } from "@/components/ui/Toast";
@@ -733,7 +732,7 @@ export default async function HomePage() {
     <ToastProvider>
       <Header />
 
-      <main className="flex flex-col relative w-full pt-16 pb-20 bg-surface">
+      <main className="flex flex-col relative w-full pt-16 bg-surface">
         <div className="flex flex-col w-full">
           {/* Render all enabled CMS sections in configured order */}
           {enabledSections.map((section) => {
@@ -820,8 +819,6 @@ export default async function HomePage() {
           </footer>
         </div>
       </main>
-
-      <BottomNav />
     </ToastProvider>
   );
 }
