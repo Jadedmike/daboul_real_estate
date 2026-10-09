@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { AuthRedirectWatcher } from "@/components/auth/AuthRedirectWatcher";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen antialiased">
+        <AuthRedirectWatcher />
         {children}
       </body>
     </html>

@@ -139,12 +139,20 @@ function LoginForm() {
 
         {/* Password Field */}
         <div>
-          <label
-            htmlFor="admin-password"
-            className="block font-title-sm text-title-sm text-on-surface mb-1.5"
-          >
-            كلمة المرور
-          </label>
+          <div className="flex items-center justify-between mb-1.5">
+            <label
+              htmlFor="admin-password"
+              className="block font-title-sm text-title-sm text-on-surface"
+            >
+              كلمة المرور
+            </label>
+            <Link
+              href="/admin/forgot-password"
+              className="text-label-sm text-primary hover:text-primary-container transition-colors"
+            >
+              نسيت كلمة المرور؟
+            </Link>
+          </div>
           <div className="relative">
             <span className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-outline">
               <span className="material-symbols-outlined text-[20px]">lock</span>

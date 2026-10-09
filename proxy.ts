@@ -17,8 +17,13 @@ export async function proxy(request: NextRequest) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
+  const isAuthRoute =
+    pathname === "/admin/login" ||
+    pathname === "/admin/forgot-password" ||
+    pathname === "/admin/reset-password";
+
   if (!supabaseUrl || !supabaseAnonKey) {
-    if (pathname !== "/admin/login") {
+    if (!isAuthRoute) {
       const url = request.nextUrl.clone();
       url.pathname = "/admin/login";
       return NextResponse.redirect(url);
@@ -48,8 +53,8 @@ export async function proxy(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Protect all /admin routes except /admin/login
-  if (pathname !== "/admin/login") {
+  // Protect all /admin routes except public auth routes
+  if (!isAuthRoute) {
     if (!user) {
       const url = request.nextUrl.clone();
       url.pathname = "/admin/login";
