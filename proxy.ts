@@ -14,8 +14,11 @@ export async function proxy(request: NextRequest) {
     request,
   });
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const defaultSupabaseUrl = "https://mkgvkimtbsvegmqlbsnu.supabase.co";
+  const defaultSupabaseAnonKey = "sb_publishable_HocxBE2eAOB9NLEnAh_QhA_77WXjcNk";
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || defaultSupabaseUrl;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || defaultSupabaseAnonKey;
 
   const isAuthRoute =
     pathname === "/admin/login" ||
