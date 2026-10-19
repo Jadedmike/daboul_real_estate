@@ -113,7 +113,7 @@ export function InspectionBookingForm({
             تم استلام طلب المعاينة بنجاح
           </span>
           <span className="font-body-sm text-body-sm text-on-surface-variant">
-            سيتواصل معك مستشار دعبول العقاري في أقرب وقت لتأكيد موعد الزيارة.
+            سيتواصل معك مستشار Example العقاري في أقرب وقت لتأكيد موعد الزيارة.
           </span>
           <button
             type="button"

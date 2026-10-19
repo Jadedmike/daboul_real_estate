@@ -53,18 +53,13 @@ function AdminDashboardContent({
           <div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm border border-outline-variant/30">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-space-sm">
-                <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold shadow-md">
-                  <span className="font-headline-sm text-headline-sm text-secondary-container">
-                    D
-                  </span>
-                </div>
                 <div className="flex flex-col">
                   <div className="flex items-center gap-space-xs">
-                    <span className="font-title-sm text-title-sm text-on-surface">
+                    <span className="font-title-sm text-title-sm text-on-surface font-bold">
                       بوابة الإدارة المركزية
                     </span>
                     <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed">
-                      DABOUL CMS
+                      Example CMS
                     </span>
                   </div>
                   <span className="font-label-sm text-label-sm text-outline">

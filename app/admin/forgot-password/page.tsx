@@ -64,12 +64,10 @@ function ForgotPasswordForm() {
     <div className="w-full max-w-md bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 p-space-lg sm:p-8">
       {/* Brand & Badge */}
       <div className="flex flex-col items-center text-center mb-space-md">
-        <Link href="/" className="inline-flex items-center gap-space-xs mb-3 group">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb_RHzG3bw0UpDH7USvnF4lD89zw4R5IiAup9DZUbfAS_QX_bciTHi9Ctffq6lYEEwO9-ZC8dc3JaT3xd3q5V4Zg4U7p-8-37aD_oIfFyWSZLrpf6bHiMYOX3en1dN-iVwXZ3x1GavkMrS00Oala4UMnqnZM1gTXsKp3Ce8JBht3f-U569u5baAsAexqwuRK2UCyes9ygWO9vv0JbvdV7w5mEM5ES6a_-AaJSztf37PBAfvNlxwpEs67WCCH3HQ6Y0mA"
-            alt="دعبول العقارية"
-            className="h-11 w-auto object-contain"
-          />
+        <Link href="/" className="inline-flex items-center mb-3 group">
+          <span className="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
+            Example
+          </span>
         </Link>
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed text-label-sm font-label-sm mb-2">
           <span className="material-symbols-outlined text-[16px] text-secondary">
@@ -131,7 +129,7 @@ function ForgotPasswordForm() {
                 dir="ltr"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@daboul-realestate.sy"
+                placeholder="admin@example.com"
                 required
                 autoComplete="email"
                 disabled={isLoading}
@@ -208,7 +206,7 @@ export default function AdminForgotPasswordPage() {
       </Suspense>
 
       <div className="mt-6 text-center text-label-sm text-outline">
-        <span>منصة دعبول العقارية • استعادة الحساب الآمنة</span>
+        <span>منصة Example • استعادة الحساب الآمنة</span>
       </div>
     </div>
   );

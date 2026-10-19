@@ -42,15 +42,10 @@ export function AdminHeader() {
             </span>
           </a>
         </div>
-        <Link className="flex items-center gap-space-xs" href="/">
-          <img
-            alt="Daboul Real Estate Logo"
-            className="h-9 w-auto object-contain"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb_RHzG3bw0UpDH7USvnF4lD89zw4R5IiAup9DZUbfAS_QX_bciTHi9Ctffq6lYEEwO9-ZC8dc3JaT3xd3q5V4Zg4U7p-8-37aD_oIfFyWSZLrpf6bHiMYOX3en1dN-iVwXZ3x1GavkMrS00Oala4UMnqnZM1gTXsKp3Ce8JBht3f-U569u5baAsAexqwuRK2UCyes9ygWO9vv0JbvdV7w5mEM5ES6a_-AaJSztf37PBAfvNlxwpEs67WCCH3HQ6Y0mA"
-          />
+        <Link className="flex items-center" href="/">
           <div className="flex flex-col text-right">
-            <span className="font-title-sm text-title-sm text-primary tracking-tight leading-none">
-              دعبول العقارية
+            <span className="font-title-sm text-title-sm text-primary font-bold tracking-tight leading-none">
+              Example
             </span>
             <span className="font-label-sm text-label-sm text-outline leading-tight">
               Admin Portal

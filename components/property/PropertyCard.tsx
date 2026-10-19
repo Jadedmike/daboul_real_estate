@@ -61,7 +61,7 @@ function normalizeProperty(p: PublicProperty | Property): NormalizedCardData {
     const badgeHighlight = pub.is_offer
       ? "فرصة حصرية"
       : pub.is_featured
-      ? "اختيار دعبول"
+      ? "اختيار Example"
       : undefined;
 
     const govName = pub.governorates?.name_ar;

@@ -158,7 +158,7 @@ export async function submitPublicInquiry(
     return {
       success: true,
       message:
-        "تم استلام طلبكم بنجاح! سيتواصل معكم مستشار دعبول العقاري في أقرب وقت.",
+        "تم استلام طلبكم بنجاح! سيتواصل معكم مستشار Example العقاري في أقرب وقت.",
     };
   } catch (error) {
     console.error("Exception submitting public inquiry:", error);

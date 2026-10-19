@@ -17,8 +17,8 @@ export function FloatingContactBar({
 
   const telLink = formatTelUrl(effectivePhone);
   const waMsg = propertyTitle
-    ? `مرحباً دعبول العقارية، أنا مهتم بعقار: "${propertyTitle}". أرجو تزويدي بمزيد من التفاصيل.`
-    : "مرحباً دعبول العقارية، أرغب في الاستفسار عن أحد العقارات المعروضة لديكم.";
+    ? `مرحباً Example، أنا مهتم بعقار: "${propertyTitle}". أرجو تزويدي بمزيد من التفاصيل.`
+    : "مرحباً Example، أرغب في الاستفسار عن أحد العقارات المعروضة لديكم.";
   const waLink = formatWhatsAppUrl(effectiveWhatsApp, waMsg);
 
   return (
@@ -37,7 +37,7 @@ export function FloatingContactBar({
         rel="noopener noreferrer"
       >
         <span className="material-symbols-outlined text-[20px]">chat</span>
-        <span>واتساب دعبول</span>
+        <span>واتساب Example</span>
       </a>
     </div>
   );

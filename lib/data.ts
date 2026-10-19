@@ -171,7 +171,7 @@ export const PROPERTIES: Property[] = [
     priceNote: "دولار أمريكي",
     isNegotiable: true,
     badges: ["للبيع", "طابو أخضر 2400 سهم"],
-    badgeHighlight: "حصري لدى دعبول",
+    badgeHighlight: "حصري لدى Example",
     area: "280 م²",
     bedrooms: "4 (ماستر 2)",
     bathrooms: "3 حمامات",

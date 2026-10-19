@@ -60,11 +60,11 @@ async function verify() {
   // 4. Test admin update of company settings
   console.log("\n[4] Testing admin update of company settings...");
   const testSettings = {
-    company_name_ar: "دعبول العقارية - فحص",
-    company_name_en: "Daboul Real Estate Test",
+    company_name_ar: "Example - فحص",
+    company_name_en: "Example Test",
     phone: "+963 11 214 9999",
     whatsapp: "+963 944 999 999",
-    email: "test@daboul-realestate.sy",
+    email: "test@example.com",
     address: "دمشق - المزة فيلات غربية - فحص",
     short_description: "وصف اختباري للشركة العقارية للتأكد من حفظ الإعدادات.",
     working_hours: "السبت - الخميس: 8:00 ص - 7:00 م",
@@ -116,12 +116,12 @@ async function verify() {
   // 6. Restore original / production defaults to maintain database integrity
   console.log("\n[6] Restoring clean production default company settings...");
   const cleanSettings = {
-    company_name_ar: "دعبول العقارية",
-    company_name_en: "Daboul Real Estate",
+    company_name_ar: "Example",
+    company_name_en: "Example",
     phone: "+963 11 214 0000",
     whatsapp: "+963 944 000 000",
-    email: "info@daboul-realestate.sy",
-    address: "دمشق - المزة فيلات غربية / شارع دعبول الرئيسي",
+    email: "info@example.com",
+    address: "دمشق - المزة فيلات غربية / الشارع الرئيسي",
     short_description: "الشركة السورية الرائدة في الوساطة والاستثمار والتطوير العقاري. دمشق، ريف دمشق، حلب، والساحل السوري.",
     working_hours: "السبت - الخميس: 9:00 ص - 8:00 م",
   };

@@ -37,7 +37,7 @@ const DEFAULT_SECTIONS: Omit<HomepageSection, "id" | "created_at" | "updated_at"
   {
     section_key: "featured_properties",
     title_ar: "عقارات مميزة مختارة",
-    description_ar: "عقارات مدققة وموثقة قانونياً من فريق دعبول",
+    description_ar: "عقارات مدققة وموثقة قانونياً من فريق Example",
     is_enabled: true,
     sort_order: 3,
     configuration: { limit: 4, show_specs: true },
@@ -60,7 +60,7 @@ const DEFAULT_SECTIONS: Omit<HomepageSection, "id" | "created_at" | "updated_at"
   },
   {
     section_key: "why_daboul",
-    title_ar: "لماذا تختار دعبول العقارية؟",
+    title_ar: "لماذا تختار Example؟",
     description_ar: "أعمدة الثقة، المصداقية، والتوثيق القانوني",
     is_enabled: true,
     sort_order: 6,
@@ -81,7 +81,7 @@ const DEFAULT_SECTIONS: Omit<HomepageSection, "id" | "created_at" | "updated_at"
     is_enabled: true,
     sort_order: 8,
     configuration: {
-      button_text: "أضف عقارك الآن عبر واتساب دعبول",
+      button_text: "أضف عقارك الآن عبر واتساب Example",
       button_link: "https://wa.me/963900000000",
     },
   },
@@ -104,10 +104,38 @@ export const getHomepageConfig = cache(async (): Promise<HomepageConfig> => {
       supabase.from("homepage_settings").select("*").limit(1).maybeSingle(),
     ]);
 
-    const sections = (sectionsRes.data as HomepageSection[]) || [];
+    const rawSections = (sectionsRes.data as HomepageSection[]) || [];
     const settings = (settingsRes.data as HomepageSettings) || null;
 
-    if (sections.length === 0) {
+    const sanitizeString = (str: unknown): string => {
+      if (typeof str !== "string") return "";
+      return str
+        .replace(/دعبول\s*العقارية/g, "Example")
+        .replace(/دعبول/g, "Example")
+        .replace(/Daboul\s*Real\s*Estate/gi, "Example")
+        .replace(/Daboul/gi, "Example");
+    };
+
+    const sanitizeSection = (sec: HomepageSection): HomepageSection => {
+      const sanitizedConfig: Record<string, unknown> = {
+        ...(typeof sec.configuration === "object" && sec.configuration !== null
+          ? (sec.configuration as Record<string, unknown>)
+          : {}),
+      };
+
+      if (typeof sanitizedConfig.button_text === "string") {
+        sanitizedConfig.button_text = sanitizeString(sanitizedConfig.button_text);
+      }
+
+      return {
+        ...sec,
+        title_ar: sanitizeString(sec.title_ar),
+        description_ar: sec.description_ar ? sanitizeString(sec.description_ar) : sec.description_ar,
+        configuration: sanitizedConfig as unknown as Json,
+      };
+    };
+
+    if (rawSections.length === 0) {
       // Return safe defaults if table is empty
       return {
         sections: DEFAULT_SECTIONS.map((s, idx) => ({
@@ -121,7 +149,7 @@ export const getHomepageConfig = cache(async (): Promise<HomepageConfig> => {
     }
 
     return {
-      sections,
+      sections: rawSections.map(sanitizeSection),
       settings,
     };
   } catch (error) {

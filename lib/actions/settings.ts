@@ -38,15 +38,34 @@ export const getCompanySettings = cache(async (): Promise<CompanySettings> => {
 
     const config = data.configuration as Record<string, unknown>;
 
+    const sanitizeText = (val: unknown, fallback: string) => {
+      if (typeof val !== "string" || !val.trim()) return fallback;
+      const trimmed = val.trim();
+      if (/دعبول|daboul/i.test(trimmed)) {
+        return fallback;
+      }
+      return trimmed;
+    };
+
+    const sanitizeEmail = (val: unknown, fallback: string) => {
+      if (typeof val !== "string" || !val.trim()) return fallback;
+      const trimmed = val.trim();
+      if (/daboul/i.test(trimmed)) return fallback;
+      return trimmed;
+    };
+
+    const sanitizeAddress = (val: unknown, fallback: string) => {
+      if (typeof val !== "string" || !val.trim()) return fallback;
+      const trimmed = val.trim();
+      if (/دعبول|daboul/i.test(trimmed)) {
+        return trimmed.replace(/شارع\s*دعبول\s*الرئيسي/g, "الشارع الرئيسي").replace(/دعبول/gi, "Example");
+      }
+      return trimmed;
+    };
+
     return {
-      company_name_ar:
-        typeof config.company_name_ar === "string" && config.company_name_ar.trim()
-          ? config.company_name_ar.trim()
-          : DEFAULT_COMPANY_SETTINGS.company_name_ar,
-      company_name_en:
-        typeof config.company_name_en === "string" && config.company_name_en.trim()
-          ? config.company_name_en.trim()
-          : DEFAULT_COMPANY_SETTINGS.company_name_en,
+      company_name_ar: sanitizeText(config.company_name_ar, DEFAULT_COMPANY_SETTINGS.company_name_ar),
+      company_name_en: sanitizeText(config.company_name_en, DEFAULT_COMPANY_SETTINGS.company_name_en),
       phone:
         typeof config.phone === "string" && config.phone.trim()
           ? config.phone.trim()
@@ -55,14 +74,8 @@ export const getCompanySettings = cache(async (): Promise<CompanySettings> => {
         typeof config.whatsapp === "string" && config.whatsapp.trim()
           ? config.whatsapp.trim()
           : DEFAULT_COMPANY_SETTINGS.whatsapp,
-      email:
-        typeof config.email === "string" && config.email.trim()
-          ? config.email.trim()
-          : DEFAULT_COMPANY_SETTINGS.email,
-      address:
-        typeof config.address === "string" && config.address.trim()
-          ? config.address.trim()
-          : DEFAULT_COMPANY_SETTINGS.address,
+      email: sanitizeEmail(config.email, DEFAULT_COMPANY_SETTINGS.email),
+      address: sanitizeAddress(config.address, DEFAULT_COMPANY_SETTINGS.address),
       short_description:
         typeof config.short_description === "string" && config.short_description.trim()
           ? config.short_description.trim()

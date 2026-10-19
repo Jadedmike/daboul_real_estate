@@ -9,11 +9,11 @@ import { formatWhatsAppUrl } from "@/lib/utils/format";
 export const revalidate = 120;
 
 export const metadata: Metadata = {
-  title: "من نحن | دعبول العقارية",
+  title: "من نحن | Example",
   description:
-    "تعرف على شركة دعبول العقارية، الشريك العقاري المعتمد والموثق للوساطة والاستثمار والتطوير العقاري في سوريا.",
+    "تعرف على شركة Example، الشريك العقاري المعتمد والموثق للوساطة والاستثمار والتطوير العقاري في سوريا.",
   openGraph: {
-    title: "من نحن | دعبول العقارية",
+    title: "من نحن | Example",
     description:
       "الشركة السورية الرائدة في الوساطة والاستثمار والتطوير العقاري في دمشق والمحافظات السورية.",
     type: "website",
@@ -24,7 +24,7 @@ export default async function AboutPage() {
   const settings = await getCompanySettings();
   const waUrl = formatWhatsAppUrl(
     settings.whatsapp,
-    "مرحباً دعبول العقارية، أود الاستفسار عن خدماتكم."
+    "مرحباً Example، أود الاستفسار عن خدماتكم."
   );
 
   const pillars = [
@@ -58,20 +58,13 @@ export default async function AboutPage() {
         <div className="flex flex-col w-full px-gutter-mobile py-space-md space-y-space-md max-w-3xl mx-auto">
           {/* Company Hero Card */}
           <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs border border-outline-variant/30">
-            <div className="flex items-center gap-space-xs">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold shadow-sm">
-                <span className="font-headline-sm text-headline-sm text-secondary-container">
-                  D
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <h1 className="font-title-md text-title-md font-bold text-primary leading-tight">
-                  {settings.company_name_ar}
-                </h1>
-                <span className="font-label-sm text-label-sm text-outline">
-                  {settings.company_name_en}
-                </span>
-              </div>
+            <div className="flex flex-col">
+              <h1 className="font-title-md text-title-md font-bold text-primary leading-tight">
+                {settings.company_name_ar}
+              </h1>
+              <span className="font-label-sm text-label-sm text-outline">
+                {settings.company_name_en}
+              </span>
             </div>
 
             <p className="font-body-md text-body-md text-on-surface leading-relaxed pt-2">
@@ -83,7 +76,7 @@ export default async function AboutPage() {
           <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm border border-outline-variant/30">
             <h2 className="font-title-sm text-title-sm text-on-surface font-bold flex items-center gap-2">
               <span className="w-1.5 h-4 bg-secondary rounded-full" />
-              <span>أعمدة الثقة والمصداقية في دعبول العقارية</span>
+              <span>أعمدة الثقة والمصداقية في Example</span>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-xs pt-1">

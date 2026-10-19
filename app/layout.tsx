@@ -3,7 +3,7 @@ import { AuthRedirectWatcher } from "@/components/auth/AuthRedirectWatcher";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "دعبول العقارية | Daboul Real Estate",
+  title: "Example",
   description: "الرائد الأول للعقارات الفاخرة في دمشق وسوريا. شقق، فلل، وقصور للبيع والإيجار بأعلى معايير المصداقية المعمارية.",
 };
 

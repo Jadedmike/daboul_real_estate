@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://daboul-realestate.sy";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://daboul-real-estate.vercel.app";
 
   // Base static public pages
   const staticRoutes: MetadataRoute.Sitemap = [

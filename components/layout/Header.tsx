@@ -58,7 +58,7 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
           </div>
           <div className="flex items-center gap-space-sm">
             <span className="font-label-md text-label-md text-outline hidden sm:inline">
-              دعبول العقارية
+              Example
             </span>
             <Link href="/" className="flex items-center">
               <img
@@ -88,21 +88,11 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
             </button>
           </div>
 
-          {/* Logo & Brand Identity */}
-          <Link className="flex items-center justify-center gap-space-xs" href="/">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBogQeqPeWECJg-Z1KK7VpIvNDymecnrkeCPlnknKAQgYlqFBHgnZjEKO3KCnvav3WiokbypcNrtgX_zw2rcw9cLTMdEhfMvdpaPphbIudilzKOkgOwX86Dp-VhmjE4lHZI02-4uDeqTmRZ4SUe2aUJw4qiOGH19d8jkpAUfnc2xjHMJOfKuUfyzKBePeFQfHw6YBhJPewVy_xqhmqxmh0Gg1umtuA5uDs52zUDrAcShVkeALob9RMtUKrqzyeJ__pHg"
-              alt="Daboul Real Estate"
-              className="h-9 w-auto object-contain"
-            />
-            <div className="flex flex-col text-right leading-none">
-              <span className="font-title-sm text-title-sm text-primary font-bold tracking-tight">
-                دعبول العقارية
-              </span>
-              <span className="font-label-sm text-[10px] text-outline font-semibold tracking-wider uppercase">
-                Daboul Real Estate
-              </span>
-            </div>
+          {/* Brand Identity */}
+          <Link className="flex items-center justify-center" href="/">
+            <span className="font-title-md text-title-md text-primary font-bold tracking-tight leading-none">
+              Example
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -154,18 +144,13 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
             <div className="flex flex-col gap-space-md">
               {/* Drawer Header */}
               <div className="flex items-center justify-between border-b border-surface-container pb-space-sm">
-                <div className="flex items-center gap-space-xs">
-                  <span className="material-symbols-outlined text-secondary-container text-[24px]">
-                    real_estate_agent
+                <div className="flex flex-col text-right">
+                  <span className="font-title-sm text-title-sm font-bold text-primary">
+                    Example
                   </span>
-                  <div className="flex flex-col text-right">
-                    <span className="font-title-sm text-title-sm font-bold text-primary">
-                      دعبول العقارية
-                    </span>
-                    <span className="font-label-sm text-[10px] text-outline">
-                      القائمة الرئيسية
-                    </span>
-                  </div>
+                  <span className="font-label-sm text-[10px] text-outline">
+                    القائمة الرئيسية
+                  </span>
                 </div>
                 <button
                   aria-label="إغلاق القائمة"
