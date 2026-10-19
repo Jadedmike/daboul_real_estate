@@ -13,7 +13,7 @@ interface PropertyGalleryProps {
 export function PropertyGallery({
   images,
   dealType = "للبيع",
-  badgeHighlight = "حصري لدى Example",
+  badgeHighlight = "حصري لدى Axion Digital",
 }: PropertyGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isSaved, setIsSaved] = useState(false);
@@ -23,7 +23,7 @@ export function PropertyGallery({
     if (typeof window !== "undefined" && navigator.share) {
       navigator
         .share({
-          title: "شقة فاخرة في المالكي - Example",
+          title: "شقة فاخرة في المالكي - Axion Digital",
           text: "شقة 280 م² في أرقى أحياء دمشق، طابو أخضر 2400 سهم مع إطلالة مفتوحة",
           url: window.location.href,
         })

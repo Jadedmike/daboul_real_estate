@@ -155,7 +155,7 @@ export function CompanySettingsEditor({
               required
               value={formData.email}
               onChange={(e) => handleChange("email", e.target.value)}
-              placeholder="info@example.com"
+              placeholder="info@axiondigital.com"
               className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container"
               dir="ltr"
             />

@@ -10,13 +10,13 @@ import Link from "next/link";
 export const revalidate = 120;
 
 export const metadata: Metadata = {
-  title: "تواصل معنا | Example",
+  title: "تواصل معنا | Axion Digital",
   description:
-    "تواصل مباشرة مع فريق Example في دمشق وسوريا عبر الهاتف، الواتساب، أو البريد الإلكتروني لحجز موعد أو استشارة عقارية.",
+    "تواصل مباشرة مع فريق Axion Digital في دمشق وسوريا عبر الهاتف، الواتساب، أو البريد الإلكتروني لحجز موعد أو استشارة عقارية.",
   openGraph: {
-    title: "تواصل معنا | Example",
+    title: "تواصل معنا | Axion Digital",
     description:
-      "تواصل مباشرة مع فريق Example في دمشق وسوريا عبر الهاتف، الواتساب، أو البريد الإلكتروني.",
+      "تواصل مباشرة مع فريق Axion Digital في دمشق وسوريا عبر الهاتف، الواتساب، أو البريد الإلكتروني.",
     type: "website",
   },
 };
@@ -27,7 +27,7 @@ export default async function ContactPage() {
   const telLink = formatTelUrl(settings.phone);
   const waLink = formatWhatsAppUrl(
     settings.whatsapp,
-    "مرحباً Example، أرغب في الاستفسار عن خدماتكم العقارية."
+    "مرحباً Axion Digital، أرغب في الاستفسار عن خدماتكم العقارية."
   );
   const mailLink = `mailto:${settings.email}`;
 

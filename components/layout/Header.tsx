@@ -58,7 +58,7 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
           </div>
           <div className="flex items-center gap-space-sm">
             <span className="font-label-md text-label-md text-outline hidden sm:inline">
-              Example
+              Axion Digital
             </span>
             <Link href="/" className="flex items-center">
               <img
@@ -91,7 +91,7 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
           {/* Brand Identity */}
           <Link className="flex items-center justify-center" href="/">
             <span className="font-title-md text-title-md text-primary font-bold tracking-tight leading-none">
-              Example
+              Axion Digital
             </span>
           </Link>
 
@@ -146,7 +146,7 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
               <div className="flex items-center justify-between border-b border-surface-container pb-space-sm">
                 <div className="flex flex-col text-right">
                   <span className="font-title-sm text-title-sm font-bold text-primary">
-                    Example
+                    Axion Digital
                   </span>
                   <span className="font-label-sm text-[10px] text-outline">
                     القائمة الرئيسية

@@ -76,7 +76,7 @@ function LoginForm() {
       <div className="flex flex-col items-center text-center mb-space-md">
         <Link href="/" className="inline-flex items-center mb-3 group">
           <span className="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
-            Example
+            Axion Digital
           </span>
         </Link>
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed text-label-sm font-label-sm mb-2">
@@ -89,7 +89,7 @@ function LoginForm() {
           تسجيل دخول المشرف
         </h1>
         <p className="font-body-sm text-body-sm text-outline mt-1">
-          لوحة الإدارة المركزية لمنصة Example
+          لوحة الإدارة المركزية لمنصة Axion Digital
         </p>
       </div>
 
@@ -126,7 +126,7 @@ function LoginForm() {
               dir="ltr"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@example.com"
+              placeholder="admin@axiondigital.com"
               required
               autoComplete="email"
               disabled={isLoading}
@@ -234,7 +234,7 @@ export default function AdminLoginPage() {
       </Suspense>
 
       <div className="mt-6 text-center text-label-sm text-outline">
-        <span>منصة Example • جلسة مشفرة عبر Supabase Auth SSL</span>
+        <span>منصة Axion Digital • جلسة مشفرة عبر Supabase Auth SSL</span>
       </div>
     </div>
   );

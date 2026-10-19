@@ -66,7 +66,7 @@ function ForgotPasswordForm() {
       <div className="flex flex-col items-center text-center mb-space-md">
         <Link href="/" className="inline-flex items-center mb-3 group">
           <span className="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
-            Example
+            Axion Digital
           </span>
         </Link>
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed text-label-sm font-label-sm mb-2">
@@ -129,7 +129,7 @@ function ForgotPasswordForm() {
                 dir="ltr"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@example.com"
+                placeholder="admin@axiondigital.com"
                 required
                 autoComplete="email"
                 disabled={isLoading}
@@ -206,7 +206,7 @@ export default function AdminForgotPasswordPage() {
       </Suspense>
 
       <div className="mt-6 text-center text-label-sm text-outline">
-        <span>منصة Example • استعادة الحساب الآمنة</span>
+        <span>منصة Axion Digital • استعادة الحساب الآمنة</span>
       </div>
     </div>
   );

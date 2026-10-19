@@ -18,11 +18,11 @@ export interface SettingsActionResult<T = unknown> {
 }
 
 export const DEFAULT_COMPANY_SETTINGS: CompanySettings = {
-  company_name_ar: "Example",
-  company_name_en: "Example",
+  company_name_ar: "Axion Digital",
+  company_name_en: "Axion Digital",
   phone: "+963 11 214 0000",
   whatsapp: "+963 944 000 000",
-  email: "info@example.com",
+  email: "info@axiondigital.com",
   address: "دمشق - المزة فيلات غربية / الشارع الرئيسي",
   short_description:
     "الشركة السورية الرائدة في الوساطة والاستثمار والتطوير العقاري. دمشق، ريف دمشق، حلب، والساحل السوري.",

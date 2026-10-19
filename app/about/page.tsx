@@ -9,11 +9,11 @@ import { formatWhatsAppUrl } from "@/lib/utils/format";
 export const revalidate = 120;
 
 export const metadata: Metadata = {
-  title: "من نحن | Example",
+  title: "من نحن | Axion Digital",
   description:
-    "تعرف على شركة Example، الشريك العقاري المعتمد والموثق للوساطة والاستثمار والتطوير العقاري في سوريا.",
+    "تعرف على شركة Axion Digital، الشريك العقاري المعتمد والموثق للوساطة والاستثمار والتطوير العقاري في سوريا.",
   openGraph: {
-    title: "من نحن | Example",
+    title: "من نحن | Axion Digital",
     description:
       "الشركة السورية الرائدة في الوساطة والاستثمار والتطوير العقاري في دمشق والمحافظات السورية.",
     type: "website",
@@ -24,7 +24,7 @@ export default async function AboutPage() {
   const settings = await getCompanySettings();
   const waUrl = formatWhatsAppUrl(
     settings.whatsapp,
-    "مرحباً Example، أود الاستفسار عن خدماتكم."
+    "مرحباً Axion Digital، أود الاستفسار عن خدماتكم."
   );
 
   const pillars = [
@@ -76,7 +76,7 @@ export default async function AboutPage() {
           <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm border border-outline-variant/30">
             <h2 className="font-title-sm text-title-sm text-on-surface font-bold flex items-center gap-2">
               <span className="w-1.5 h-4 bg-secondary rounded-full" />
-              <span>أعمدة الثقة والمصداقية في Example</span>
+              <span>أعمدة الثقة والمصداقية في Axion Digital</span>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-xs pt-1">

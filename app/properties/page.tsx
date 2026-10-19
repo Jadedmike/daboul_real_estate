@@ -10,11 +10,11 @@ import {
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "سجل العقارات المتاحة للبيع والإيجار | Example",
+  title: "سجل العقارات المتاحة للبيع والإيجار | Axion Digital",
   description:
     "تصفح كافة العقارات المتاحة للبيع والإيجار في دمشق وحلب وريف دمشق والساحل. شقق، فلل، مكاتب، ومقرات تجارية موثقة.",
   openGraph: {
-    title: "سجل العقارات المتاحة للبيع والإيجار | Example",
+    title: "سجل العقارات المتاحة للبيع والإيجار | Axion Digital",
     description:
       "تصفح كافة العقارات المتاحة للبيع والإيجار في دمشق وحلب وريف دمشق والساحل.",
     type: "website",

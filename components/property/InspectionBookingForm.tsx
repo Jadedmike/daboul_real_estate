@@ -113,7 +113,7 @@ export function InspectionBookingForm({
             تم استلام طلب المعاينة بنجاح
           </span>
           <span className="font-body-sm text-body-sm text-on-surface-variant">
-            سيتواصل معك مستشار Example العقاري في أقرب وقت لتأكيد موعد الزيارة.
+            سيتواصل معك مستشار Axion Digital العقاري في أقرب وقت لتأكيد موعد الزيارة.
           </span>
           <button
             type="button"
@@ -171,7 +171,7 @@ export function InspectionBookingForm({
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="example@domain.com"
+              placeholder="user@domain.com"
               disabled={isSubmitting}
               className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container text-right disabled:opacity-50"
               dir="ltr"

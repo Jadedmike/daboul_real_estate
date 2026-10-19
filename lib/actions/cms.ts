@@ -37,7 +37,7 @@ const DEFAULT_SECTIONS: Omit<HomepageSection, "id" | "created_at" | "updated_at"
   {
     section_key: "featured_properties",
     title_ar: "عقارات مميزة مختارة",
-    description_ar: "عقارات مدققة وموثقة قانونياً من فريق Example",
+    description_ar: "عقارات مدققة وموثقة قانونياً من فريق Axion Digital",
     is_enabled: true,
     sort_order: 3,
     configuration: { limit: 4, show_specs: true },
@@ -60,7 +60,7 @@ const DEFAULT_SECTIONS: Omit<HomepageSection, "id" | "created_at" | "updated_at"
   },
   {
     section_key: "why_daboul",
-    title_ar: "لماذا تختار Example؟",
+    title_ar: "لماذا تختار Axion Digital؟",
     description_ar: "أعمدة الثقة، المصداقية، والتوثيق القانوني",
     is_enabled: true,
     sort_order: 6,
@@ -81,7 +81,7 @@ const DEFAULT_SECTIONS: Omit<HomepageSection, "id" | "created_at" | "updated_at"
     is_enabled: true,
     sort_order: 8,
     configuration: {
-      button_text: "أضف عقارك الآن عبر واتساب Example",
+      button_text: "أضف عقارك الآن عبر واتساب Axion Digital",
       button_link: "https://wa.me/963900000000",
     },
   },
@@ -110,10 +110,11 @@ export const getHomepageConfig = cache(async (): Promise<HomepageConfig> => {
     const sanitizeString = (str: unknown): string => {
       if (typeof str !== "string") return "";
       return str
-        .replace(/دعبول\s*العقارية/g, "Example")
-        .replace(/دعبول/g, "Example")
-        .replace(/Daboul\s*Real\s*Estate/gi, "Example")
-        .replace(/Daboul/gi, "Example");
+        .replace(/دعبول\s*العقارية/g, "Axion Digital")
+        .replace(/دعبول/g, "Axion Digital")
+        .replace(/Daboul\s*Real\s*Estate/gi, "Axion Digital")
+        .replace(/Daboul/gi, "Axion Digital")
+        .replace(/Example/gi, "Axion Digital");
     };
 
     const sanitizeSection = (sec: HomepageSection): HomepageSection => {
@@ -125,6 +126,9 @@ export const getHomepageConfig = cache(async (): Promise<HomepageConfig> => {
 
       if (typeof sanitizedConfig.button_text === "string") {
         sanitizedConfig.button_text = sanitizeString(sanitizedConfig.button_text);
+      }
+      if (typeof sanitizedConfig.subtitle === "string") {
+        sanitizedConfig.subtitle = sanitizeString(sanitizedConfig.subtitle);
       }
 
       return {

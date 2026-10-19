@@ -177,7 +177,7 @@ function ResetPasswordForm() {
       <div className="flex flex-col items-center text-center mb-space-md">
         <Link href="/" className="inline-flex items-center mb-3 group">
           <span className="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
-            Example
+            Axion Digital
           </span>
         </Link>
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed text-label-sm font-label-sm mb-2">
@@ -416,7 +416,7 @@ export default function AdminResetPasswordPage() {
       </Suspense>
 
       <div className="mt-6 text-center text-label-sm text-outline">
-        <span>منصة Example • جلسة استعادة مشفرة وآمنة</span>
+        <span>منصة Axion Digital • جلسة استعادة مشفرة وآمنة</span>
       </div>
     </div>
   );

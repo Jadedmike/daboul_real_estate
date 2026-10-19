@@ -41,7 +41,7 @@ export const getCompanySettings = cache(async (): Promise<CompanySettings> => {
     const sanitizeText = (val: unknown, fallback: string) => {
       if (typeof val !== "string" || !val.trim()) return fallback;
       const trimmed = val.trim();
-      if (/دعبول|daboul/i.test(trimmed)) {
+      if (/دعبول|daboul|example/i.test(trimmed)) {
         return fallback;
       }
       return trimmed;
@@ -50,15 +50,15 @@ export const getCompanySettings = cache(async (): Promise<CompanySettings> => {
     const sanitizeEmail = (val: unknown, fallback: string) => {
       if (typeof val !== "string" || !val.trim()) return fallback;
       const trimmed = val.trim();
-      if (/daboul/i.test(trimmed)) return fallback;
+      if (/daboul|example/i.test(trimmed)) return fallback;
       return trimmed;
     };
 
     const sanitizeAddress = (val: unknown, fallback: string) => {
       if (typeof val !== "string" || !val.trim()) return fallback;
       const trimmed = val.trim();
-      if (/دعبول|daboul/i.test(trimmed)) {
-        return trimmed.replace(/شارع\s*دعبول\s*الرئيسي/g, "الشارع الرئيسي").replace(/دعبول/gi, "Example");
+      if (/دعبول|daboul|example/i.test(trimmed)) {
+        return trimmed.replace(/شارع\s*دعبول\s*الرئيسي/g, "الشارع الرئيسي").replace(/دعبول|daboul|example/gi, "Axion Digital");
       }
       return trimmed;
     };

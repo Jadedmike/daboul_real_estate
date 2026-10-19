@@ -30,8 +30,8 @@ export async function generateMetadata({
 
   if (!property) {
     return {
-      title: "العقار غير موجود | Example",
-      description: "لم يتم العثور على العقار المطلوب في قاعدة بيانات Example.",
+      title: "العقار غير موجود | Axion Digital",
+      description: "لم يتم العثور على العقار المطلوب في قاعدة بيانات Axion Digital.",
     };
   }
 
@@ -126,7 +126,7 @@ export default async function PropertyDetailPage({
               property.is_offer
                 ? "عرض خاص وحصري"
                 : property.is_featured
-                ? "حصري لدى Example"
+                ? "حصري لدى Axion Digital"
                 : "عقار معتمد وموثق"
             }
           />

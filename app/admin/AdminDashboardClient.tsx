@@ -59,7 +59,7 @@ function AdminDashboardContent({
                       بوابة الإدارة المركزية
                     </span>
                     <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed">
-                      Example CMS
+                      Axion Digital CMS
                     </span>
                   </div>
                   <span className="font-label-sm text-label-sm text-outline">

@@ -18,11 +18,11 @@ import { formatTelUrl, formatWhatsAppUrl } from "@/lib/utils/format";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Example | البوابة العقارية الأولى في سوريا",
+  title: "Axion Digital | البوابة العقارية الأولى في سوريا",
   description:
     "استكشف أرقى العقارات للبيع والإيجار في دمشق والمحافظات السورية. شقق فاخرة، فلل ومزارع، مكاتب ومقرات تجارية موثقة قانونياً.",
   openGraph: {
-    title: "Example | البوابة العقارية الأولى في سوريا",
+    title: "Axion Digital | البوابة العقارية الأولى في سوريا",
     description:
       "الرائد الأول للعقارات الفاخرة في دمشق وسوريا. شقق، فلل، وقصور للبيع والإيجار بأعلى معايير المصداقية المعمارية.",
     type: "website",
@@ -107,7 +107,7 @@ export default async function HomePage() {
               <a
                 href={formatWhatsAppUrl(
                   companySettings.whatsapp,
-                  "مرحباً Example، أرغب في إضافة عقاري للبيع أو الإيجار."
+                  "مرحباً Axion Digital، أرغب في إضافة عقاري للبيع أو الإيجار."
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -257,7 +257,7 @@ export default async function HomePage() {
     const section = sectionMap.get("featured_properties");
     const title = section?.title_ar || "عقارات مميزة مختارة";
     const desc =
-      section?.description_ar || "تم تدقيق ملكيتها وتوثيقها قانونياً من فريق Example";
+      section?.description_ar || "تم تدقيق ملكيتها وتوثيقها قانونياً من فريق Axion Digital";
 
     return (
       <section
@@ -517,10 +517,10 @@ export default async function HomePage() {
     );
   };
 
-  // Section 6: Why Example Renderer
+  // Section 6: Why Axion Digital Renderer
   const renderWhyDaboul = () => {
     const section = sectionMap.get("why_daboul");
-    const title = section?.title_ar || "لماذا تختار Example؟";
+    const title = section?.title_ar || "لماذا تختار Axion Digital؟";
     const subtitle = section?.description_ar || "ثقة ومصداقية تتوارثها الأجيال";
 
     return (
@@ -566,7 +566,7 @@ export default async function HomePage() {
                   خيارات عقارية حصرية
                 </h3>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">
-                  عقارات نوعية لا تُعرض في السوق المفتوح، محفوظة لعملاء Example VIP حصرياً.
+                  عقارات نوعية لا تُعرض في السوق المفتوح، محفوظة لعملاء Axion Digital VIP حصرياً.
                 </p>
               </div>
             </div>
@@ -668,12 +668,12 @@ export default async function HomePage() {
     const desc =
       section?.description_ar ||
       "نضع عقارك أمام آلاف المستثمرين والمشترين الجادين داخل وخارج سوريا مع تسويق احترافي عالي المستوى.";
-    const btnText = config.button_text || "أضف عقارك الآن عبر واتساب Example";
+    const btnText = config.button_text || "أضف عقارك الآن عبر واتساب Axion Digital";
     const btnLink =
       config.button_link ||
       formatWhatsAppUrl(
         companySettings.whatsapp,
-        "مرحباً Example، أرغب في إضافة عقار جديد للتسويق."
+        "مرحباً Axion Digital، أرغب في إضافة عقار جديد للتسويق."
       );
 
     return (

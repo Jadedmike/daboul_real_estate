@@ -21,7 +21,7 @@ const SECTION_DISPLAY_NAMES: Record<string, { label: string; icon: string }> = {
   featured_properties: { label: "العقارات المميزة (Featured Properties)", icon: "star" },
   locations: { label: "استكشف حسب المحافظة (Locations)", icon: "location_city" },
   property_types: { label: "تصفح حسب نوع العقار (Property Types)", icon: "category" },
-  why_daboul: { label: "لماذا تختار Example؟ (Why Example)", icon: "verified_user" },
+  why_daboul: { label: "لماذا تختار Axion Digital؟ (Why Axion Digital)", icon: "verified_user" },
   latest_properties: { label: "أحدث العقارات المضافة (Latest Properties)", icon: "schedule" },
   cta_banner: { label: "بانر إضافة وتسويق العقار (CTA Banner)", icon: "campaign" },
 };
@@ -66,16 +66,16 @@ export function HomepageCmsEditor({
       "نضع عقارك أمام آلاف المستثمرين والمشترين الجادين داخل وخارج سوريا مع تسويق احترافي عالي المستوى."
   );
   const [ctaBtnText, setCtaBtnText] = useState(
-    ctaConfig?.button_text || "أضف عقارك الآن عبر واتساب Example"
+    ctaConfig?.button_text || "أضف عقارك الآن عبر واتساب Axion Digital"
   );
   const [ctaBtnLink, setCtaBtnLink] = useState(
     ctaConfig?.button_link || "https://wa.me/963900000000"
   );
 
-  // State for Why Example section content
+  // State for Why Axion Digital section content
   const whySection = sections.find((s) => s.section_key === "why_daboul");
   const [whyTitle, setWhyTitle] = useState(
-    whySection?.title_ar || "لماذا تختار Example؟"
+    whySection?.title_ar || "لماذا تختار Axion Digital؟"
   );
   const [whySubtitle, setWhySubtitle] = useState(
     whySection?.description_ar || "ثقة ومصداقية تتوارثها الأجيال"
@@ -169,7 +169,7 @@ export function HomepageCmsEditor({
     }
   };
 
-  // Save Content Sections (CTA & Why Example)
+  // Save Content Sections (CTA & Why Axion Digital)
   const handleSaveContent = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSavingContent(true);
@@ -440,7 +440,7 @@ export function HomepageCmsEditor({
         </div>
       </form>
 
-      {/* 3. Promotional Content Sections (CTA Banner & Why Example) */}
+      {/* 3. Promotional Content Sections (CTA Banner & Why Axion Digital) */}
       <form
         onSubmit={handleSaveContent}
         className="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 flex flex-col gap-space-md"
@@ -451,7 +451,7 @@ export function HomepageCmsEditor({
               <span className="material-symbols-outlined text-secondary-container text-[20px]">
                 campaign
               </span>
-              نصوص الأقسام الترويجية (بانر الإضافة + لماذا Example)
+              نصوص الأقسام الترويجية (بانر الإضافة + لماذا Axion Digital)
             </h3>
             <span className="font-body-sm text-body-sm text-outline">
               تعديل العناوين ونصوص أزرار التواصل المباشر
@@ -509,10 +509,10 @@ export function HomepageCmsEditor({
             />
           </div>
 
-          {/* Why Example Heading */}
+          {/* Why Axion Digital Heading */}
           <div className="flex flex-col gap-1">
             <label className="font-label-md text-label-md text-on-surface-variant">
-              عنوان قسم لماذا Example؟ (Heading)
+              عنوان قسم لماذا Axion Digital؟ (Heading)
             </label>
             <input
               type="text"
@@ -522,10 +522,10 @@ export function HomepageCmsEditor({
             />
           </div>
 
-          {/* Why Example Subtitle */}
+          {/* Why Axion Digital Subtitle */}
           <div className="flex flex-col gap-1">
             <label className="font-label-md text-label-md text-on-surface-variant">
-              الشعار الفرعي لقسم لماذا Example؟ (Subtitle)
+              الشعار الفرعي لقسم لماذا Axion Digital؟ (Subtitle)
             </label>
             <input
               type="text"

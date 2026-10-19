@@ -45,7 +45,7 @@ export function AdminHeader() {
         <Link className="flex items-center" href="/">
           <div className="flex flex-col text-right">
             <span className="font-title-sm text-title-sm text-primary font-bold tracking-tight leading-none">
-              Example
+              Axion Digital
             </span>
             <span className="font-label-sm text-label-sm text-outline leading-tight">
               Admin Portal
