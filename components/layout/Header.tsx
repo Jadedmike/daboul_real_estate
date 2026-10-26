@@ -18,7 +18,6 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
     { label: "الرئيسية", href: "/", icon: "roofing" },
     { label: "العقارات", href: "/properties", icon: "apartment" },
     { label: "من نحن", href: "/about", icon: "domain" },
-    { label: "تواصل معنا", href: "/contact", icon: "chat" },
   ];
 
   const fullNavLinks = [
@@ -29,7 +28,6 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
     { label: "استكشف المناطق", href: "/#regions", icon: "map" },
     { label: "من نحن", href: "/about", icon: "domain" },
     { label: "تواصل معنا", href: "/contact", icon: "chat" },
-    { label: "بوابة الإدارة", href: "/admin", icon: "admin_panel_settings" },
   ];
 
   if (variant === "back") {
@@ -131,97 +129,107 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
       </header>
 
       {/* Mobile Navigation Drawer & Backdrop */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 bg-primary/40 backdrop-blur-sm transition-opacity"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
+      <div
+        className={`fixed inset-0 z-50 md:hidden overflow-hidden transition-all duration-500 ${
+          isMobileMenuOpen
+            ? "visible opacity-100 pointer-events-auto"
+            : "invisible opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Backdrop */}
+        <div
+          className={`fixed inset-0 bg-[#34211B]/35 backdrop-blur-xs transition-opacity duration-500 ${
+            isMobileMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
 
-          {/* Drawer Sheet */}
-          <aside className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#F8F6F0]/95 backdrop-blur-2xl border-l border-[#A0BDDB]/40 shadow-[-10px_0_40px_rgba(52,33,27,0.14)] z-50 flex flex-col justify-between p-space-md overflow-y-auto">
-            <div className="flex flex-col gap-space-md">
-              {/* Drawer Header */}
-              <div className="flex items-center justify-between border-b border-[#A0BDDB]/35 pb-space-sm">
-                <div className="flex flex-col text-right">
-                  <span className="font-title-sm text-title-sm font-bold text-primary">
-                    Axion Digital
-                  </span>
-                  <span className="font-label-sm text-[10px] text-outline">
-                    القائمة الرئيسية
-                  </span>
-                </div>
-                <button
-                  aria-label="إغلاق القائمة"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-[#A0BDDB]/20 transition-colors cursor-pointer border border-[#A0BDDB]/30"
-                >
-                  <span className="material-symbols-outlined text-[22px]">
-                    close
-                  </span>
-                </button>
+        {/* Drawer Sheet */}
+        <aside
+          className={`fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#F8F6F0]/45 backdrop-blur-xl border-l border-[#A0BDDB]/30 shadow-[-10px_0_40px_rgba(52,33,27,0.14)] z-50 flex flex-col justify-between p-space-md overflow-y-auto transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex flex-col gap-space-md">
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between border-b border-[#A0BDDB]/30 pb-space-sm">
+              <div className="flex flex-col text-right">
+                <span className="font-title-sm text-title-sm font-bold text-[#34211B]">
+                  Axion Digital
+                </span>
+                <span className="font-label-sm text-[10px] text-[#34211B]/60">
+                  القائمة الرئيسية
+                </span>
               </div>
-
-              {/* Navigation Items */}
-              <nav className="flex flex-col gap-1">
-                {fullNavLinks.map((item) => {
-                  const isActive =
-                    item.href === "/"
-                      ? pathname === "/"
-                      : pathname.startsWith(item.href);
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center gap-space-sm px-space-sm py-3 rounded-xl font-title-sm text-title-sm transition-all ${
-                        isActive
-                          ? "bg-[#A0BDDB]/25 backdrop-blur-md text-primary font-bold border border-[#A0BDDB]/50 shadow-xs"
-                          : "text-on-surface hover:bg-[#A0BDDB]/15 hover:text-primary"
-                      }`}
-                    >
-                      <span className="material-symbols-outlined text-[20px] text-secondary-container">
-                        {item.icon}
-                      </span>
-                      <span>{item.label}</span>
-                    </Link>
-                  );
-                })}
-              </nav>
+              <button
+                aria-label="إغلاق القائمة"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-10 h-10 flex items-center justify-center rounded-full text-[#34211B] hover:bg-[#A0BDDB]/20 transition-colors cursor-pointer border border-[#A0BDDB]/30"
+              >
+                <span className="material-symbols-outlined text-[22px]">
+                  close
+                </span>
+              </button>
             </div>
 
-            {/* Quick Contact Footer in Drawer */}
-            <div className="pt-space-md border-t border-[#A0BDDB]/35 flex flex-col gap-space-xs">
-              <span className="font-label-sm text-label-sm text-[#34211B]/60 font-medium">
-                تواصل مباشر على مدار الساعة
-              </span>
-              <div className="grid grid-cols-2 gap-space-xs pt-1">
-                <Link
-                  href="/contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="h-10 bg-[#34211B] text-[#F8F6F0] rounded-xl flex items-center justify-center gap-1 font-label-md text-label-md hover:bg-[#4A332B] shadow-sm transition-colors border border-[#A0BDDB]/20"
-                >
-                  <span className="material-symbols-outlined text-[16px]">
-                    mail
-                  </span>
-                  <span>اتصل بنا</span>
-                </Link>
-                <Link
-                  href="/admin"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="h-10 bg-[#F8F6F0]/80 backdrop-blur-md border border-[#A0BDDB]/35 text-[#34211B] rounded-xl flex items-center justify-center gap-1 font-label-md text-label-md hover:bg-[#EDE7DC] transition-colors"
-                >
-                  <span className="material-symbols-outlined text-[16px]">
-                    admin_panel_settings
-                  </span>
-                  <span>الإدارة</span>
-                </Link>
-              </div>
+            {/* Navigation Items */}
+            <nav className="flex flex-col gap-1">
+              {fullNavLinks.map((item) => {
+                const isActive =
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`flex items-center gap-space-sm px-space-sm py-3 rounded-xl font-title-sm text-title-sm transition-all ${
+                      isActive
+                        ? "bg-[#A0BDDB]/35 backdrop-blur-md text-[#34211B] font-bold border border-[#A0BDDB]/50 shadow-xs"
+                        : "text-[#34211B] hover:bg-[#A0BDDB]/15 hover:text-[#34211B]"
+                    }`}
+                  >
+                    <span className="material-symbols-outlined text-[20px] text-[#34211B]">
+                      {item.icon}
+                    </span>
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* Quick Contact Footer in Drawer */}
+          <div className="pt-space-md border-t border-[#A0BDDB]/30 flex flex-col gap-space-xs">
+            <span className="font-label-sm text-label-sm text-[#34211B]/70 font-medium">
+              تواصل مباشر على مدار الساعة
+            </span>
+            <div className="grid grid-cols-2 gap-space-xs pt-1">
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="h-10 bg-[#34211B] text-[#F8F6F0] rounded-xl flex items-center justify-center gap-1 font-label-md text-label-md hover:bg-[#4A332B] shadow-sm transition-colors border border-[#A0BDDB]/20"
+              >
+                <span className="material-symbols-outlined text-[16px]">
+                  mail
+                </span>
+                <span>اتصل بنا</span>
+              </Link>
+              <Link
+                href="/admin"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="h-10 bg-[#F8F6F0]/80 backdrop-blur-md border border-[#A0BDDB]/35 text-[#34211B] rounded-xl flex items-center justify-center gap-1 font-label-md text-label-md hover:bg-[#EDE7DC] transition-colors"
+              >
+                <span className="material-symbols-outlined text-[16px]">
+                  admin_panel_settings
+                </span>
+                <span>الإدارة</span>
+              </Link>
             </div>
-          </aside>
-        </div>
-      )}
+          </div>
+        </aside>
+      </div>
     </>
   );
 }
