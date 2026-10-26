@@ -52,29 +52,29 @@ export function CompanySettingsEditor({
   };
 
   return (
-    <div className="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md border border-outline-variant/30">
+    <div className="bg-[#F8F6F0]/80 backdrop-blur-xl rounded-2xl p-space-md shadow-[0_8px_32px_0_rgba(52,33,27,0.08)] flex flex-col gap-space-md border border-[#A0BDDB]/35">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-outline-variant/30 pb-space-sm">
+      <div className="flex items-center justify-between border-b border-[#A0BDDB]/30 pb-space-sm">
         <div className="flex items-center gap-space-xs">
-          <span className="material-symbols-outlined text-secondary-container text-[24px]">
+          <span className="material-symbols-outlined text-[#34211B] text-[24px]">
             storefront
           </span>
           <div>
-            <h2 className="font-title-sm text-title-sm text-on-surface font-bold">
+            <h2 className="font-title-sm text-title-sm text-[#34211B] font-bold">
               بيانات وإعدادات الشركة والتواصل العام
             </h2>
-            <span className="font-label-sm text-label-sm text-outline">
+            <span className="font-label-sm text-label-sm text-[#34211B]/60">
               المعلومات المعروضة في ترويسة وتذييل الموقع، صفحات التواصل، وواتساب
             </span>
           </div>
         </div>
-        <span className="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed font-bold">
+        <span className="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-[#A0BDDB]/25 text-[#34211B] border border-[#A0BDDB]/40 font-bold">
           إعدادات حية
         </span>
       </div>
 
       {errorMessage && (
-        <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg font-body-sm text-body-sm flex items-center gap-2">
+        <div className="p-3 bg-red-50/80 border border-red-200 text-red-700 rounded-xl font-body-sm text-body-sm flex items-center gap-2">
           <span className="material-symbols-outlined text-[18px]">error</span>
           <span>{errorMessage}</span>
         </div>
@@ -84,7 +84,7 @@ export function CompanySettingsEditor({
         {/* Row 1: Company Names */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
           <div>
-            <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">
+            <label className="block font-label-sm text-label-sm text-[#34211B] mb-1 font-semibold">
               اسم الشركة باللغة العربية
             </label>
             <input
@@ -92,12 +92,12 @@ export function CompanySettingsEditor({
               required
               value={formData.company_name_ar}
               onChange={(e) => handleChange("company_name_ar", e.target.value)}
-              className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container"
+              className="w-full bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] px-space-sm py-2 rounded-xl text-[#34211B] font-body-sm text-body-sm focus:outline-none border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 shadow-inner transition-all"
             />
           </div>
 
           <div>
-            <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">
+            <label className="block font-label-sm text-label-sm text-[#34211B] mb-1 font-semibold">
               اسم الشركة باللغة الإنجليزية
             </label>
             <input
@@ -105,7 +105,7 @@ export function CompanySettingsEditor({
               required
               value={formData.company_name_en}
               onChange={(e) => handleChange("company_name_en", e.target.value)}
-              className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container"
+              className="w-full bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] px-space-sm py-2 rounded-xl text-[#34211B] font-body-sm text-body-sm focus:outline-none border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 shadow-inner transition-all text-left"
               dir="ltr"
             />
           </div>
@@ -114,7 +114,7 @@ export function CompanySettingsEditor({
         {/* Row 2: Phone & WhatsApp */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
           <div>
-            <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">
+            <label className="block font-label-sm text-label-sm text-[#34211B] mb-1 font-semibold">
               رقم الهاتف المباشر (tel:)
             </label>
             <input
@@ -123,13 +123,13 @@ export function CompanySettingsEditor({
               value={formData.phone}
               onChange={(e) => handleChange("phone", e.target.value)}
               placeholder="+963 11 214 0000"
-              className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container font-mono"
+              className="w-full bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] px-space-sm py-2 rounded-xl text-[#34211B] font-body-sm text-body-sm focus:outline-none border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 shadow-inner transition-all font-mono text-left"
               dir="ltr"
             />
           </div>
 
           <div>
-            <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">
+            <label className="block font-label-sm text-label-sm text-[#34211B] mb-1 font-semibold">
               رقم واتساب المعتمد للمحادثات (wa.me)
             </label>
             <input
@@ -138,7 +138,7 @@ export function CompanySettingsEditor({
               value={formData.whatsapp}
               onChange={(e) => handleChange("whatsapp", e.target.value)}
               placeholder="+963 944 000 000"
-              className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container font-mono"
+              className="w-full bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] px-space-sm py-2 rounded-xl text-[#34211B] font-body-sm text-body-sm focus:outline-none border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 shadow-inner transition-all font-mono text-left"
               dir="ltr"
             />
           </div>
@@ -147,7 +147,7 @@ export function CompanySettingsEditor({
         {/* Row 3: Email & Working Hours */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
           <div>
-            <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">
+            <label className="block font-label-sm text-label-sm text-[#34211B] mb-1 font-semibold">
               البريد الإلكتروني الرسمي
             </label>
             <input
@@ -156,13 +156,13 @@ export function CompanySettingsEditor({
               value={formData.email}
               onChange={(e) => handleChange("email", e.target.value)}
               placeholder="info@axiondigital.com"
-              className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container"
+              className="w-full bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] px-space-sm py-2 rounded-xl text-[#34211B] font-body-sm text-body-sm focus:outline-none border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 shadow-inner transition-all text-left"
               dir="ltr"
             />
           </div>
 
           <div>
-            <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">
+            <label className="block font-label-sm text-label-sm text-[#34211B] mb-1 font-semibold">
               أوقات وساعات العمل
             </label>
             <input
@@ -171,14 +171,14 @@ export function CompanySettingsEditor({
               value={formData.working_hours}
               onChange={(e) => handleChange("working_hours", e.target.value)}
               placeholder="السبت - الخميس: 9:00 ص - 8:00 م"
-              className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container"
+              className="w-full bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] px-space-sm py-2 rounded-xl text-[#34211B] font-body-sm text-body-sm focus:outline-none border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 shadow-inner transition-all"
             />
           </div>
         </div>
 
         {/* Row 4: Address */}
         <div>
-          <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">
+          <label className="block font-label-sm text-label-sm text-[#34211B] mb-1 font-semibold">
             العنوان والمقر الرئيسي
           </label>
           <input
@@ -187,13 +187,13 @@ export function CompanySettingsEditor({
             value={formData.address}
             onChange={(e) => handleChange("address", e.target.value)}
             placeholder="دمشق - المزة فيلات غربية / الشارع الرئيسي"
-            className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container"
+            className="w-full bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] px-space-sm py-2 rounded-xl text-[#34211B] font-body-sm text-body-sm focus:outline-none border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 shadow-inner transition-all"
           />
         </div>
 
         {/* Row 5: Short Description */}
         <div>
-          <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-semibold">
+          <label className="block font-label-sm text-label-sm text-[#34211B] mb-1 font-semibold">
             نبذة مختصرة عن الشركة (تظهر في التذييل وصفحة من نحن ومحركات البحث)
           </label>
           <textarea
@@ -201,7 +201,7 @@ export function CompanySettingsEditor({
             required
             value={formData.short_description}
             onChange={(e) => handleChange("short_description", e.target.value)}
-            className="w-full bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary-container resize-none"
+            className="w-full bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] px-space-sm py-2 rounded-xl text-[#34211B] font-body-sm text-body-sm focus:outline-none border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 shadow-inner transition-all resize-none"
           />
         </div>
 
@@ -210,7 +210,7 @@ export function CompanySettingsEditor({
           <button
             type="submit"
             disabled={isSaving}
-            className="h-11 px-space-lg bg-primary hover:bg-primary-container text-on-primary font-title-sm text-title-sm rounded-lg flex items-center justify-center gap-space-xs transition-colors shadow-sm cursor-pointer disabled:opacity-50"
+            className="h-11 px-space-lg bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] font-title-sm text-title-sm rounded-xl flex items-center justify-center gap-space-xs transition-colors shadow-sm cursor-pointer disabled:opacity-50 border border-[#A0BDDB]/20"
           >
             {isSaving ? (
               <span className="flex items-center gap-2">

@@ -206,38 +206,38 @@ export function HomepageCmsEditor({
   return (
     <div className="flex flex-col gap-space-md w-full" id="homepage-cms-editor">
       {/* CMS Header Banner */}
-      <div className="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 flex items-center justify-between">
+      <div className="bg-[#F8F6F0]/80 backdrop-blur-xl rounded-2xl p-space-md shadow-[0_8px_32px_0_rgba(52,33,27,0.08)] border border-[#A0BDDB]/35 flex items-center justify-between">
         <div className="flex items-center gap-space-sm">
-          <div className="w-10 h-10 rounded-lg bg-secondary-fixed text-secondary flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-[#A0BDDB]/25 text-[#34211B] flex items-center justify-center border border-[#A0BDDB]/40">
             <span className="material-symbols-outlined text-[24px]">
               view_quilt
             </span>
           </div>
           <div className="flex flex-col">
-            <h2 className="font-title-md text-title-md text-on-surface font-bold">
+            <h2 className="font-title-md text-title-md text-[#34211B] font-bold">
               محرر الصفحة الرئيسية (Homepage CMS)
             </h2>
-            <p className="font-body-sm text-body-sm text-outline">
+            <p className="font-body-sm text-body-sm text-[#34211B]/60">
               تحكم كامل في ترتيب الأقسام، حالة الظهور، ونصوص الواجهة العامة
             </p>
           </div>
         </div>
-        <span className="px-space-sm py-1 rounded bg-secondary-container text-on-primary font-label-sm text-label-sm">
+        <span className="px-space-sm py-1 rounded-full bg-[#A0BDDB] text-[#34211B] font-label-sm text-label-sm font-bold border border-[#A0BDDB]/40">
           مباشر ومحمي
         </span>
       </div>
 
       {/* 1. Sections Order & Visibility Management */}
-      <div className="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 flex flex-col gap-space-md">
-        <div className="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+      <div className="bg-[#F8F6F0]/80 backdrop-blur-xl rounded-2xl p-space-md shadow-[0_8px_32px_0_rgba(52,33,27,0.08)] border border-[#A0BDDB]/35 flex flex-col gap-space-md">
+        <div className="flex items-center justify-between pb-space-xs border-b border-[#A0BDDB]/30">
           <div className="flex flex-col">
-            <h3 className="font-title-sm text-title-sm text-on-surface font-bold flex items-center gap-2">
-              <span className="material-symbols-outlined text-secondary-container text-[20px]">
+            <h3 className="font-title-sm text-title-sm text-[#34211B] font-bold flex items-center gap-2">
+              <span className="material-symbols-outlined text-[#34211B] text-[20px]">
                 reorder
               </span>
               ترتيب وحالة ظهور الأقسام على الموقع
             </h3>
-            <span className="font-body-sm text-body-sm text-outline">
+            <span className="font-body-sm text-body-sm text-[#34211B]/60">
               استخدم الأسهم لتغيير ترتيب ظهور الأقسام، وبدّل زر التفعيل لإظهار أو إخفاء أي قسم
             </span>
           </div>
@@ -245,7 +245,7 @@ export function HomepageCmsEditor({
             type="button"
             onClick={handleSaveSections}
             disabled={isSavingSections}
-            className="px-space-md h-10 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer disabled:opacity-50"
+            className="px-space-md h-10 bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] rounded-xl font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer disabled:opacity-50 border border-[#A0BDDB]/20"
           >
             <span className="material-symbols-outlined text-[18px]">
               {isSavingSections ? "hourglass_empty" : "save"}
@@ -265,27 +265,27 @@ export function HomepageCmsEditor({
             return (
               <div
                 key={section.section_key}
-                className={`flex items-center justify-between p-space-sm rounded-lg border transition-colors ${
+                className={`flex items-center justify-between p-space-sm rounded-xl border transition-colors ${
                   section.is_enabled
-                    ? "bg-surface-container-low border-outline-variant/40"
-                    : "bg-surface-container-lowest border-outline-variant/20 opacity-60"
+                    ? "bg-[#EDE7DC]/55 border-[#A0BDDB]/30"
+                    : "bg-[#EDE7DC]/20 border-[#A0BDDB]/20 opacity-60"
                 }`}
               >
                 <div className="flex items-center gap-space-sm">
                   {/* Order Badge */}
-                  <span className="w-7 h-7 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center font-bold">
+                  <span className="w-7 h-7 rounded-full bg-[#F8F6F0] text-[#34211B] border border-[#A0BDDB]/30 font-label-sm text-label-sm flex items-center justify-center font-bold shadow-xs">
                     {index + 1}
                   </span>
 
-                  <span className="material-symbols-outlined text-secondary-container text-[20px]">
+                  <span className="material-symbols-outlined text-[#34211B] text-[20px]">
                     {meta.icon}
                   </span>
 
                   <div className="flex flex-col">
-                    <span className="font-title-sm text-title-sm text-on-surface font-semibold">
+                    <span className="font-title-sm text-title-sm text-[#34211B] font-semibold">
                       {meta.label}
                     </span>
-                    <span className="font-body-sm text-body-sm text-outline">
+                    <span className="font-body-sm text-body-sm text-[#34211B]/60">
                       {section.description_ar || "قسم رئيسي في الصفحة"}
                     </span>
                   </div>
@@ -293,13 +293,13 @@ export function HomepageCmsEditor({
 
                 <div className="flex items-center gap-space-sm">
                   {/* Reorder Up/Down Buttons */}
-                  <div className="flex items-center bg-surface-container rounded-lg p-0.5">
+                  <div className="flex items-center bg-[#F8F6F0]/80 border border-[#A0BDDB]/30 rounded-lg p-0.5 shadow-xs">
                     <button
                       type="button"
                       disabled={index === 0}
                       onClick={() => handleMoveUp(index)}
                       aria-label="تقديم القسم للأعلى"
-                      className="p-1 hover:text-primary disabled:opacity-30 transition-colors cursor-pointer"
+                      className="p-1 text-[#34211B]/80 hover:text-[#34211B] disabled:opacity-30 transition-colors cursor-pointer"
                     >
                       <span className="material-symbols-outlined text-[20px]">
                         arrow_upward
@@ -310,7 +310,7 @@ export function HomepageCmsEditor({
                       disabled={index === sections.length - 1}
                       onClick={() => handleMoveDown(index)}
                       aria-label="تأخير القسم للأسفل"
-                      className="p-1 hover:text-primary disabled:opacity-30 transition-colors cursor-pointer"
+                      className="p-1 text-[#34211B]/80 hover:text-[#34211B] disabled:opacity-30 transition-colors cursor-pointer"
                     >
                       <span className="material-symbols-outlined text-[20px]">
                         arrow_downward
@@ -324,8 +324,8 @@ export function HomepageCmsEditor({
                     onClick={() => handleToggle(section.section_key)}
                     className={`px-space-sm py-1.5 rounded-lg font-label-sm text-label-sm flex items-center gap-1 transition-colors cursor-pointer ${
                       section.is_enabled
-                        ? "bg-secondary-container text-on-primary"
-                        : "bg-surface-container-high text-outline"
+                        ? "bg-[#A0BDDB] text-[#34211B] font-bold border border-[#A0BDDB]/40"
+                        : "bg-[#EDE7DC] text-[#34211B]/60 border border-[#A0BDDB]/30"
                     }`}
                   >
                     <span className="material-symbols-outlined text-[16px]">
@@ -343,24 +343,24 @@ export function HomepageCmsEditor({
       {/* 2. Hero Section Settings */}
       <form
         onSubmit={handleSaveHero}
-        className="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 flex flex-col gap-space-md"
+        className="bg-[#F8F6F0]/80 backdrop-blur-xl rounded-2xl p-space-md shadow-[0_8px_32px_0_rgba(52,33,27,0.08)] border border-[#A0BDDB]/35 flex flex-col gap-space-md"
       >
-        <div className="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+        <div className="flex items-center justify-between pb-space-xs border-b border-[#A0BDDB]/30">
           <div className="flex flex-col">
-            <h3 className="font-title-sm text-title-sm text-on-surface font-bold flex items-center gap-2">
-              <span className="material-symbols-outlined text-secondary-container text-[20px]">
+            <h3 className="font-title-sm text-title-sm text-[#34211B] font-bold flex items-center gap-2">
+              <span className="material-symbols-outlined text-[#34211B] text-[20px]">
                 flag
               </span>
               محتوى واجهة البانر الرئيسية (Hero Section)
             </h3>
-            <span className="font-body-sm text-body-sm text-outline">
+            <span className="font-body-sm text-body-sm text-[#34211B]/60">
               تعديل العنوان الرئيسي، الوصف، صورة الخلفية، ورابط الاستكشاف
             </span>
           </div>
           <button
             type="submit"
             disabled={isSavingHero}
-            className="px-space-md h-10 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer disabled:opacity-50"
+            className="px-space-md h-10 bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] rounded-xl font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer disabled:opacity-50 border border-[#A0BDDB]/20"
           >
             <span className="material-symbols-outlined text-[18px]">
               {isSavingHero ? "hourglass_empty" : "save"}
@@ -372,7 +372,7 @@ export function HomepageCmsEditor({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
           {/* Hero Title */}
           <div className="flex flex-col gap-1 md:col-span-2">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               العنوان الرئيسي للبانر (Hero Title)
             </label>
             <input
@@ -380,13 +380,13 @@ export function HomepageCmsEditor({
               required
               value={heroTitle}
               onChange={(e) => setHeroTitle(e.target.value)}
-              className="w-full h-11 px-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full h-11 px-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner"
             />
           </div>
 
           {/* Hero Description */}
           <div className="flex flex-col gap-1 md:col-span-2">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               الوصف التوضيحي للبانر (Hero Description)
             </label>
             <textarea
@@ -394,13 +394,13 @@ export function HomepageCmsEditor({
               required
               value={heroDescription}
               onChange={(e) => setHeroDescription(e.target.value)}
-              className="w-full p-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full p-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner"
             />
           </div>
 
           {/* Hero Image URL */}
           <div className="flex flex-col gap-1 md:col-span-2">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               رابط صورة خلفية البانر (Image URL)
             </label>
             <input
@@ -408,33 +408,35 @@ export function HomepageCmsEditor({
               value={heroImage}
               onChange={(e) => setHeroImage(e.target.value)}
               placeholder="https://... (اتركه فارغاً لاستخدام الصورة الافتراضية)"
-              className="w-full h-11 px-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full h-11 px-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner placeholder:text-[#34211B]/40 text-left"
+              dir="ltr"
             />
           </div>
 
           {/* Hero CTA Button Text */}
           <div className="flex flex-col gap-1">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               نص زر الاستكشاف (CTA Label)
             </label>
             <input
               type="text"
               value={heroCtaText}
               onChange={(e) => setHeroCtaText(e.target.value)}
-              className="w-full h-11 px-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full h-11 px-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner"
             />
           </div>
 
           {/* Hero CTA Link */}
           <div className="flex flex-col gap-1">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               وجهة زر الاستكشاف (CTA Link)
             </label>
             <input
               type="text"
               value={heroCtaLink}
               onChange={(e) => setHeroCtaLink(e.target.value)}
-              className="w-full h-11 px-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full h-11 px-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner text-left"
+              dir="ltr"
             />
           </div>
         </div>
@@ -443,24 +445,24 @@ export function HomepageCmsEditor({
       {/* 3. Promotional Content Sections (CTA Banner & Why Axion Digital) */}
       <form
         onSubmit={handleSaveContent}
-        className="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 flex flex-col gap-space-md"
+        className="bg-[#F8F6F0]/80 backdrop-blur-xl rounded-2xl p-space-md shadow-[0_8px_32px_0_rgba(52,33,27,0.08)] border border-[#A0BDDB]/35 flex flex-col gap-space-md"
       >
-        <div className="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+        <div className="flex items-center justify-between pb-space-xs border-b border-[#A0BDDB]/30">
           <div className="flex flex-col">
-            <h3 className="font-title-sm text-title-sm text-on-surface font-bold flex items-center gap-2">
-              <span className="material-symbols-outlined text-secondary-container text-[20px]">
+            <h3 className="font-title-sm text-title-sm text-[#34211B] font-bold flex items-center gap-2">
+              <span className="material-symbols-outlined text-[#34211B] text-[20px]">
                 campaign
               </span>
               نصوص الأقسام الترويجية (بانر الإضافة + لماذا Axion Digital)
             </h3>
-            <span className="font-body-sm text-body-sm text-outline">
+            <span className="font-body-sm text-body-sm text-[#34211B]/60">
               تعديل العناوين ونصوص أزرار التواصل المباشر
             </span>
           </div>
           <button
             type="submit"
             disabled={isSavingContent}
-            className="px-space-md h-10 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer disabled:opacity-50"
+            className="px-space-md h-10 bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] rounded-xl font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer disabled:opacity-50 border border-[#A0BDDB]/20"
           >
             <span className="material-symbols-outlined text-[18px]">
               {isSavingContent ? "hourglass_empty" : "save"}
@@ -472,66 +474,66 @@ export function HomepageCmsEditor({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
           {/* CTA Banner Heading */}
           <div className="flex flex-col gap-1">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               عنوان بانر إضافة عقار (CTA Title)
             </label>
             <input
               type="text"
               value={ctaTitle}
               onChange={(e) => setCtaTitle(e.target.value)}
-              className="w-full h-11 px-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full h-11 px-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner"
             />
           </div>
 
           {/* CTA Button Label */}
           <div className="flex flex-col gap-1">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               نص زر الواتساب في البانر (Button Label)
             </label>
             <input
               type="text"
               value={ctaBtnText}
               onChange={(e) => setCtaBtnText(e.target.value)}
-              className="w-full h-11 px-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full h-11 px-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner"
             />
           </div>
 
           {/* CTA Description */}
           <div className="flex flex-col gap-1 md:col-span-2">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               نص بانر إضافة عقار (CTA Text)
             </label>
             <textarea
               rows={2}
               value={ctaDesc}
               onChange={(e) => setCtaDesc(e.target.value)}
-              className="w-full p-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full p-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner"
             />
           </div>
 
           {/* Why Axion Digital Heading */}
           <div className="flex flex-col gap-1">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               عنوان قسم لماذا Axion Digital؟ (Heading)
             </label>
             <input
               type="text"
               value={whyTitle}
               onChange={(e) => setWhyTitle(e.target.value)}
-              className="w-full h-11 px-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full h-11 px-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner"
             />
           </div>
 
           {/* Why Axion Digital Subtitle */}
           <div className="flex flex-col gap-1">
-            <label className="font-label-md text-label-md text-on-surface-variant">
+            <label className="font-label-md text-label-md text-[#34211B] font-semibold">
               الشعار الفرعي لقسم لماذا Axion Digital؟ (Subtitle)
             </label>
             <input
               type="text"
               value={whySubtitle}
               onChange={(e) => setWhySubtitle(e.target.value)}
-              className="w-full h-11 px-space-sm bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary"
+              className="w-full h-11 px-space-sm bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 rounded-xl text-[#34211B] font-body-md text-body-md focus:outline-none transition-all shadow-inner"
             />
           </div>
         </div>

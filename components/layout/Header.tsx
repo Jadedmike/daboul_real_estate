@@ -34,12 +34,12 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
 
   if (variant === "back") {
     return (
-      <header className="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
-        <div className="h-16 px-gutter-mobile flex items-center justify-between">
+      <header className="fixed top-0 w-full z-50 bg-[#F8F6F0]/85 backdrop-blur-xl border-b border-[#A0BDDB]/35 shadow-[0_4px_24px_rgba(52,33,27,0.06)] pt-safe">
+        <div className="h-16 px-gutter-mobile flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center gap-space-xs">
             <button
               aria-label="رجوع"
-              className="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors cursor-pointer"
+              className="w-11 h-11 rounded-xl flex items-center justify-center text-on-surface hover:text-primary hover:bg-[#A0BDDB]/15 transition-colors cursor-pointer"
               onClick={() => {
                 if (typeof window !== "undefined" && window.history.length > 1) {
                   router.back();
@@ -52,7 +52,7 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
                 arrow_back
               </span>
             </button>
-            <h1 className="font-title-md text-title-md text-primary tracking-tight">
+            <h1 className="font-title-md text-title-md text-primary tracking-tight font-bold">
               {title}
             </h1>
           </div>
@@ -63,7 +63,7 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
             <Link href="/" className="flex items-center">
               <img
                 alt="Profile"
-                className="w-8 h-8 rounded-full object-cover"
+                className="w-8 h-8 rounded-full object-cover ring-2 ring-[#A0BDDB]/50 shadow-sm"
                 src="https://lh3.googleusercontent.com/aida/AEtjO1VjHL3Xf69kKeZ2xN9LEEp_CJhkGWahcs3SdbNz42Ho-ZCUl-VOAx1aanObqYHxHP1_oTyp_HspbW7HxAHwqJdeGxsZC-V6YN40OqTxm2COSTX7mGTh2OJHy4NjVTDleOUQ15RMMkM1RWE7DPUo4pH8LQNXBKrIE3Pyk2AN1JKybTOfOCHqqTokQfbfnbllNHxUyuNa8AeYaGz12yu3TjDQPZUYmdo95LVgkxIw2T6HTgMfUyaHzeGDRqied-_JBDYl_cGvXdxR"
               />
             </Link>
@@ -75,14 +75,14 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+      <header className="fixed top-0 w-full z-50 bg-[#F8F6F0]/85 backdrop-blur-xl border-b border-[#A0BDDB]/35 shadow-[0_4px_24px_rgba(52,33,27,0.06)] pt-safe">
         <div className="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm max-w-7xl mx-auto">
           {/* Mobile Menu Button */}
           <div className="flex items-center md:hidden">
             <button
               aria-label="القائمة"
               onClick={() => setIsMobileMenuOpen(true)}
-              className="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors cursor-pointer"
+              className="w-11 h-11 rounded-xl flex items-center justify-center text-on-surface hover:text-primary hover:bg-[#A0BDDB]/15 transition-colors cursor-pointer"
             >
               <span className="material-symbols-outlined text-[24px]">menu</span>
             </button>
@@ -103,10 +103,10 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-space-sm py-1.5 rounded-lg font-title-sm text-title-sm transition-colors ${
+                  className={`px-space-sm py-1.5 rounded-xl font-title-sm text-title-sm transition-all ${
                     isActive
-                      ? "text-secondary-container font-bold bg-secondary-fixed/30"
-                      : "text-on-surface-variant hover:text-primary hover:bg-surface-container"
+                      ? "text-primary font-bold bg-[#A0BDDB]/25 backdrop-blur-md border border-[#A0BDDB]/50 shadow-xs"
+                      : "text-on-surface-variant hover:text-primary hover:bg-[#A0BDDB]/15 hover:backdrop-blur-md"
                   }`}
                 >
                   {item.label}
@@ -119,7 +119,7 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
           <div className="flex items-center justify-end gap-space-xs">
             <Link
               aria-label="اتصال وتواصل"
-              className="w-11 h-11 flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors"
+              className="w-11 h-11 rounded-xl flex items-center justify-center text-on-surface hover:text-secondary-container hover:bg-[#A0BDDB]/15 transition-all"
               href="/contact"
             >
               <span className="material-symbols-outlined text-[22px]">
@@ -135,15 +135,15 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
         <div className="fixed inset-0 z-50 md:hidden">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-primary/60 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-primary/40 backdrop-blur-sm transition-opacity"
             onClick={() => setIsMobileMenuOpen(false)}
           />
 
           {/* Drawer Sheet */}
-          <aside className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-surface-container-lowest shadow-2xl z-50 flex flex-col justify-between p-space-md overflow-y-auto">
+          <aside className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#F8F6F0]/95 backdrop-blur-2xl border-l border-[#A0BDDB]/40 shadow-[-10px_0_40px_rgba(52,33,27,0.14)] z-50 flex flex-col justify-between p-space-md overflow-y-auto">
             <div className="flex flex-col gap-space-md">
               {/* Drawer Header */}
-              <div className="flex items-center justify-between border-b border-surface-container pb-space-sm">
+              <div className="flex items-center justify-between border-b border-[#A0BDDB]/35 pb-space-sm">
                 <div className="flex flex-col text-right">
                   <span className="font-title-sm text-title-sm font-bold text-primary">
                     Axion Digital
@@ -155,7 +155,7 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
                 <button
                   aria-label="إغلاق القائمة"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container transition-colors cursor-pointer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-[#A0BDDB]/20 transition-colors cursor-pointer border border-[#A0BDDB]/30"
                 >
                   <span className="material-symbols-outlined text-[22px]">
                     close
@@ -175,10 +175,10 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center gap-space-sm px-space-sm py-3 rounded-lg font-title-sm text-title-sm transition-colors ${
+                      className={`flex items-center gap-space-sm px-space-sm py-3 rounded-xl font-title-sm text-title-sm transition-all ${
                         isActive
-                          ? "bg-secondary-fixed/40 text-secondary-container font-bold"
-                          : "text-on-surface hover:bg-surface-container-low hover:text-primary"
+                          ? "bg-[#A0BDDB]/25 backdrop-blur-md text-primary font-bold border border-[#A0BDDB]/50 shadow-xs"
+                          : "text-on-surface hover:bg-[#A0BDDB]/15 hover:text-primary"
                       }`}
                     >
                       <span className="material-symbols-outlined text-[20px] text-secondary-container">
@@ -192,15 +192,15 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
             </div>
 
             {/* Quick Contact Footer in Drawer */}
-            <div className="pt-space-md border-t border-surface-container flex flex-col gap-space-xs">
-              <span className="font-label-sm text-label-sm text-outline">
+            <div className="pt-space-md border-t border-[#A0BDDB]/35 flex flex-col gap-space-xs">
+              <span className="font-label-sm text-label-sm text-[#34211B]/60 font-medium">
                 تواصل مباشر على مدار الساعة
               </span>
               <div className="grid grid-cols-2 gap-space-xs pt-1">
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="h-10 bg-primary text-on-primary rounded-lg flex items-center justify-center gap-1 font-label-md text-label-md hover:bg-on-surface transition-colors"
+                  className="h-10 bg-[#34211B] text-[#F8F6F0] rounded-xl flex items-center justify-center gap-1 font-label-md text-label-md hover:bg-[#4A332B] shadow-sm transition-colors border border-[#A0BDDB]/20"
                 >
                   <span className="material-symbols-outlined text-[16px]">
                     mail
@@ -210,7 +210,7 @@ export function Header({ variant = "standard", title = "Property Details" }: Hea
                 <Link
                   href="/admin"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="h-10 bg-surface-container text-on-surface rounded-lg flex items-center justify-center gap-1 font-label-md text-label-md hover:bg-surface-container-high transition-colors"
+                  className="h-10 bg-[#F8F6F0]/80 backdrop-blur-md border border-[#A0BDDB]/35 text-[#34211B] rounded-xl flex items-center justify-center gap-1 font-label-md text-label-md hover:bg-[#EDE7DC] transition-colors"
                 >
                   <span className="material-symbols-outlined text-[16px]">
                     admin_panel_settings

@@ -23,18 +23,18 @@ export function AdminHeader() {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
-      <div className="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm">
+    <header className="fixed top-0 w-full z-50 bg-[#F8F6F0]/85 backdrop-blur-xl border-b border-[#A0BDDB]/35 shadow-[0_4px_24px_rgba(52,33,27,0.06)] pt-safe">
+      <div className="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm max-w-7xl mx-auto">
         <div className="flex items-center gap-space-xs">
           <button
             aria-label="القائمة"
-            className="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors cursor-pointer"
+            className="w-11 h-11 flex items-center justify-center text-[#34211B] hover:text-[#4A332B] transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-[24px]">menu</span>
           </button>
           <a
             aria-label="اتصال وتواصل"
-            className="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-secondary-container transition-colors"
+            className="w-11 h-11 flex items-center justify-center text-[#34211B]/80 hover:text-[#34211B] transition-colors"
             href="tel:+963900000000"
           >
             <span className="material-symbols-outlined text-[22px]">
@@ -44,10 +44,10 @@ export function AdminHeader() {
         </div>
         <Link className="flex items-center" href="/">
           <div className="flex flex-col text-right">
-            <span className="font-title-sm text-title-sm text-primary font-bold tracking-tight leading-none">
+            <span className="font-title-sm text-title-sm text-[#34211B] font-bold tracking-tight leading-none">
               Axion Digital
             </span>
-            <span className="font-label-sm text-label-sm text-outline leading-tight">
+            <span className="font-label-sm text-label-sm text-[#34211B]/70 leading-tight">
               Admin Portal
             </span>
           </div>

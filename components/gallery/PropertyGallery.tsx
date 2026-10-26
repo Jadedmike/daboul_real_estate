@@ -59,15 +59,15 @@ export function PropertyGallery({
         </div>
 
         {/* Gradient Scrim for Top Badges & Bottom Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-primary/40 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#34211B]/80 via-transparent to-[#34211B]/40 pointer-events-none"></div>
 
         {/* Status Badges Overlay */}
         <div className="absolute top-4 right-4 left-4 flex items-center justify-between pointer-events-auto">
           <div className="flex items-center gap-space-xs">
-            <span className="bg-primary text-on-primary font-label-md text-label-md px-3 py-1 rounded-full shadow-md backdrop-blur-md">
+            <span className="bg-[#34211B]/95 text-[#F8F6F0] font-label-md text-label-md px-3 py-1 rounded-full shadow-md backdrop-blur-md border border-[#A0BDDB]/40 font-semibold">
               {dealType}
             </span>
-            <span className="bg-secondary-container text-on-secondary font-label-md text-label-md px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+            <span className="bg-[#A0BDDB] text-[#34211B] font-label-md text-label-md px-3 py-1 rounded-full shadow-md flex items-center gap-1 backdrop-blur-md border border-[#A0BDDB]/60 font-bold">
               <span className="material-symbols-outlined text-[14px]">
                 verified
               </span>
@@ -77,7 +77,7 @@ export function PropertyGallery({
 
           {/* Image Counter Pill */}
           <span
-            className="bg-primary-container/80 backdrop-blur-md text-on-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm"
+            className="bg-[#34211B]/85 backdrop-blur-md border border-[#A0BDDB]/35 text-[#F8F6F0] font-label-sm text-label-sm px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm font-medium"
             id="imageCounter"
           >
             <span className="material-symbols-outlined text-[13px]">
@@ -94,8 +94,8 @@ export function PropertyGallery({
           <button
             aria-label="حفظ في المفضلة"
             onClick={toggleSave}
-            className={`w-10 h-10 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center shadow-lg active:scale-95 transition-transform cursor-pointer ${
-              isSaved ? "text-secondary-container" : "text-primary"
+            className={`w-10 h-10 rounded-full bg-[#F8F6F0]/85 backdrop-blur-md border border-[#A0BDDB]/40 flex items-center justify-center shadow-lg active:scale-95 transition-all cursor-pointer ${
+              isSaved ? "text-[#34211B]" : "text-[#34211B]/80"
             }`}
           >
             <span
@@ -110,7 +110,7 @@ export function PropertyGallery({
           <button
             aria-label="مشاركة العقار"
             onClick={handleShare}
-            className="w-10 h-10 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary flex items-center justify-center shadow-lg active:scale-95 transition-transform cursor-pointer"
+            className="w-10 h-10 rounded-full bg-[#F8F6F0]/85 backdrop-blur-md border border-[#A0BDDB]/40 text-[#34211B] flex items-center justify-center shadow-lg active:scale-95 transition-all cursor-pointer hover:bg-[#F8F6F0]"
           >
             <span className="material-symbols-outlined text-[20px]">share</span>
           </button>
@@ -118,15 +118,15 @@ export function PropertyGallery({
       </div>
 
       {/* Thumbnails Scroller */}
-      <div className="px-gutter-mobile py-space-sm flex items-center gap-space-sm overflow-x-auto no-scrollbar bg-surface-container-lowest shadow-sm">
+      <div className="px-gutter-mobile py-space-sm flex items-center gap-space-sm overflow-x-auto no-scrollbar bg-[#F8F6F0]/85 backdrop-blur-xl border-y border-[#A0BDDB]/35 shadow-xs">
         {images.map((img, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className={`thumbnail-btn shrink-0 w-16 h-12 rounded-lg overflow-hidden transition-all duration-200 cursor-pointer ${
+            className={`thumbnail-btn shrink-0 w-16 h-12 rounded-xl overflow-hidden transition-all duration-200 cursor-pointer border ${
               currentIndex === idx
-                ? "opacity-100 ring-2 ring-secondary-container"
-                : "opacity-60 hover:opacity-100"
+                ? "opacity-100 ring-2 ring-[#A0BDDB] border-transparent shadow-sm"
+                : "opacity-60 hover:opacity-100 border-[#A0BDDB]/30"
             }`}
           >
             <img

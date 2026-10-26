@@ -1,53 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  --color-outline: #76777b;
-  --color-outline-variant: #c7c6cb;
-  --color-surface: #f9f9fb;
-  --color-surface-dim: #d9dadc;
-  --color-surface-bright: #f9f9fb;
+  --color-outline: #7D726D;
+  --color-outline-variant: #A0BDDB;
+  --color-surface: #F8F6F0;
+  --color-surface-dim: #EDE7DC;
+  --color-surface-bright: #F8F6F0;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f3f3f5;
-  --color-surface-container: #eeeef0;
-  --color-surface-container-high: #e8e8ea;
-  --color-surface-container-highest: #e2e2e4;
-  --color-surface-variant: #e2e2e4;
-  --color-surface-tint: #5e5e62;
-  --color-on-surface: #1a1c1d;
-  --color-on-surface-variant: #46464b;
-  --color-inverse-surface: #2f3132;
-  --color-inverse-on-surface: #f0f0f2;
-  --color-primary: #000000;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #1b1b1f;
-  --color-on-primary-container: #848387;
-  --color-inverse-primary: #c7c6ca;
-  --color-primary-fixed: #e3e2e6;
-  --color-primary-fixed-dim: #c7c6ca;
-  --color-on-primary-fixed: #1b1b1f;
-  --color-on-primary-fixed-variant: #46464a;
-  --color-secondary: #a04100;
-  --color-on-secondary: #ffffff;
-  --color-secondary-container: #fe6b00;
-  --color-on-secondary-container: #572000;
-  --color-secondary-fixed: #ffdbcc;
-  --color-secondary-fixed-dim: #ffb693;
-  --color-on-secondary-fixed: #351000;
-  --color-on-secondary-fixed-variant: #7a3000;
-  --color-tertiary: #000000;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #191b21;
-  --color-on-tertiary-container: #82838b;
-  --color-tertiary-fixed: #e2e2ea;
-  --color-tertiary-fixed-dim: #c5c6ce;
-  --color-on-tertiary-fixed: #191b21;
-  --color-on-tertiary-fixed-variant: #45474d;
+  --color-surface-container-low: #F3EFE7;
+  --color-surface-container: #EDE7DC;
+  --color-surface-container-high: #E4DCD0;
+  --color-surface-container-highest: #DDD4C4;
+  --color-surface-variant: #E4DCD0;
+  --color-surface-tint: #5C433B;
+  --color-on-surface: #34211B;
+  --color-on-surface-variant: #5C433B;
+  --color-inverse-surface: #34211B;
+  --color-inverse-on-surface: #F8F6F0;
+  --color-primary: #34211B;
+  --color-on-primary: #F8F6F0;
+  --color-primary-container: #4A332B;
+  --color-on-primary-container: #F8F6F0;
+  --color-inverse-primary: #D9E6F2;
+  --color-primary-fixed: #EDE7DC;
+  --color-primary-fixed-dim: #DDD4C4;
+  --color-on-primary-fixed: #34211B;
+  --color-on-primary-fixed-variant: #5C433B;
+  --color-secondary: #34211B;
+  --color-on-secondary: #F8F6F0;
+  --color-secondary-container: #A0BDDB;
+  --color-on-secondary-container: #1C2E42;
+  --color-secondary-fixed: #D9E6F2;
+  --color-secondary-fixed-dim: #A0BDDB;
+  --color-on-secondary-fixed: #1C2E42;
+  --color-on-secondary-fixed-variant: #2A435C;
+  --color-tertiary: #34211B;
+  --color-on-tertiary: #F8F6F0;
+  --color-tertiary-container: #4A332B;
+  --color-on-tertiary-container: #F8F6F0;
+  --color-tertiary-fixed: #D9E6F2;
+  --color-tertiary-fixed-dim: #A0BDDB;
+  --color-on-tertiary-fixed: #1C2E42;
+  --color-on-tertiary-fixed-variant: #2A435C;
   --color-error: #ba1a1a;
   --color-on-error: #ffffff;
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
-  --color-background: #f9f9fb;
-  --color-on-background: #1a1c1d;
+  --color-background: #F8F6F0;
+  --color-on-background: #34211B;
 
   --spacing-margin-mobile: 1.25rem;
   --spacing-gutter-mobile: 1rem;
@@ -59,10 +59,14 @@
   --spacing-margin: 3rem;
   --spacing-gutter: 1.5rem;
 
-  --radius-DEFAULT: 0.125rem;
-  --radius-lg: 0.25rem;
-  --radius-xl: 0.5rem;
-  --radius-full: 0.75rem;
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
 
   --font-headline-xl: 'IBM Plex Sans', sans-serif;
   --font-body-sm: 'IBM Plex Sans', sans-serif;
@@ -79,6 +83,32 @@
   --font-body-lg: 'IBM Plex Sans', sans-serif;
 }
 
+:root {
+  /* 3-Color Palette Tokens: Warm Ivory (#F8F6F0), Mocha Brown (#34211B), Ice Blue (#A0BDDB) */
+  --palette-ivory: #F8F6F0;
+  --palette-mocha: #34211B;
+  --palette-ice-blue: #A0BDDB;
+
+  /* Glassmorphism Design Tokens */
+  --glass-blur: blur(16px) saturate(180%);
+  --glass-blur-sm: blur(12px) saturate(160%);
+  --glass-blur-lg: blur(24px) saturate(200%);
+
+  --glass-surface-light: rgba(248, 246, 240, 0.75);
+  --glass-surface-subtle: rgba(248, 246, 240, 0.6);
+  --glass-surface-solid: rgba(248, 246, 240, 0.92);
+  --glass-surface-dark: rgba(52, 33, 27, 0.88);
+
+  --glass-border-light: rgba(160, 189, 219, 0.35);
+  --glass-border-subtle: rgba(160, 189, 219, 0.2);
+  --glass-border-accent: rgba(160, 189, 219, 0.6);
+  --glass-border-dark: rgba(160, 189, 219, 0.25);
+
+  --glass-shadow: 0 8px 32px 0 rgba(52, 33, 27, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+  --glass-shadow-floating: 0 12px 36px 0 rgba(52, 33, 27, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
+  --glass-shadow-dark: 0 8px 32px 0 rgba(0, 0, 0, 0.28), inset 0 1px 0 0 rgba(160, 189, 219, 0.2);
+}
+
 @layer base {
   html {
     margin: 0;
@@ -92,9 +122,18 @@
     width: 100%;
     min-height: 100dvh;
     font-family: 'IBM Plex Sans', sans-serif;
-    background-color: #f9f9fb;
-    color: #1a1c1d;
+    background-color: #F8F6F0;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(160, 189, 219, 0.18) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(52, 33, 27, 0.07) 0px, transparent 40%),
+      radial-gradient(at 50% 30%, rgba(248, 246, 240, 0.9) 0px, transparent 60%),
+      radial-gradient(at 100% 100%, rgba(160, 189, 219, 0.14) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(52, 33, 27, 0.06) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: #34211B;
     overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -108,6 +147,85 @@
   main > :last-child {
     margin-bottom: 0 !important;
   }
+}
+
+/* Glassmorphism Material Utility Classes */
+.glass-panel {
+  background: var(--glass-surface-light);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-light);
+  box-shadow: var(--glass-shadow);
+  border-radius: 1.25rem;
+}
+
+.glass-panel-subtle {
+  background: var(--glass-surface-subtle);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.04);
+  border-radius: 1rem;
+}
+
+.glass-panel-dark {
+  background: var(--glass-surface-dark);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-dark);
+  box-shadow: var(--glass-shadow-dark);
+  border-radius: 1.25rem;
+}
+
+.glass-card {
+  background: var(--glass-surface-light);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-light);
+  box-shadow: var(--glass-shadow);
+  border-radius: 1.25rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(160, 189, 219, 0.65);
+  box-shadow: var(--glass-shadow-floating);
+  transform: translateY(-2px);
+}
+
+.glass-chip {
+  background: var(--glass-surface-light);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border-light);
+  box-shadow: 0 2px 8px 0 rgba(52, 33, 27, 0.04);
+  border-radius: 0.75rem;
+}
+
+.glass-chip-dark {
+  background: rgba(52, 33, 27, 0.85);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border-dark);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 0.75rem;
+}
+
+.glass-input {
+  background: rgba(248, 246, 240, 0.75);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border-light);
+  box-shadow: 0 2px 6px 0 rgba(52, 33, 27, 0.02);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  background: rgba(248, 246, 240, 0.95);
+  border-color: rgba(160, 189, 219, 0.85);
+  box-shadow: 0 0 0 3px rgba(160, 189, 219, 0.28), 0 4px 12px 0 rgba(52, 33, 27, 0.05);
+  outline: none;
 }
 
 .no-scrollbar::-webkit-scrollbar {

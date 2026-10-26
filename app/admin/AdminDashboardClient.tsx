@@ -47,22 +47,22 @@ function AdminDashboardContent({
     <>
       <AdminHeader />
 
-      <main className="flex flex-col relative w-full pt-16 bg-surface">
-        <div className="flex flex-col w-full px-gutter-mobile py-space-sm space-y-space-md" dir="rtl">
+      <main className="flex flex-col relative w-full pt-16 bg-transparent">
+        <div className="flex flex-col w-full max-w-7xl mx-auto px-4 py-space-sm space-y-space-md" dir="rtl">
           {/* Admin Sub-Header & Live Status */}
-          <div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm border border-outline-variant/30">
+          <div className="w-full bg-[#F8F6F0]/80 backdrop-blur-xl rounded-2xl p-space-md shadow-[0_8px_32px_0_rgba(52,33,27,0.06)] flex flex-col gap-space-sm border border-[#A0BDDB]/35">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-space-sm">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-space-xs">
-                    <span className="font-title-sm text-title-sm text-on-surface font-bold">
+                    <span className="font-title-sm text-title-sm text-[#34211B] font-bold">
                       بوابة الإدارة المركزية
                     </span>
-                    <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#A0BDDB]/25 backdrop-blur-md text-[#34211B] border border-[#A0BDDB]/45 font-bold">
                       Axion Digital CMS
                     </span>
                   </div>
-                  <span className="font-label-sm text-label-sm text-outline">
+                  <span className="font-label-sm text-label-sm text-[#34211B]/70">
                     جلسة مشفرة ومباشرة • دمشق، سوريا
                   </span>
                 </div>
@@ -73,19 +73,19 @@ function AdminDashboardContent({
                   id="alertBellBtn"
                   onClick={() => showToast("لديك 3 تنبيهات جديدة حول طلبات المعاينة")}
                   aria-label="الإشعارات"
-                  className="relative w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-secondary-container transition-colors cursor-pointer"
+                  className="relative w-9 h-9 rounded-xl bg-[#F8F6F0]/70 hover:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 flex items-center justify-center text-[#34211B] transition-colors cursor-pointer shadow-xs"
                 >
                   <span className="material-symbols-outlined text-[20px]">
                     notifications
                   </span>
-                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary-container animate-ping" />
-                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary-container" />
+                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#A0BDDB] animate-ping" />
+                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#A0BDDB]" />
                 </button>
                 <button
                   type="button"
                   onClick={() => setActiveTab("محرر الواجهة (CMS)")}
                   aria-label="خيارات الإدارة"
-                  className="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                  className="w-9 h-9 rounded-xl bg-[#F8F6F0]/70 hover:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 flex items-center justify-center text-[#34211B] transition-colors cursor-pointer shadow-xs"
                 >
                   <span className="material-symbols-outlined text-[20px]">
                     tune
@@ -115,12 +115,12 @@ function AdminDashboardContent({
           {activeTab === "إدارة العقارات" && (
             <div className="space-y-space-md">
               <div className="flex items-center justify-between">
-                <h2 className="font-title-md text-title-md text-on-surface font-bold">
+                <h2 className="font-title-md text-title-md text-[#34211B] font-bold">
                   سجل العقارات المتاح في قاعدة البيانات
                 </h2>
                 <Link
                   href="/admin/properties/new"
-                  className="px-space-md h-10 bg-primary text-on-primary rounded-lg font-label-md text-label-md flex items-center gap-1.5 shadow-sm hover:bg-primary-container transition-colors"
+                  className="px-space-md h-10 bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] border border-[#A0BDDB]/20 rounded-xl font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors font-bold"
                 >
                   <span className="material-symbols-outlined text-[18px]">
                     add_circle
@@ -155,7 +155,7 @@ function AdminDashboardContent({
           {activeTab === "نظرة عامة" && (
             <>
               {/* Key Statistics Grid */}
-              <div className="grid grid-cols-2 gap-space-sm">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-space-sm">
                 <AdminStatCard
                   label="إجمالي العقارات"
                   value={totalCount.toString()}
@@ -198,7 +198,7 @@ function AdminDashboardContent({
               <div className="flex items-center gap-space-xs">
                 <Link
                   href="/admin/properties/new"
-                  className="flex-1 h-11 bg-primary text-on-primary rounded-lg font-title-sm text-title-sm flex items-center justify-center gap-1.5 shadow-sm hover:bg-primary-container transition-colors"
+                  className="flex-1 h-11 bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] rounded-xl font-title-sm text-title-sm flex items-center justify-center gap-1.5 shadow-md border border-[#A0BDDB]/20 font-bold transition-all active:scale-[0.99]"
                 >
                   <span className="material-symbols-outlined text-[18px]">
                     add_circle
@@ -208,7 +208,7 @@ function AdminDashboardContent({
                 <button
                   type="button"
                   onClick={() => setActiveTab("محرر الواجهة (CMS)")}
-                  className="px-space-md h-11 bg-surface-container-lowest border border-outline-variant/40 text-on-surface rounded-lg font-title-sm text-title-sm flex items-center justify-center gap-1.5 hover:bg-surface-container transition-colors cursor-pointer"
+                  className="px-space-md h-11 bg-[#F8F6F0]/80 hover:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 text-[#34211B] rounded-xl font-title-sm text-title-sm flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer font-bold"
                 >
                   <span className="material-symbols-outlined text-[18px]">
                     view_quilt

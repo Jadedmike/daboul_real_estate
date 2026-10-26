@@ -54,28 +54,28 @@ export default async function AboutPage() {
     <ToastProvider>
       <Header variant="back" title="من نحن" />
 
-      <main className="flex flex-col relative w-full pt-16 bg-surface" dir="rtl">
-        <div className="flex flex-col w-full px-gutter-mobile py-space-md space-y-space-md max-w-3xl mx-auto">
+      <main className="flex flex-col relative w-full pt-16 bg-transparent" dir="rtl">
+        <div className="flex flex-col w-full px-4 py-space-md space-y-space-md max-w-5xl lg:max-w-6xl mx-auto">
           {/* Company Hero Card */}
-          <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs border border-outline-variant/30">
+          <div className="bg-[#F8F6F0]/80 backdrop-blur-xl p-space-md rounded-2xl shadow-[0_8px_32px_0_rgba(52,33,27,0.06)] flex flex-col gap-space-xs border border-[#A0BDDB]/35">
             <div className="flex flex-col">
-              <h1 className="font-title-md text-title-md font-bold text-primary leading-tight">
+              <h1 className="font-title-md text-title-md font-bold text-[#34211B] leading-tight">
                 {settings.company_name_ar}
               </h1>
-              <span className="font-label-sm text-label-sm text-outline">
+              <span className="font-label-sm text-label-sm text-[#34211B]/70">
                 {settings.company_name_en}
               </span>
             </div>
 
-            <p className="font-body-md text-body-md text-on-surface leading-relaxed pt-2">
+            <p className="font-body-md text-body-md text-[#34211B]/85 leading-relaxed pt-2">
               {settings.short_description}
             </p>
           </div>
 
           {/* Pillars of Trust */}
-          <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm border border-outline-variant/30">
-            <h2 className="font-title-sm text-title-sm text-on-surface font-bold flex items-center gap-2">
-              <span className="w-1.5 h-4 bg-secondary rounded-full" />
+          <div className="bg-[#F8F6F0]/80 backdrop-blur-xl p-space-md rounded-2xl shadow-[0_8px_32px_0_rgba(52,33,27,0.06)] flex flex-col gap-space-sm border border-[#A0BDDB]/35">
+            <h2 className="font-title-sm text-title-sm text-[#34211B] font-bold flex items-center gap-2">
+              <span className="w-1.5 h-4 bg-[#A0BDDB] rounded-full" />
               <span>أعمدة الثقة والمصداقية في Axion Digital</span>
             </h2>
 
@@ -83,18 +83,18 @@ export default async function AboutPage() {
               {pillars.map((pillar, idx) => (
                 <div
                   key={idx}
-                  className="p-space-sm bg-surface-container-low rounded-lg flex items-start gap-space-xs"
+                  className="p-space-sm bg-[#EDE7DC]/55 backdrop-blur-md rounded-xl border border-[#A0BDDB]/30 flex items-start gap-space-xs hover:bg-[#F8F6F0] transition-colors"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-secondary-container/15 text-secondary-container flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-[#A0BDDB]/25 text-[#34211B] border border-[#A0BDDB]/45 flex items-center justify-center shrink-0 mt-0.5">
                     <span className="material-symbols-outlined text-[20px]">
                       {pillar.icon}
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-title-sm text-title-sm text-on-surface font-semibold">
+                    <span className="font-title-sm text-title-sm text-[#34211B] font-semibold">
                       {pillar.title}
                     </span>
-                    <span className="font-body-sm text-body-sm text-outline leading-normal mt-0.5">
+                    <span className="font-body-sm text-body-sm text-[#34211B]/70 leading-normal mt-0.5">
                       {pillar.desc}
                     </span>
                   </div>
@@ -104,50 +104,50 @@ export default async function AboutPage() {
           </div>
 
           {/* Regional Presence */}
-          <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs border border-outline-variant/30">
-            <h2 className="font-title-sm text-title-sm text-on-surface font-bold flex items-center gap-2">
-              <span className="w-1.5 h-4 bg-secondary rounded-full" />
+          <div className="bg-[#F8F6F0]/80 backdrop-blur-xl p-space-md rounded-2xl shadow-[0_8px_32px_0_rgba(52,33,27,0.06)] flex flex-col gap-space-xs border border-[#A0BDDB]/35">
+            <h2 className="font-title-sm text-title-sm text-[#34211B] font-bold flex items-center gap-2">
+              <span className="w-1.5 h-4 bg-[#A0BDDB] rounded-full" />
               <span>نطاق التغطية والاستثمار</span>
             </h2>
-            <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            <p className="font-body-sm text-body-sm text-[#34211B]/80 leading-relaxed">
               تغطي خدماتنا الاستشارية والتسويقية أرقى المناطق السكنية والمراكز التجارية والاستثمارية في:
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1 font-label-md text-label-md">
-              <div className="p-2 bg-surface-container-low rounded-lg text-center font-semibold text-primary">
+              <div className="p-2.5 bg-[#EDE7DC]/55 backdrop-blur-md border border-[#A0BDDB]/30 rounded-xl text-center font-semibold text-[#34211B] hover:bg-[#F8F6F0] transition-colors">
                 دمشق العاصمة
               </div>
-              <div className="p-2 bg-surface-container-low rounded-lg text-center font-semibold text-primary">
+              <div className="p-2.5 bg-[#EDE7DC]/55 backdrop-blur-md border border-[#A0BDDB]/30 rounded-xl text-center font-semibold text-[#34211B] hover:bg-[#F8F6F0] transition-colors">
                 ريف دمشق ويعفور
               </div>
-              <div className="p-2 bg-surface-container-low rounded-lg text-center font-semibold text-primary">
+              <div className="p-2.5 bg-[#EDE7DC]/55 backdrop-blur-md border border-[#A0BDDB]/30 rounded-xl text-center font-semibold text-[#34211B] hover:bg-[#F8F6F0] transition-colors">
                 حلب والشهباء
               </div>
-              <div className="p-2 bg-surface-container-low rounded-lg text-center font-semibold text-primary">
+              <div className="p-2.5 bg-[#EDE7DC]/55 backdrop-blur-md border border-[#A0BDDB]/30 rounded-xl text-center font-semibold text-[#34211B] hover:bg-[#F8F6F0] transition-colors">
                 اللاذقية والساحل
               </div>
-              <div className="p-2 bg-surface-container-low rounded-lg text-center font-semibold text-primary">
+              <div className="p-2.5 bg-[#EDE7DC]/55 backdrop-blur-md border border-[#A0BDDB]/30 rounded-xl text-center font-semibold text-[#34211B] hover:bg-[#F8F6F0] transition-colors">
                 طرطوس والكورنيش
               </div>
-              <div className="p-2 bg-surface-container-low rounded-lg text-center font-semibold text-primary">
+              <div className="p-2.5 bg-[#EDE7DC]/55 backdrop-blur-md border border-[#A0BDDB]/30 rounded-xl text-center font-semibold text-[#34211B] hover:bg-[#F8F6F0] transition-colors">
                 حمص والمراكز الحيوية
               </div>
             </div>
           </div>
 
           {/* Contact CTA */}
-          <div className="p-space-md bg-primary text-on-primary rounded-xl flex flex-col sm:flex-row items-center justify-between gap-space-sm shadow-md">
+          <div className="p-space-md bg-[#34211B]/90 backdrop-blur-xl text-[#F8F6F0] rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-space-sm shadow-[0_8px_32px_0_rgba(52,33,27,0.18)] border border-[#A0BDDB]/35">
             <div className="flex flex-col text-center sm:text-right">
-              <span className="font-title-sm text-title-sm font-bold">
+              <span className="font-title-sm text-title-sm font-bold text-[#F8F6F0]">
                 هل تبحث عن فرصة استثمارية أو ترغب ببيع عقارك؟
               </span>
-              <span className="font-body-sm text-body-sm text-surface-container-high">
+              <span className="font-body-sm text-body-sm text-[#F8F6F0]/80">
                 فريقنا بانتظارك لتقديم الاستشارة الأنسب وتنسيق المعاينة الميدانية.
               </span>
             </div>
             <div className="flex items-center gap-2 w-full sm:w-auto">
               <Link
                 href="/contact"
-                className="flex-1 sm:flex-none px-space-md py-2 bg-secondary-container text-on-primary rounded-lg font-title-sm text-title-sm text-center shadow-xs hover:bg-secondary transition-colors"
+                className="flex-1 sm:flex-none px-space-md py-2.5 bg-[#A0BDDB] text-[#34211B] rounded-xl font-title-sm text-title-sm text-center shadow-md hover:bg-[#8faecf] transition-colors font-bold"
               >
                 تواصل معنا
               </Link>
@@ -155,7 +155,7 @@ export default async function AboutPage() {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 sm:flex-none px-space-md py-2 bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary rounded-lg font-title-sm text-title-sm text-center backdrop-blur-md transition-colors"
+                className="flex-1 sm:flex-none px-space-md py-2.5 bg-[#F8F6F0]/15 hover:bg-[#F8F6F0]/25 border border-[#A0BDDB]/35 text-[#F8F6F0] rounded-xl font-title-sm text-title-sm text-center backdrop-blur-md transition-colors font-medium"
               >
                 واتساب
               </a>
@@ -163,30 +163,30 @@ export default async function AboutPage() {
           </div>
 
           {/* Syrian Real Estate Footer */}
-          <footer className="mt-space-lg bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm text-on-surface border border-outline-variant/30">
+          <footer className="mt-space-lg bg-[#F8F6F0]/85 backdrop-blur-xl p-space-md rounded-2xl flex flex-col gap-space-sm text-[#34211B] border border-[#A0BDDB]/35 shadow-[0_8px_32px_0_rgba(52,33,27,0.06)]">
             <div className="flex items-center justify-between">
-              <span className="font-title-sm text-title-sm font-bold text-primary">
+              <span className="font-title-sm text-title-sm font-bold text-[#34211B]">
                 {settings.company_name_ar}
               </span>
-              <span className="font-label-sm text-label-sm text-outline">
+              <span className="font-label-sm text-label-sm text-[#34211B]/70">
                 {settings.company_name_en}
               </span>
             </div>
-            <div className="flex flex-wrap gap-x-4 gap-y-1 font-label-md text-label-md text-outline">
-              <Link href="/" className="hover:text-primary transition-colors">
+            <div className="flex flex-wrap gap-x-4 gap-y-1 font-label-md text-label-md text-[#34211B]/75">
+              <Link href="/" className="hover:text-[#34211B] font-medium transition-colors">
                 الرئيسية
               </Link>
-              <Link href="/properties" className="hover:text-primary transition-colors">
+              <Link href="/properties" className="hover:text-[#34211B] font-medium transition-colors">
                 العقارات
               </Link>
-              <Link href="/contact" className="hover:text-primary transition-colors">
+              <Link href="/contact" className="hover:text-[#34211B] font-medium transition-colors">
                 تواصل معنا
               </Link>
-              <Link href="/admin" className="hover:text-primary transition-colors">
+              <Link href="/admin" className="hover:text-[#34211B] font-medium transition-colors">
                 بوابة الإدارة
               </Link>
             </div>
-            <div className="pt-2 border-t border-outline-variant/20 text-center font-label-sm text-label-sm text-outline">
+            <div className="pt-2 border-t border-[#A0BDDB]/25 text-center font-label-sm text-label-sm text-[#34211B]/70">
               جميع الحقوق محفوظة © 2026 {settings.company_name_ar}
             </div>
           </footer>

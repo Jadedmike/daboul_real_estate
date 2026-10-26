@@ -19,12 +19,12 @@ const STATUS_LABELS: Record<
   PropertyStatus,
   { label: string; bg: string; text: string }
 > = {
-  available: { label: "متاح", bg: "bg-primary", text: "text-on-primary" },
-  draft: { label: "مسودة", bg: "bg-surface-container-high", text: "text-on-surface-variant" },
-  reserved: { label: "محجوز", bg: "bg-secondary-container", text: "text-on-primary" },
-  sold: { label: "مباع", bg: "bg-on-surface-variant", text: "text-on-primary" },
-  rented: { label: "مؤجر", bg: "bg-outline", text: "text-white" },
-  hidden: { label: "مخفي", bg: "bg-error/80", text: "text-white" },
+  available: { label: "متاح", bg: "bg-[#34211B]", text: "text-[#F8F6F0]" },
+  draft: { label: "مسودة", bg: "bg-[#EDE7DC]", text: "text-[#34211B]" },
+  reserved: { label: "محجوز", bg: "bg-[#A0BDDB]", text: "text-[#34211B]" },
+  sold: { label: "مباع", bg: "bg-[#34211B]/80", text: "text-[#F8F6F0]" },
+  rented: { label: "مؤجر", bg: "bg-[#A0BDDB]/70", text: "text-[#34211B]" },
+  hidden: { label: "مخفي", bg: "bg-red-800/80", text: "text-[#F8F6F0]" },
 };
 
 export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProps) {
@@ -112,19 +112,19 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
 
   return (
     <>
-      <div className="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm border border-outline-variant/30">
+      <div className="bg-[#F8F6F0]/80 backdrop-blur-xl rounded-2xl p-space-md shadow-[0_8px_32px_0_rgba(52,33,27,0.08)] flex flex-col gap-space-sm border border-[#A0BDDB]/35">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-space-xs">
-            <span className="material-symbols-outlined text-secondary-container text-[20px]">
+            <span className="material-symbols-outlined text-[#34211B] text-[20px]">
               apartment
             </span>
-            <h2 className="font-title-sm text-title-sm text-on-surface font-bold">
+            <h2 className="font-title-sm text-title-sm text-[#34211B] font-bold">
               إدارة العقارات المعروضة ({properties.length})
             </h2>
           </div>
           <Link
             href="/admin/properties/new"
-            className="inline-flex items-center gap-1 text-label-sm font-label-sm text-secondary-container hover:underline cursor-pointer"
+            className="inline-flex items-center gap-1 text-label-sm font-label-sm text-[#34211B] hover:text-[#34211B]/80 font-bold underline cursor-pointer"
           >
             <span className="material-symbols-outlined text-[16px]">add_circle</span>
             <span>+ عقار جديد</span>
@@ -139,9 +139,9 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="بحث في العقارات المسجلة بالاسم، المحافظة، الحي..."
-            className="w-full bg-surface-container-low px-space-sm py-2 pr-9 rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container border border-outline-variant/30"
+            className="w-full bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus:bg-[#F8F6F0] backdrop-blur-md px-space-sm py-2 pr-9 rounded-xl text-[#34211B] font-body-sm text-body-sm focus:outline-none border border-[#A0BDDB]/35 focus:border-[#A0BDDB] focus:ring-2 focus:ring-[#A0BDDB]/30 shadow-inner transition-all placeholder:text-[#34211B]/40"
           />
-          <span className="material-symbols-outlined absolute right-2.5 top-2 text-outline text-[18px]">
+          <span className="material-symbols-outlined absolute right-2.5 top-2 text-[#34211B]/60 text-[18px]">
             search
           </span>
         </div>
@@ -149,16 +149,16 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
         {/* Properties List */}
         <div className="space-y-space-xs mt-1" id="propertiesList">
           {filteredProperties.length === 0 ? (
-            <div className="text-center py-8 px-4 bg-surface-container-low rounded-xl border border-dashed border-outline-variant/40">
-              <span className="material-symbols-outlined text-[36px] text-outline mb-2">
+            <div className="text-center py-8 px-4 bg-[#EDE7DC]/40 backdrop-blur-md rounded-2xl border border-dashed border-[#A0BDDB]/50">
+              <span className="material-symbols-outlined text-[36px] text-[#34211B]/40 mb-2">
                 home_work
               </span>
-              <p className="font-title-sm text-title-sm text-on-surface">
+              <p className="font-title-sm text-title-sm text-[#34211B] font-bold">
                 {properties.length === 0
                   ? "لا توجد عقارات مسجلة بعد في قاعدة البيانات."
                   : "لا توجد عقارات مطابقة لكلمة البحث."}
               </p>
-              <p className="font-body-sm text-body-sm text-outline mt-1">
+              <p className="font-body-sm text-body-sm text-[#34211B]/60 mt-1">
                 {properties.length === 0
                   ? "يمكنك البدء بإضافة العقار الأول بالنقر على الزر أدناه."
                   : "جرب البحث باسم محافظة أخرى أو جزء من اسم العقار."}
@@ -166,7 +166,7 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
               {properties.length === 0 && (
                 <Link
                   href="/admin/properties/new"
-                  className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-on-primary rounded-lg font-title-sm text-title-sm shadow-sm hover:bg-primary-container transition-colors"
+                  className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] rounded-xl font-title-sm text-title-sm shadow-sm transition-colors border border-[#A0BDDB]/20"
                 >
                   <span className="material-symbols-outlined text-[18px]">add_circle</span>
                   <span>إضافة أول عقار للمنصة</span>
@@ -186,11 +186,11 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
               return (
                 <div
                   key={prop.id}
-                  className="p-space-xs bg-surface-container-low rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs hover:bg-surface-container transition-colors border border-outline-variant/20"
+                  className="p-space-xs bg-[#EDE7DC]/55 backdrop-blur-md rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs hover:bg-[#F8F6F0]/90 transition-colors border border-[#A0BDDB]/30 shadow-xs"
                 >
                   {/* Property Info */}
                   <div className="flex items-center gap-space-xs flex-1 min-w-0">
-                    <div className="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center shrink-0 text-primary">
+                    <div className="w-12 h-12 rounded-xl bg-[#F8F6F0]/85 backdrop-blur-md border border-[#A0BDDB]/35 flex items-center justify-center shrink-0 text-[#34211B] shadow-xs">
                       <span className="material-symbols-outlined text-[24px]">
                         {prop.property_type === "villa"
                           ? "villa"
@@ -204,33 +204,33 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
 
                     <div className="flex flex-col min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="font-label-sm text-label-sm font-bold text-primary">
+                        <span className="font-label-sm text-label-sm font-bold text-[#34211B]">
                           #{prop.id.substring(0, 6)}
                         </span>
-                        <span className="text-on-surface font-title-sm text-title-sm font-bold line-clamp-1">
+                        <span className="text-[#34211B] font-title-sm text-title-sm font-bold line-clamp-1">
                           {prop.title_ar}
                         </span>
                         {prop.is_featured && (
-                          <span className="inline-flex items-center px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold">
+                          <span className="inline-flex items-center px-1.5 py-0.2 rounded bg-[#A0BDDB] text-[#34211B] text-[10px] font-bold border border-[#A0BDDB]/40">
                             ★ مميز
                           </span>
                         )}
                         {prop.is_offer && (
-                          <span className="inline-flex items-center px-1.5 py-0.2 rounded bg-secondary-container text-on-primary text-[10px] font-bold">
+                          <span className="inline-flex items-center px-1.5 py-0.2 rounded bg-[#34211B] text-[#F8F6F0] text-[10px] font-bold">
                             عرض خاص
                           </span>
                         )}
                       </div>
 
-                      <div className="flex items-center gap-2 text-label-sm text-outline flex-wrap mt-0.5">
+                      <div className="flex items-center gap-2 text-label-sm text-[#34211B]/60 flex-wrap mt-0.5 font-medium">
                         <span>{locationStr || prop.address}</span>
                         <span>•</span>
-                        <span className="font-bold text-on-surface">
+                        <span className="font-bold text-[#34211B]">
                           {Number(prop.price).toLocaleString("en-US")} {prop.currency}
                         </span>
                         <span>•</span>
                         <span>{prop.area} م²</span>
-                        <span className="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface text-[10px] font-bold">
+                        <span className="px-1.5 py-0.2 rounded bg-[#A0BDDB]/25 text-[#34211B] text-[10px] font-bold border border-[#A0BDDB]/40">
                           {prop.transaction_type === "sale" ? "للبيع" : "للإيجار"}
                         </span>
                       </div>
@@ -246,8 +246,8 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
                       title={prop.is_featured ? "إلغاء التمييز" : "تمييز في الرئيسية"}
                       className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors cursor-pointer ${
                         prop.is_featured
-                          ? "bg-secondary-fixed text-on-secondary-fixed shadow-sm"
-                          : "bg-surface-container text-outline hover:text-secondary-container"
+                          ? "bg-[#A0BDDB] text-[#34211B] shadow-sm font-bold"
+                          : "bg-[#F8F6F0]/80 border border-[#A0BDDB]/30 text-[#34211B]/60 hover:text-[#34211B]"
                       }`}
                     >
                       <span className="material-symbols-outlined text-[18px]">
@@ -262,8 +262,8 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
                       title={prop.is_offer ? "إلغاء العرض الخاص" : "إضافة للعروض الحصرية"}
                       className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors cursor-pointer ${
                         prop.is_offer
-                          ? "bg-secondary-container text-on-primary shadow-sm"
-                          : "bg-surface-container text-outline hover:text-secondary-container"
+                          ? "bg-[#34211B] text-[#F8F6F0] shadow-sm"
+                          : "bg-[#F8F6F0]/80 border border-[#A0BDDB]/30 text-[#34211B]/60 hover:text-[#34211B]"
                       }`}
                     >
                       <span className="material-symbols-outlined text-[18px]">
@@ -277,24 +277,24 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
                       onChange={(e) =>
                         handleStatusChange(prop.id, e.target.value as PropertyStatus)
                       }
-                      className={`px-2 py-1 rounded-lg text-label-sm font-label-sm cursor-pointer border-0 focus:outline-none ${currentStatus.bg} ${currentStatus.text}`}
+                      className={`px-2 py-1 rounded-lg text-label-sm font-label-sm cursor-pointer border border-[#A0BDDB]/30 focus:outline-none ${currentStatus.bg} ${currentStatus.text}`}
                     >
-                      <option value="available" className="bg-white text-black">
+                      <option value="available" className="bg-[#F8F6F0] text-[#34211B]">
                         متاح للعرض
                       </option>
-                      <option value="reserved" className="bg-white text-black">
+                      <option value="reserved" className="bg-[#F8F6F0] text-[#34211B]">
                         محجوز
                       </option>
-                      <option value="sold" className="bg-white text-black">
+                      <option value="sold" className="bg-[#F8F6F0] text-[#34211B]">
                         تم البيع
                       </option>
-                      <option value="rented" className="bg-white text-black">
+                      <option value="rented" className="bg-[#F8F6F0] text-[#34211B]">
                         تم التأجير
                       </option>
-                      <option value="draft" className="bg-white text-black">
+                      <option value="draft" className="bg-[#F8F6F0] text-[#34211B]">
                         مسودة
                       </option>
-                      <option value="hidden" className="bg-white text-black">
+                      <option value="hidden" className="bg-[#F8F6F0] text-[#34211B]">
                         مخفي
                       </option>
                     </select>
@@ -303,7 +303,7 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
                     <Link
                       href={`/admin/properties/${prop.id}/edit`}
                       title="تعديل بيانات العقار"
-                      className="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                      className="w-8 h-8 rounded-lg bg-[#F8F6F0]/80 border border-[#A0BDDB]/30 hover:bg-[#34211B] hover:text-[#F8F6F0] flex items-center justify-center text-[#34211B]/80 transition-colors shadow-xs"
                     >
                       <span className="material-symbols-outlined text-[18px]">
                         edit
@@ -315,7 +315,7 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
                       type="button"
                       onClick={() => setPropertyToDelete(prop)}
                       title="حذف العقار"
-                      className="w-8 h-8 rounded-lg bg-surface-container hover:bg-error-container/30 flex items-center justify-center text-on-surface-variant hover:text-error transition-colors cursor-pointer"
+                      className="w-8 h-8 rounded-lg bg-[#F8F6F0]/80 border border-[#A0BDDB]/30 hover:bg-red-600 hover:text-white flex items-center justify-center text-[#34211B]/80 transition-colors cursor-pointer shadow-xs"
                     >
                       <span className="material-symbols-outlined text-[18px]">
                         delete
@@ -335,26 +335,26 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
           dir="rtl"
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#34211B]/40 backdrop-blur-md animate-in fade-in duration-200"
         >
-          <div className="w-full max-w-md bg-surface-container-lowest rounded-2xl p-space-md shadow-2xl border border-outline-variant/30 space-y-space-sm">
-            <div className="flex items-center gap-space-xs text-error">
+          <div className="w-full max-w-md bg-[#F8F6F0]/95 backdrop-blur-2xl rounded-2xl p-space-md shadow-[0_16px_48px_rgba(52,33,27,0.25)] border border-[#A0BDDB]/45 space-y-space-sm">
+            <div className="flex items-center gap-space-xs text-red-600">
               <span className="material-symbols-outlined text-[28px]">
                 warning
               </span>
-              <h3 className="font-headline-sm text-headline-sm font-bold text-on-surface">
+              <h3 className="font-headline-sm text-headline-sm font-bold text-[#34211B]">
                 تأكيد حذف العقار
               </h3>
             </div>
 
-            <p className="font-body-sm text-body-sm text-on-surface">
+            <p className="font-body-sm text-body-sm text-[#34211B]">
               هل أنت متأكد من رغبتك في حذف العقار:
-              <strong className="block font-title-sm text-primary mt-1">
+              <strong className="block font-title-sm text-[#34211B] mt-1 font-bold">
                 &quot;{propertyToDelete.title_ar}&quot;
               </strong>
             </p>
 
-            <div className="p-space-xs rounded-xl bg-error-container/20 border border-error/30 text-error text-label-md">
+            <div className="p-space-xs rounded-xl bg-red-50/80 border border-red-200 text-red-700 text-label-md">
               <span className="material-symbols-outlined text-[16px] inline-block align-middle ml-1">
                 info
               </span>
@@ -366,7 +366,7 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
                 type="button"
                 onClick={() => setPropertyToDelete(null)}
                 disabled={Boolean(deletingId)}
-                className="px-4 h-10 rounded-xl bg-surface-container text-on-surface font-title-sm text-title-sm hover:bg-surface-container-high transition-colors cursor-pointer disabled:opacity-50"
+                className="px-4 h-10 rounded-xl bg-[#EDE7DC] text-[#34211B] font-title-sm text-title-sm hover:bg-[#EDE7DC]/80 transition-colors cursor-pointer disabled:opacity-50 border border-[#A0BDDB]/30"
               >
                 إلغاء
               </button>
@@ -374,7 +374,7 @@ export function AdminPropertyTable({ initialProperties }: AdminPropertyTableProp
                 type="button"
                 onClick={confirmDelete}
                 disabled={Boolean(deletingId)}
-                className="px-5 h-10 rounded-xl bg-error text-white font-title-sm text-title-sm flex items-center gap-1.5 hover:opacity-90 shadow-md transition-all cursor-pointer disabled:opacity-50"
+                className="px-5 h-10 rounded-xl bg-red-700 text-[#F8F6F0] font-title-sm text-title-sm flex items-center gap-1.5 hover:opacity-90 shadow-md transition-all cursor-pointer disabled:opacity-50"
               >
                 {deletingId ? (
                   <>

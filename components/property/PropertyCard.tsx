@@ -131,7 +131,7 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
   };
 
   return (
-    <article className="property-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+    <article className="property-card bg-[#F8F6F0]/80 backdrop-blur-xl border border-[#A0BDDB]/35 hover:border-[#A0BDDB]/70 rounded-2xl overflow-hidden shadow-[0_8px_32px_0_rgba(52,33,27,0.06)] hover:shadow-[0_12px_40px_0_rgba(52,33,27,0.12)] hover:-translate-y-0.5 transition-all duration-300">
       {/* Property Image Header with Overlays */}
       <div
         className="relative w-full h-56 bg-surface-container-high overflow-hidden"
@@ -157,19 +157,17 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
           {property.badges.map((badge, idx) => (
             <span
               key={idx}
-              className={`px-space-sm py-1 font-label-sm text-label-sm rounded-lg shadow-sm ${
+              className={`px-space-sm py-1 font-label-sm text-label-sm rounded-xl shadow-xs border ${
                 idx === 0
-                  ? property.dealType === "sale"
-                    ? "bg-primary text-on-primary"
-                    : "bg-on-tertiary-fixed text-tertiary-fixed"
-                  : "bg-surface-container-lowest/90 backdrop-blur-md text-primary"
+                  ? "bg-[#34211B] text-[#F8F6F0] border-[#A0BDDB]/40 backdrop-blur-md font-semibold"
+                  : "bg-[#A0BDDB]/25 backdrop-blur-md text-[#34211B] border-[#A0BDDB]/45 font-semibold"
               }`}
             >
               {badge}
             </span>
           ))}
           {property.badgeHighlight && (
-            <span className="px-space-sm py-1 bg-secondary-container text-on-primary font-label-sm text-label-sm rounded-lg shadow-sm">
+            <span className="px-space-sm py-1 bg-[#A0BDDB] text-[#34211B] font-label-sm text-label-sm rounded-xl shadow-xs border border-[#A0BDDB]/60 backdrop-blur-md font-bold">
               {property.badgeHighlight}
             </span>
           )}
@@ -179,12 +177,10 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
         <button
           aria-label="حفظ في المفضلة"
           onClick={toggleFavorite}
-          className="favorite-btn absolute top-space-sm left-space-sm w-9 h-9 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface flex items-center justify-center hover:text-secondary-container transition-colors shadow-sm cursor-pointer z-30 pointer-events-auto"
+          className="favorite-btn absolute top-space-sm left-space-sm w-9 h-9 rounded-full bg-[#F8F6F0]/85 backdrop-blur-md border border-[#A0BDDB]/40 text-[#34211B] flex items-center justify-center hover:bg-[#F8F6F0] transition-colors shadow-sm cursor-pointer z-30 pointer-events-auto"
         >
           <span
-            className={`material-symbols-outlined text-[20px] transition-colors ${
-              isFavorite ? "text-secondary-container" : ""
-            }`}
+            className="material-symbols-outlined text-[20px] transition-colors"
             style={{
               fontVariationSettings: isFavorite ? "'FILL' 1" : "'FILL' 0",
             }}
@@ -194,24 +190,24 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
         </button>
 
         {/* Price Overlay Bottom Bar */}
-        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-primary/80 to-transparent p-space-sm flex items-end justify-between pointer-events-none z-20">
-          <div className="text-on-primary">
-            <span className="font-label-sm text-label-sm text-tertiary-fixed opacity-90">
+        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#34211B]/95 via-[#34211B]/60 to-transparent p-space-sm flex items-end justify-between pointer-events-none z-20">
+          <div className="text-[#F8F6F0]">
+            <span className="font-label-sm text-label-sm text-[#A0BDDB] opacity-95">
               {property.dealType === "rent"
                 ? "الإيجار الشهري المطلوب"
                 : "السعر الإجمالي المطلوب"}
             </span>
-            <div className="font-headline-md text-headline-md leading-tight text-on-primary">
+            <div className="font-headline-md text-headline-md leading-tight text-[#F8F6F0]">
               {property.price}{" "}
               {property.priceNote && (
-                <span className="font-body-sm text-body-sm text-surface-variant font-normal">
+                <span className="font-body-sm text-body-sm text-[#F8F6F0]/75 font-normal">
                   {property.priceNote}
                 </span>
               )}
             </div>
           </div>
           {property.isNegotiable && (
-            <span className="font-label-sm text-label-sm text-surface-variant bg-primary/40 px-2 py-0.5 rounded backdrop-blur-xs">
+            <span className="font-label-sm text-label-sm text-[#F8F6F0] bg-[#A0BDDB]/25 border border-[#A0BDDB]/45 px-2 py-0.5 rounded-lg backdrop-blur-md">
               قابل للتفاوض
             </span>
           )}
@@ -224,12 +220,12 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
         <div className="flex items-start justify-between gap-space-sm mb-space-xs">
           <div>
             <Link href={`/properties/${property.id}`}>
-              <h3 className="font-title-md text-title-md text-on-surface hover:text-secondary-container transition-colors leading-snug">
+              <h3 className="font-title-md text-title-md text-[#34211B] hover:text-[#4A332B] transition-colors leading-snug font-bold">
                 {property.title}
               </h3>
             </Link>
-            <div className="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm mt-1">
-              <span className="material-symbols-outlined text-secondary-container text-[16px]">
+            <div className="flex items-center gap-1 text-[#34211B]/80 font-body-sm text-body-sm mt-1">
+              <span className="material-symbols-outlined text-[#34211B] text-[16px]">
                 location_on
               </span>
               <span>{property.location}</span>
@@ -238,28 +234,28 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
         </div>
 
         {/* Meta Specification Bar */}
-        <div className="grid grid-cols-4 gap-space-xs py-space-sm my-space-xs bg-surface-container-low rounded-lg text-center">
+        <div className="grid grid-cols-4 gap-space-xs py-space-sm my-space-xs bg-[#EDE7DC]/55 backdrop-blur-md border border-[#A0BDDB]/30 rounded-xl text-center">
           <div className="flex flex-col items-center justify-center">
-            <span className="font-label-sm text-label-sm text-outline">المساحة</span>
-            <span className="font-title-sm text-title-sm text-on-surface">
+            <span className="font-label-sm text-label-sm text-[#34211B]/70">المساحة</span>
+            <span className="font-title-sm text-title-sm text-[#34211B] font-semibold">
               {property.area}
             </span>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <span className="font-label-sm text-label-sm text-outline">الغرف</span>
-            <span className="font-title-sm text-title-sm text-on-surface">
+            <span className="font-label-sm text-label-sm text-[#34211B]/70">الغرف</span>
+            <span className="font-title-sm text-title-sm text-[#34211B] font-semibold">
               {property.bedrooms}
             </span>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <span className="font-label-sm text-label-sm text-outline">الحمامات</span>
-            <span className="font-title-sm text-title-sm text-on-surface">
+            <span className="font-label-sm text-label-sm text-[#34211B]/70">الحمامات</span>
+            <span className="font-title-sm text-title-sm text-[#34211B] font-semibold">
               {property.bathrooms}
             </span>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <span className="font-label-sm text-label-sm text-outline">الطابق</span>
-            <span className="font-title-sm text-title-sm text-on-surface">
+            <span className="font-label-sm text-label-sm text-[#34211B]/70">الطابق</span>
+            <span className="font-title-sm text-title-sm text-[#34211B] font-semibold">
               {property.floor || "الرابع"}
             </span>
           </div>
@@ -267,21 +263,21 @@ export function PropertyCard({ property: rawProperty, layout = "grid" }: Propert
 
         {/* Additional Feature Chips & CTA */}
         <div className="flex items-center justify-between pt-space-xs">
-          <div className="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+          <div className="flex items-center gap-1 text-[#34211B]/70 font-label-sm text-label-sm">
             <span className="material-symbols-outlined text-[16px]">schedule</span>
             <span>{property.publishedTime}</span>
           </div>
           <div className="flex items-center gap-space-xs">
             <a
               aria-label="اتصال"
-              className="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary hover:bg-secondary-container hover:text-on-primary transition-colors"
+              className="w-9 h-9 rounded-xl bg-[#F8F6F0]/80 hover:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/40 flex items-center justify-center text-[#34211B] hover:text-[#34211B] transition-all shadow-xs"
               href="tel:+963900000000"
             >
               <span className="material-symbols-outlined text-[18px]">phone</span>
             </a>
             <Link
               href={`/properties/${property.id}`}
-              className="px-space-md h-9 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-secondary-container transition-colors shadow-sm flex items-center gap-1"
+              className="px-space-md h-9 bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] font-label-md text-label-md rounded-xl transition-all border border-[#A0BDDB]/20 shadow-sm flex items-center gap-1"
             >
               <span>التفاصيل</span>
               <span className="material-symbols-outlined text-[16px] rotate-180">

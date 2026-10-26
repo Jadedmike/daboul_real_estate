@@ -76,17 +76,23 @@ export function SearchFilters({
   };
 
   return (
-    <section className="px-gutter-mobile -mt-6 relative z-20 w-full" id="search-engine">
-      <div className="bg-surface-container-lowest rounded-xl shadow-xl p-space-md flex flex-col gap-space-md">
+    <section
+      className="relative z-20 w-full max-w-5xl lg:max-w-6xl mx-auto px-4 -mt-16 md:-mt-20"
+      id="search-engine"
+    >
+      <div className="bg-[#F8F6F0]/80 backdrop-blur-xl border border-[#A0BDDB]/35 shadow-[0_8px_32px_0_rgba(52,33,27,0.08)] rounded-2xl p-6 flex flex-col gap-4">
         {/* Deal Type Tabs */}
-        <div className="flex bg-surface-container rounded-lg p-1" id="deal-type-tabs">
+        <div
+          className="flex bg-[#EDE7DC]/70 backdrop-blur-md border border-[#A0BDDB]/30 rounded-xl p-1 max-w-xs sm:max-w-sm mx-auto w-full"
+          id="deal-type-tabs"
+        >
           <button
             type="button"
             onClick={() => setDealType("sale")}
             className={`deal-tab-btn flex-1 py-2 rounded-lg font-title-sm text-title-sm flex items-center justify-center gap-space-xs transition-all cursor-pointer ${
               dealType === "sale"
-                ? "bg-primary text-on-primary shadow-sm"
-                : "text-on-surface-variant hover:text-on-surface"
+                ? "bg-[#34211B] text-[#F8F6F0] border border-[#A0BDDB]/40 shadow-sm font-bold"
+                : "text-[#34211B]/75 hover:text-[#34211B] hover:bg-[#F8F6F0]/60"
             }`}
           >
             <span className="material-symbols-outlined text-[18px]">sell</span>
@@ -97,8 +103,8 @@ export function SearchFilters({
             onClick={() => setDealType("rent")}
             className={`deal-tab-btn flex-1 py-2 rounded-lg font-title-sm text-title-sm flex items-center justify-center gap-space-xs transition-all cursor-pointer ${
               dealType === "rent"
-                ? "bg-primary text-on-primary shadow-sm"
-                : "text-on-surface-variant hover:text-on-surface"
+                ? "bg-[#34211B] text-[#F8F6F0] border border-[#A0BDDB]/40 shadow-sm font-bold"
+                : "text-[#34211B]/75 hover:text-[#34211B] hover:bg-[#F8F6F0]/60"
             }`}
           >
             <span className="material-symbols-outlined text-[18px]">key</span>
@@ -106,160 +112,156 @@ export function SearchFilters({
           </button>
         </div>
 
-        {/* Filters Grid */}
-        <form onSubmit={handleSearch} className="flex flex-col gap-space-sm">
-          {/* Governorate Select */}
-          <div className="flex flex-col gap-1">
-            <label
-              className="font-label-md text-label-md text-on-surface-variant flex items-center gap-1"
-              htmlFor="gov-select"
-            >
-              <span className="material-symbols-outlined text-[16px] text-secondary-container">
-                location_city
-              </span>
-              المحافظة
-            </label>
-            <div className="relative bg-surface-container-low rounded-lg">
-              <select
-                id="gov-select"
-                value={governorate}
-                onChange={(e) => handleGovernorateChange(e.target.value)}
-                className="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer"
-              >
-                {governorates.map((g) => (
-                  <option key={g.id} value={g.id}>
-                    {g.name_ar}
-                  </option>
-                ))}
-              </select>
-              <span className="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant pointer-events-none text-[20px]">
-                expand_more
-              </span>
-            </div>
-          </div>
-
-          {/* District Dynamic Select */}
-          <div className="flex flex-col gap-1">
-            <label
-              className="font-label-md text-label-md text-on-surface-variant flex items-center gap-1"
-              htmlFor="district-select"
-            >
-              <span className="material-symbols-outlined text-[16px] text-secondary-container">
-                map
-              </span>
-              المنطقة أو الحي
-            </label>
-            <div className="relative bg-surface-container-low rounded-lg">
-              <select
-                id="district-select"
-                value={district}
-                onChange={(e) => setDistrict(e.target.value)}
-                className="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer"
-              >
-                <option value="all">كافة المناطق والأحياء</option>
-                {filteredDistricts.map((d) => (
-                  <option key={d.id} value={d.id}>
-                    {d.name_ar}
-                  </option>
-                ))}
-              </select>
-              <span className="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant pointer-events-none text-[20px]">
-                expand_more
-              </span>
-            </div>
-          </div>
-
-          {/* Property Type & Bedrooms Row */}
-          <div className="grid grid-cols-2 gap-space-sm">
-            <div className="flex flex-col gap-1">
+        {/* Filters Form */}
+        <form onSubmit={handleSearch} className="flex flex-col gap-4">
+          {/* Responsive 4-Column Grid: المحافظة، المنطقة، النوع، نطاق السعر */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-center">
+            {/* 1. Governorate Select */}
+            <div className="flex flex-col gap-1 w-full">
               <label
-                className="font-label-md text-label-md text-on-surface-variant flex items-center gap-1"
+                className="font-label-md text-label-md text-[#34211B] flex items-center gap-1 font-semibold"
+                htmlFor="gov-select"
+              >
+                <span className="material-symbols-outlined text-[16px] text-[#34211B]">
+                  location_city
+                </span>
+                المحافظة
+              </label>
+              <div className="relative bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus-within:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 focus-within:border-[#A0BDDB] focus-within:ring-2 focus-within:ring-[#A0BDDB]/30 rounded-xl shadow-xs transition-all">
+                <select
+                  id="gov-select"
+                  value={governorate}
+                  onChange={(e) => handleGovernorateChange(e.target.value)}
+                  className="w-full h-11 bg-transparent px-3 text-[#34211B] font-body-md text-body-md appearance-none focus:outline-none cursor-pointer"
+                >
+                  {governorates.map((g) => (
+                    <option key={g.id} value={g.id}>
+                      {g.name_ar}
+                    </option>
+                  ))}
+                </select>
+                <span className="material-symbols-outlined absolute left-3 top-3 text-[#34211B]/60 pointer-events-none text-[20px]">
+                  expand_more
+                </span>
+              </div>
+            </div>
+
+            {/* 2. District Dynamic Select */}
+            <div className="flex flex-col gap-1 w-full">
+              <label
+                className="font-label-md text-label-md text-[#34211B] flex items-center gap-1 font-semibold"
+                htmlFor="district-select"
+              >
+                <span className="material-symbols-outlined text-[16px] text-[#34211B]">
+                  map
+                </span>
+                المنطقة أو الحي
+              </label>
+              <div className="relative bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus-within:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 focus-within:border-[#A0BDDB] focus-within:ring-2 focus-within:ring-[#A0BDDB]/30 rounded-xl shadow-xs transition-all">
+                <select
+                  id="district-select"
+                  value={district}
+                  onChange={(e) => setDistrict(e.target.value)}
+                  className="w-full h-11 bg-transparent px-3 text-[#34211B] font-body-md text-body-md appearance-none focus:outline-none cursor-pointer"
+                >
+                  <option value="all">كافة المناطق والأحياء</option>
+                  {filteredDistricts.map((d) => (
+                    <option key={d.id} value={d.id}>
+                      {d.name_ar}
+                    </option>
+                  ))}
+                </select>
+                <span className="material-symbols-outlined absolute left-3 top-3 text-[#34211B]/60 pointer-events-none text-[20px]">
+                  expand_more
+                </span>
+              </div>
+            </div>
+
+            {/* 3. Property Type & Bedrooms Select */}
+            <div className="flex flex-col gap-1 w-full">
+              <label
+                className="font-label-md text-label-md text-[#34211B] flex items-center justify-between font-semibold"
                 htmlFor="type-select"
               >
-                <span className="material-symbols-outlined text-[16px] text-secondary-container">
-                  apartment
+                <span className="flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[16px] text-[#34211B]">
+                    apartment
+                  </span>
+                  النوع
                 </span>
-                النوع
+                <span className="text-[#34211B]/70 text-label-sm font-normal">
+                  {bedrooms !== "all" ? `${bedrooms} غرف` : "كل الغرف"}
+                </span>
               </label>
-              <div className="relative bg-surface-container-low rounded-lg">
-                <select
-                  id="type-select"
-                  value={propertyType}
-                  onChange={(e) => setPropertyType(e.target.value)}
-                  className="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer"
-                >
-                  <option value="all">جميع الأنواع</option>
-                  <option value="apartment">شقق سكنية</option>
-                  <option value="villa">فلل وقصور</option>
-                  <option value="office">مكاتب وشركات</option>
-                  <option value="shop">محلات تجارية</option>
-                  <option value="land">أراضٍ وعقارات</option>
-                </select>
-                <span className="material-symbols-outlined absolute left-2 top-3 text-on-surface-variant pointer-events-none text-[20px]">
-                  expand_more
-                </span>
+              <div className="grid grid-cols-2 gap-1.5">
+                <div className="relative bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus-within:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 focus-within:border-[#A0BDDB] focus-within:ring-2 focus-within:ring-[#A0BDDB]/30 rounded-xl shadow-xs transition-all">
+                  <select
+                    id="type-select"
+                    value={propertyType}
+                    onChange={(e) => setPropertyType(e.target.value)}
+                    className="w-full h-11 bg-transparent px-2 text-[#34211B] font-body-md text-body-md appearance-none focus:outline-none cursor-pointer"
+                  >
+                    <option value="all">الكل</option>
+                    <option value="apartment">شقق</option>
+                    <option value="villa">فلل</option>
+                    <option value="office">مكاتب</option>
+                    <option value="shop">محلات</option>
+                    <option value="land">أراضٍ</option>
+                  </select>
+                  <span className="material-symbols-outlined absolute left-1 top-3 text-[#34211B]/60 pointer-events-none text-[18px]">
+                    expand_more
+                  </span>
+                </div>
+                <div className="relative bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus-within:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 focus-within:border-[#A0BDDB] focus-within:ring-2 focus-within:ring-[#A0BDDB]/30 rounded-xl shadow-xs transition-all">
+                  <select
+                    id="rooms-select"
+                    value={bedrooms}
+                    onChange={(e) => setBedrooms(e.target.value)}
+                    className="w-full h-11 bg-transparent px-2 text-[#34211B] font-body-md text-body-md appearance-none focus:outline-none cursor-pointer"
+                  >
+                    <option value="all">الغرف</option>
+                    <option value="1">1 نوم</option>
+                    <option value="2">2 نوم</option>
+                    <option value="3">3 نوم</option>
+                    <option value="4">4 نوم</option>
+                    <option value="5+">5+ نوم</option>
+                  </select>
+                  <span className="material-symbols-outlined absolute left-1 top-3 text-[#34211B]/60 pointer-events-none text-[18px]">
+                    expand_more
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="flex flex-col gap-1">
-              <label
-                className="font-label-md text-label-md text-on-surface-variant flex items-center gap-1"
-                htmlFor="rooms-select"
-              >
-                <span className="material-symbols-outlined text-[16px] text-secondary-container">
-                  bed
+            {/* 4. Price Range Selector with Chips */}
+            <div className="flex flex-col gap-1 w-full">
+              <div className="flex justify-between items-center text-label-md font-label-md">
+                <span className="text-[#34211B] flex items-center gap-1 font-semibold">
+                  <span className="material-symbols-outlined text-[16px] text-[#34211B]">
+                    payments
+                  </span>
+                  نطاق السعر
                 </span>
-                غرف النوم
-              </label>
-              <div className="relative bg-surface-container-low rounded-lg">
-                <select
-                  id="rooms-select"
-                  value={bedrooms}
-                  onChange={(e) => setBedrooms(e.target.value)}
-                  className="w-full h-11 bg-transparent px-space-sm text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:bg-surface-container cursor-pointer"
-                >
-                  <option value="all">الكل</option>
-                  <option value="1">1 غرفة نوم</option>
-                  <option value="2">2 غرف نوم</option>
-                  <option value="3">3 غرف نوم</option>
-                  <option value="4">4 غرف نوم</option>
-                  <option value="5+">5+ غرف نوم</option>
-                </select>
-                <span className="material-symbols-outlined absolute left-2 top-3 text-on-surface-variant pointer-events-none text-[20px]">
-                  expand_more
+                <span className="text-[#34211B] font-bold text-label-sm" id="price-display">
+                  {priceLabels[priceCategory]}
                 </span>
               </div>
-            </div>
-          </div>
-
-          {/* Price Range Selector with Chips */}
-          <div className="flex flex-col gap-space-xs pt-1">
-            <div className="flex justify-between items-center text-label-md font-label-md">
-              <span className="text-on-surface-variant flex items-center gap-1">
-                <span className="material-symbols-outlined text-[16px] text-secondary-container">
-                  payments
-                </span>
-                نطاق السعر المستهدف
-              </span>
-              <span className="text-secondary-container font-semibold" id="price-display">
-                {priceLabels[priceCategory]}
-              </span>
-            </div>
-            <div className="flex items-center gap-space-xs">
-              {["اقتصادي", "متوسط راقٍ", "VIP فاخر"].map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setPriceCategory(cat)}
-                  className={`price-chip flex-1 py-1.5 rounded-lg text-label-sm font-label-sm transition-all cursor-pointer ${
-                    priceCategory === cat
-                      ? "bg-primary text-on-primary"
-                      : "bg-surface-container-high text-on-surface hover:bg-surface-container-highest"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+              <div className="flex items-center gap-1 h-11">
+                {["اقتصادي", "متوسط راقٍ", "VIP فاخر"].map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setPriceCategory(cat)}
+                    className={`price-chip flex-1 h-11 px-1 rounded-xl text-[12px] font-medium transition-all cursor-pointer flex items-center justify-center text-center leading-tight ${
+                      priceCategory === cat
+                        ? "bg-[#34211B] text-[#F8F6F0] border border-[#A0BDDB]/40 shadow-sm font-bold"
+                        : "bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/95 backdrop-blur-sm border border-[#A0BDDB]/30 text-[#34211B]"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -268,7 +270,7 @@ export function SearchFilters({
             type="submit"
             id="execute-search-btn"
             disabled={isSearching}
-            className="w-full h-12 mt-space-xs bg-primary hover:bg-primary-container text-on-primary rounded-lg flex items-center justify-center gap-space-xs font-title-sm text-title-sm shadow-md transition-all active:scale-[0.99] cursor-pointer"
+            className="w-full py-3 bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] rounded-xl flex items-center justify-center gap-space-xs font-title-sm text-title-sm border border-[#A0BDDB]/20 shadow-[0_8px_24px_rgba(52,33,27,0.18)] transition-all active:scale-[0.99] cursor-pointer"
           >
             {isSearching ? (
               <>

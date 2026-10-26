@@ -80,22 +80,22 @@ export function AdvancedFilterDrawer({
 
   return (
     <section
-      className="px-gutter-mobile py-space-md bg-surface-container-lowest shadow-md transition-all duration-300"
+      className="px-gutter-mobile py-space-md bg-[#F8F6F0]/85 backdrop-blur-2xl border-b border-[#A0BDDB]/35 shadow-[0_12px_36px_rgba(52,33,27,0.08)] transition-all duration-300"
       id="filterDrawer"
     >
-      <div className="flex items-center justify-between pb-space-sm">
+      <div className="flex items-center justify-between pb-space-sm border-b border-[#A0BDDB]/30">
         <div className="flex items-center gap-space-xs">
-          <span className="material-symbols-outlined text-secondary-container text-[20px]">
+          <span className="material-symbols-outlined text-[#34211B] text-[20px]">
             filter_alt
           </span>
-          <h2 className="font-title-sm text-title-sm text-on-surface">
+          <h2 className="font-title-sm text-title-sm text-[#34211B] font-bold">
             الفلترة المتقدمة والدقيقة
           </h2>
         </div>
         <button
           type="button"
           onClick={handleReset}
-          className="font-label-sm text-label-sm text-secondary-container hover:underline cursor-pointer"
+          className="font-label-sm text-label-sm text-[#34211B] hover:text-[#4A332B] hover:underline cursor-pointer font-bold"
         >
           إعادة تعيين
         </button>
@@ -104,17 +104,17 @@ export function AdvancedFilterDrawer({
       <div className="space-y-space-md pt-space-xs">
         {/* Operation Type */}
         <div>
-          <label className="block font-label-md text-label-md text-on-surface mb-1">
+          <label className="block font-label-md text-label-md text-[#34211B] mb-1 font-semibold">
             نوع العملية العقارية
           </label>
           <div className="grid grid-cols-2 gap-space-xs">
             <button
               type="button"
               onClick={() => setDealType("sale")}
-              className={`flex items-center justify-center gap-space-xs p-space-sm rounded-lg font-label-md text-label-md cursor-pointer transition-colors ${
+              className={`flex items-center justify-center gap-space-xs p-space-sm rounded-xl font-label-md text-label-md cursor-pointer transition-all ${
                 dealType === "sale"
-                  ? "bg-primary text-on-primary"
-                  : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high"
+                  ? "bg-[#34211B] text-[#F8F6F0] border border-[#A0BDDB]/40 shadow-xs font-bold"
+                  : "bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/95 backdrop-blur-sm border border-[#A0BDDB]/30 text-[#34211B]"
               }`}
             >
               <span className="material-symbols-outlined text-[18px]">sell</span>
@@ -123,10 +123,10 @@ export function AdvancedFilterDrawer({
             <button
               type="button"
               onClick={() => setDealType("rent")}
-              className={`flex items-center justify-center gap-space-xs p-space-sm rounded-lg font-label-md text-label-md cursor-pointer transition-colors ${
+              className={`flex items-center justify-center gap-space-xs p-space-sm rounded-xl font-label-md text-label-md cursor-pointer transition-all ${
                 dealType === "rent"
-                  ? "bg-primary text-on-primary"
-                  : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high"
+                  ? "bg-[#34211B] text-[#F8F6F0] border border-[#A0BDDB]/40 shadow-xs font-bold"
+                  : "bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/95 backdrop-blur-sm border border-[#A0BDDB]/30 text-[#34211B]"
               }`}
             >
               <span className="material-symbols-outlined text-[18px]">key</span>
@@ -138,14 +138,14 @@ export function AdvancedFilterDrawer({
         {/* Syrian Governorate & Region Selection */}
         <div className="grid grid-cols-2 gap-space-sm">
           <div>
-            <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1">
+            <label className="block font-label-sm text-label-sm text-[#34211B]/80 mb-1 font-medium">
               المحافظة
             </label>
-            <div className="relative bg-surface-container rounded-lg px-space-sm py-2">
+            <div className="relative bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus-within:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 focus-within:border-[#A0BDDB] focus-within:ring-2 focus-within:ring-[#A0BDDB]/30 rounded-xl px-space-sm py-2 shadow-xs transition-all">
               <select
                 value={governorate}
                 onChange={(e) => handleGovernorateChange(e.target.value)}
-                className="w-full bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none appearance-none cursor-pointer"
+                className="w-full bg-transparent text-[#34211B] font-body-sm text-body-sm focus:outline-none appearance-none cursor-pointer"
               >
                 <option value="all">كافة المحافظات</option>
                 {governorates.map((g) => (
@@ -154,20 +154,20 @@ export function AdvancedFilterDrawer({
                   </option>
                 ))}
               </select>
-              <span className="material-symbols-outlined absolute left-2 top-2.5 text-outline text-[18px] pointer-events-none">
+              <span className="material-symbols-outlined absolute left-2 top-2.5 text-[#34211B]/60 text-[18px] pointer-events-none">
                 expand_more
               </span>
             </div>
           </div>
           <div>
-            <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1">
+            <label className="block font-label-sm text-label-sm text-[#34211B]/80 mb-1 font-medium">
               المنطقة والحي
             </label>
-            <div className="relative bg-surface-container rounded-lg px-space-sm py-2">
+            <div className="relative bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus-within:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 focus-within:border-[#A0BDDB] focus-within:ring-2 focus-within:ring-[#A0BDDB]/30 rounded-xl px-space-sm py-2 shadow-xs transition-all">
               <select
                 value={district}
                 onChange={(e) => setDistrict(e.target.value)}
-                className="w-full bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none appearance-none cursor-pointer"
+                className="w-full bg-transparent text-[#34211B] font-body-sm text-body-sm focus:outline-none appearance-none cursor-pointer"
               >
                 <option value="all">كافة المناطق والأحياء</option>
                 {filteredDistricts.map((d) => (
@@ -176,7 +176,7 @@ export function AdvancedFilterDrawer({
                   </option>
                 ))}
               </select>
-              <span className="material-symbols-outlined absolute left-2 top-2.5 text-outline text-[18px] pointer-events-none">
+              <span className="material-symbols-outlined absolute left-2 top-2.5 text-[#34211B]/60 text-[18px] pointer-events-none">
                 expand_more
               </span>
             </div>
@@ -185,14 +185,14 @@ export function AdvancedFilterDrawer({
 
         {/* Property Type Selection */}
         <div>
-          <label className="block font-label-sm text-label-sm text-on-surface-variant mb-1">
+          <label className="block font-label-sm text-label-sm text-[#34211B]/80 mb-1 font-medium">
             نوع العقار
           </label>
-          <div className="relative bg-surface-container rounded-lg px-space-sm py-2">
+          <div className="relative bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/90 focus-within:bg-[#F8F6F0] backdrop-blur-md border border-[#A0BDDB]/35 focus-within:border-[#A0BDDB] focus-within:ring-2 focus-within:ring-[#A0BDDB]/30 rounded-xl px-space-sm py-2 shadow-xs transition-all">
             <select
               value={propertyType}
               onChange={(e) => setPropertyType(e.target.value)}
-              className="w-full bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none appearance-none cursor-pointer"
+              className="w-full bg-transparent text-[#34211B] font-body-sm text-body-sm focus:outline-none appearance-none cursor-pointer"
             >
               <option value="all">كافة أنواع العقارات</option>
               <option value="apartment">شقق سكنية وبنتهاوس</option>
@@ -201,7 +201,7 @@ export function AdvancedFilterDrawer({
               <option value="shop">محلات وصالات تجارية</option>
               <option value="land">أراضٍ ومقاسم تنظيمية</option>
             </select>
-            <span className="material-symbols-outlined absolute left-2 top-2.5 text-outline text-[18px] pointer-events-none">
+            <span className="material-symbols-outlined absolute left-2 top-2.5 text-[#34211B]/60 text-[18px] pointer-events-none">
               expand_more
             </span>
           </div>
@@ -210,15 +210,15 @@ export function AdvancedFilterDrawer({
         {/* Price Range Metric */}
         <div>
           <div className="flex justify-between items-center mb-1">
-            <label className="font-label-sm text-label-sm text-on-surface-variant">
+            <label className="font-label-sm text-label-sm text-[#34211B]/80 font-medium">
               نطاق الميزانية التقديرية
             </label>
-            <span className="font-label-sm text-label-sm text-secondary-container">
+            <span className="font-label-sm text-label-sm text-[#34211B] font-bold">
               حتى ${(maxPrice / 1000000).toFixed(1)} مليون $ (أو ما يعادله)
             </span>
           </div>
           <input
-            className="w-full accent-secondary-container bg-surface-container h-2 rounded-lg cursor-pointer"
+            className="w-full accent-[#34211B] bg-[#EDE7DC] h-2 rounded-lg cursor-pointer"
             max="3000000"
             min="100000"
             step="50000"
@@ -230,7 +230,7 @@ export function AdvancedFilterDrawer({
 
         {/* Features Checkboxes */}
         <div>
-          <label className="block font-label-sm text-label-sm text-on-surface-variant mb-2">
+          <label className="block font-label-sm text-label-sm text-[#34211B]/80 mb-2 font-medium">
             المواصفات والتجهيزات
           </label>
           <div className="grid grid-cols-2 gap-space-xs text-body-sm font-body-sm">
@@ -245,15 +245,15 @@ export function AdvancedFilterDrawer({
               <label
                 key={feat}
                 onClick={() => toggleFeature(feat)}
-                className="flex items-center gap-2 p-2 bg-surface-container rounded cursor-pointer hover:bg-surface-container-high transition-colors"
+                className="flex items-center gap-2 p-2 bg-[#F8F6F0]/70 hover:bg-[#F8F6F0]/95 backdrop-blur-sm border border-[#A0BDDB]/30 rounded-xl cursor-pointer transition-all shadow-xs"
               >
                 <input
                   type="checkbox"
                   checked={features.includes(feat)}
                   onChange={() => {}}
-                  className="rounded text-primary focus:ring-0 accent-primary cursor-pointer"
+                  className="rounded text-[#34211B] focus:ring-0 accent-[#34211B] cursor-pointer"
                 />
-                <span className="text-on-surface">{feat}</span>
+                <span className="text-[#34211B] font-medium">{feat}</span>
               </label>
             ))}
           </div>
@@ -273,7 +273,7 @@ export function AdvancedFilterDrawer({
             });
             onClose();
           }}
-          className="w-full h-11 bg-primary text-on-primary font-title-sm text-title-sm rounded-lg flex items-center justify-center gap-space-xs hover:bg-secondary-container transition-colors shadow-sm cursor-pointer"
+          className="w-full h-11 bg-[#34211B] hover:bg-[#4A332B] text-[#F8F6F0] font-title-sm text-title-sm rounded-xl flex items-center justify-center gap-space-xs border border-[#A0BDDB]/20 transition-all shadow-sm cursor-pointer font-bold"
         >
           <span className="material-symbols-outlined text-[20px]">
             check_circle
